@@ -52,7 +52,6 @@
 | 48 | [What is the use of the zip() function?](#what-is-the-use-of-the-zip-function) |
 | 49 | [What is a function in Python?](#what-is-a-function-in-python) |
 | 50 | [How do you define a function in Python?](#how-do-you-define-a-function-in-python) |
-
 | 51 | [What is a docstring?](#what-is-a-docstring) |
 | 52 | [What is the difference between a function and a method?](#what-is-the-difference-between-a-function-and-a-method) |
 | 53 | [What are default arguments?](#what-are-default-arguments) |
@@ -201,7 +200,6 @@
 | 183 | [What is the pickle module?](#what-is-the-pickle-module) |
 | 184 | [What is JSON serialization?](#what-is-json-serialization) |
 | 185 | [How do you parse a JSON string?](#how-do-you-parse-a-json-string) |
-
 | 186 | [What is the difference between JSON and pickle?](#what-is-the-difference-between-json-and-pickle) |
 | 187 | [What are CSV files and how do you read them?](#what-are-csv-files-and-how-do-you-read-them) |
 | 188 | [What is the csv module?](#what-is-the-csv-module) |
