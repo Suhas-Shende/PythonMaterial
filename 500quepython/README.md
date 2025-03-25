@@ -132,6 +132,7 @@ It is widely used in various fields, such as:
 
 Python is also **cross-platform** and has a **large standard library**, making it one of the most popular programming languages today. 🚀  
 
+---
 
 ### 2. Why is Python so popular?  
 
@@ -146,9 +147,10 @@ Python is popular due to its **simplicity, versatility, and strong community sup
 
 Due to these features, Python is widely used in **software development, data analysis, artificial intelligence, and automation**. 🚀  
 
-***
-
-### 3. What are the applications of Python? 
+---
+### 3. How to install Python?
+---
+### 4. What are the applications of Python? 
 
 Python is a **versatile** programming language used in various fields due to its **simplicity, flexibility, and extensive libraries**. Some of the major applications of Python include:  
 
@@ -164,4 +166,91 @@ Python is a **versatile** programming language used in various fields due to its
 - **Networking** – Python is used for network programming, socket programming, and server automation.  
 
 Python's **cross-platform compatibility** and **extensive support for third-party libraries** make it a preferred choice for various domains. 🚀  
+
+---
+
+### 5. What are the advantages of Python?  
+
+Python offers several advantages, making it one of the most popular programming languages today:  
+
+- **Easy to Learn & Use** – Python has a simple syntax similar to English, making it beginner-friendly.  
+- **High-Level Language** – Developers don’t need to manage memory manually.  
+- **Interpreted Language** – Python executes code line by line, making debugging easier.  
+- **Cross-Platform** – Python runs on multiple operating systems (Windows, macOS, Linux).  
+- **Extensive Libraries & Frameworks** – Libraries like NumPy, Pandas, TensorFlow, and Django support various applications.  
+- **Community Support** – A vast global community provides documentation, tutorials, and troubleshooting support.  
+- **Versatile** – Python is used in web development, data science, AI, automation, cybersecurity, and more.  
+- **Dynamically Typed** – No need to declare variable types explicitly.  
+- **Integration & Extensibility** – Python can integrate with C, C++, Java, and other languages.  
+
+Python’s simplicity and power make it an excellent choice for developers of all levels. 🚀
+
+---
+
+### 6. What are the limitations of Python?  
+
+Despite its advantages, Python has some limitations:  
+
+- **Slower Execution Speed** – Since Python is an interpreted language, it runs slower than compiled languages like C or Java.  
+- **High Memory Consumption** – Python uses more memory due to its flexible data types and dynamic typing.  
+- **Global Interpreter Lock (GIL)** – Python’s GIL restricts multi-threaded execution, making it less efficient for CPU-bound tasks.  
+- **Not Ideal for Mobile Development** – Python is not commonly used for mobile applications due to performance concerns.  
+- **Limited Database Access** – Python’s database access layers are not as robust as those in Java or C++.  
+- **Weak in Multi-Core Processing** – Due to GIL, Python struggles with parallel processing in multi-core CPUs.  
+- **Dependency Management** – Managing dependencies in larger projects can be complex compared to languages like JavaScript with Node.js.  
+
+While Python is powerful, these limitations should be considered when selecting it for a project. 🔍
+
+---
+### 7. What are literals in Python?  
+
+Literals in Python are fixed values assigned directly to variables or constants. They represent data without requiring computation. Python has different types of literals:  
+
+#### 1. **String Literals**  
+Represent text enclosed in single, double, or triple quotes.  
+
+```python
+single_quote = 'Hello'
+double_quote = "Hello"
+triple_quote = '''Hello, this is a multi-line string
+```
+
+### 2. Numeric Literals
+Include integers, floating-point numbers, and complex numbers.
+
+```
+integer_num = 10         # Integer literal
+float_num = 3.14         # Float literal
+complex_num = 3 + 4j     # Complex literal
+```
+### 3. Boolean Literals
+Represent truth values: True or False.
+
+```
+is_python_easy = True
+is_java_better = False
+```
+### 4. Special Literal
+Python provides a special literal None to indicate the absence of a value.
+
+```
+no_value = None
+```
+5. List, Tuple, Dictionary, and Set Literals
+Collections of data in different formats.
+
+```
+list_literal = [1, 2, 3, "Python"]     # List literal
+tuple_literal = (10, 20, 30)           # Tuple literal
+dict_literal = {'name': 'Alice', 'age': 25}  # Dictionary literal
+set_literal = {1, 2, 3, 4}             # Set literal
+```
+Literals make code more readable and easy to understand. 🚀
+
+### 7. What are literals in Python?  
+
+Literals in Python are fixed values assigned directly to variables or constants. They represent data without requiring computation. Python has different types of literals:  
+
+
+
 
