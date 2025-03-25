@@ -146,8 +146,9 @@ Python is popular due to its **simplicity, versatility, and strong community sup
 
 Due to these features, Python is widely used in **software development, data analysis, artificial intelligence, and automation**. 🚀  
 
+***
 
-### == 3. What are the applications of Python? ==  
+### 3. What are the applications of Python? 
 
 Python is a **versatile** programming language used in various fields due to its **simplicity, flexibility, and extensive libraries**. Some of the major applications of Python include:  
 
