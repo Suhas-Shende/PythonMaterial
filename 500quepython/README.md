@@ -218,28 +218,29 @@ triple_quote = '''Hello, this is a multi-line string
 ### 2. Numeric Literals
 Include integers, floating-point numbers, and complex numbers.
 
-```
+```python
 integer_num = 10         # Integer literal
 float_num = 3.14         # Float literal
 complex_num = 3 + 4j     # Complex literal
+
 ```
 ### 3. Boolean Literals
 Represent truth values: True or False.
 
-```
+```python
 is_python_easy = True
 is_java_better = False
 ```
 ### 4. Special Literal
 Python provides a special literal None to indicate the absence of a value.
 
-```
+```python
 no_value = None
 ```
-5. List, Tuple, Dictionary, and Set Literals
+### 5. List, Tuple, Dictionary, and Set Literals
 Collections of data in different formats.
 
-```
+```python
 list_literal = [1, 2, 3, "Python"]     # List literal
 tuple_literal = (10, 20, 30)           # Tuple literal
 dict_literal = {'name': 'Alice', 'age': 25}  # Dictionary literal
@@ -247,9 +248,6 @@ set_literal = {1, 2, 3, 4}             # Set literal
 ```
 Literals make code more readable and easy to understand. 🚀
 
-### 7. What are literals in Python?  
-
-Literals in Python are fixed values assigned directly to variables or constants. They represent data without requiring computation. Python has different types of literals:  
 
 
 
