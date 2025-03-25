@@ -3,6 +3,7 @@
 | No. | Questions |
 | --- | --------- |
 | 1 | [What is Python?](#what-is-python) |
+| 5 | [what is python?](#what-is-python) |
 | 2 | [Why is Python so popular?](#why-is-python-so-popular) |
 | 3 | [How to install Python?](#how-to-install-python) |
 | 4 | [What are the applications of Python?](#what-are-the-applications-of-python) |
