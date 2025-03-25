@@ -265,3 +265,18 @@
 | 248 | [What is the pyenv tool?](#what-is-the-pyenv-tool) |
 | 249 | [What is pipenv and how does it differ from pip?](#what-is-pipenv-and-how-does-it-differ-from-pip) |
 | 250 | [What is poetry in Python?](#what-is-poetry-in-python) |
+
+
+1. ### What is Python?
+
+   There are many ways to create objects in javascript as mentioned below:
+
+   1. **python code**
+
+      Just print the hello world hey hey
+
+      ```python
+        print("Hello, World!")
+      ```
+
+
