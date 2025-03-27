@@ -1,0 +1,114 @@
+ctrl+c #toggle codeblock
+ctrl+y #python
+ctrl+space #list of snippets
+ctrl+m #all shortcut key markdown commands
+
+ctrl+shift+p # prefernce open user settings in vs code and paste it for markdown color costomization
+{
+  "editor.tokenColorCustomizations": {
+            "[Default Dark+]": {  // Apply settings only to Default Dark+ theme
+                "textMateRules": [
+    
+                    // Code Blocks (```)
+                    {
+                        "scope": "markup.raw.block.markdown",
+                        "settings": {
+                            "foreground": "#000000",  // 🔴 Red text for code blocks
+                           
+                            "fontStyle": "bold"
+                        }
+                    },
+    
+                    // Inline Code (`code`)
+                    {
+                        "scope": "markup.inline.raw.markdown",
+                        "settings": {
+                            "foreground": "#ffffff",  // 🔴 Red for inline code
+                            // "background": "#222222",  // Darker background
+                            "fontStyle": "italic"
+                        }
+                    },
+    
+                    // Paragraph Text
+                    {
+                        "scope": "text.html.markdown",
+                        "settings": {
+                            "foreground": "#ff79c6",  // 🌸 Pink text for normal paragraphs
+                            // "fontStyle": "normal"
+                        }
+                    },
+    
+                    // Headings (# Heading)
+                    {
+                        "scope": "markup.heading.markdown",
+                        "settings": {
+                            "foreground": "#61afef",  // 🔹 Light blue for headings
+                            "fontStyle": "bold"
+                        }
+                    },
+    
+                    // Bold Text (**Bold**)
+                    {
+                        "scope": "markup.bold.markdown",
+                        "settings": {
+                            "foreground": "#e5c07b",  // 🟡 Yellow for bold text
+                            "fontStyle": "bold"
+                        }
+                    },
+    
+                    // Italic Text (*Italic*)
+                    {
+                        "scope": "markup.italic.markdown",
+                        "settings": {
+                            "foreground": "#c678dd",  // 💜 Purple for italic text
+                            "fontStyle": "italic"
+                        }
+                    },
+    
+                    // Blockquotes (> Quote)
+                    {
+                        "scope": "markup.quote.markdown",
+                        "settings": {
+                            "foreground": "#98c379",  // 🟢 Green for blockquotes
+                            "fontStyle": "italic"
+                        }
+                    },
+    
+                    // Links ([Link](https://example.com))
+                    {
+                        "scope": "markup.underline.link.markdown",
+                        "settings": {
+                            "foreground": "#56b6c2",  // 🔵 Cyan color for links
+                            "fontStyle": "underline"
+                        }
+                    },
+    
+                    // Lists (- Item, * Item, 1. Item)
+                    {
+                        "scope": "markup.list.markdown",
+                        "settings": {
+                            "foreground": "#d19a66"  // 🟠 Orange for lists
+                        }
+                    }
+                ]
+            }
+        },
+        "vscode-neovim.highlightGroups.highlights": {
+            
+            "IncSearch": {
+                "backgroundColor": "theme.editor.findMatchBackground"
+            },
+            "CurSearch": {
+                "backgroundColor": "theme.editor.findMatchBackground"
+            },
+            "Search": {
+                "backgroundColor": "theme.editor.findMatchHighlightBackground"
+            },
+            "Substitute": {
+                "backgroundColor": "theme.editor.foreground",
+                "color": "theme.editor.background"
+            }
+        }
+}
+
+

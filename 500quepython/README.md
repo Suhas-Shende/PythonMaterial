@@ -642,7 +642,7 @@ print("World")
 ✅ Use end="" to print without any space or newline. 🚀
 
 ---
-### 16) What are variables in Python?  
+### 16. What are variables in Python?  
 
 A **variable** in Python is a **named storage location** used to store data. It acts as a container that holds values, which can be changed during program execution.
 
@@ -770,7 +770,7 @@ The variable `x` starts as an integer, then becomes a string, and finally a floa
 
 * **Type errors at runtime –** A variable can change type unexpectedly, leading to errors. 
 
-* **Slower execution – **Extra processing is required to determine types at runtime. 
+* **Slower execution –** Extra processing is required to determine types at runtime. 
 
 
 
@@ -792,16 +792,502 @@ print(int(x) + y)  # ✅ Output: 15
 ```
 
 
-
 #### **Conclusion**
 
 Dynamic typing allows flexibility and ease of coding, making Python highly versatile. However, it requires careful handling to avoid unexpected type errors.
 
+---
+
+### 18. What are built-in data types in Python?  
+#### **Built-in Data Types in Python (Detailed Explanation)**
+
+Python provides a variety of **built-in data types** to store and manipulate different kinds of data efficiently. These data types are categorized into **Immutable Data Types** (which cannot be changed after creation) and **Mutable Data Types** (which can be modified after creation).
+
+#### **Immutable Data Types**
 
 
-### 18) What are built-in data types in Python?  
-### 19) What is type casting in Python?  
+#### **1. int (Integer)**
+
+The `int` data type is used to represent whole numbers (both positive and negative) without any decimal point. It supports mathematical operations like addition, subtraction, multiplication, and division.
+
+
+
+* **Example:**
+
+
+```python
+x = 42
+y = -10
+print(type(x), type(y))  # Output: <class 'int'> <class 'int'>
+
+```
+
+
+
+* **Use Case:** Used in counting, indexing, loops, and arithmetic calculations. 
+
+#### **2. float (Floating-Point Number)**
+
+The `float` data type represents numbers with decimal points. It is commonly used for calculations that require precision, such as scientific and financial computations.
+
+
+
+* **Example:**
+
+
+```python
+pi = 3.14
+negative_float = -0.01
+print(type(pi))  # Output: <class 'float'>
+
+```
+
+* **Use Case:** Used in temperature measurement, percentage calculations, and statistical data processing. 
+
+#### **3. complex (Complex Numbers)**
+
+Python supports complex numbers, consisting of a **real** and **imaginary** part, represented as `a + bj`, where `j` is the imaginary unit.
+
+* **Example:**
+
+
+```python
+z = 3 + 4j
+print(type(z))  # Output: <class 'complex'>
+
+```
+
+
+
+* **Use Case:** Used in mathematical computations involving imaginary numbers, such as electrical engineering and signal processing. 
+
+
+#### **4. bool (Boolean)**
+
+The `bool` type represents **True** or **False** values, which are used for logical operations and conditions.
+
+* **Example:**
+
+```python
+is_python_fun = True
+print(type(is_python_fun))  # Output: <class 'bool'>
+
+```
+
+
+
+* **Use Case:** Used in decision-making (if-else statements), logical conditions, and comparisons. 
+
+#### **5. str (String)**
+
+A `str` represents a **sequence of Unicode characters** enclosed in single, double, or triple quotes.
+
+* **Example:**
+
+
+```python
+greeting = "Hello, World!"
+print(type(greeting))  # Output: <class 'str'>
+
+```
+
+
+
+* **Use Case:** Used in text processing, data storage, and user interactions. 
+
+#### **6. tuple (Tuple)**
+
+A `tuple` is an **ordered** collection of elements that is **immutable** (cannot be changed after creation).
+* **Example:**
+
+
+```python
+coordinates = (10, 20, 30)
+print(type(coordinates))  # Output: <class 'tuple'>
+
+```
+* **Use Case:** Used when a fixed collection of items is needed, such as days of the week or geographical coordinates. \
+
+#### **7. frozenset (Immutable Set)**
+
+A `frozenset` is an **unordered** collection of unique elements that **cannot be modified** after creation.
+* **Example:**
+
+
+```python
+frozen_numbers = frozenset([1, 2, 3, 4, 5])
+print(type(frozen_numbers))  # Output: <class 'frozenset'>
+
+```
+* **Use Case:** Used in scenarios where a set must remain constant, such as defining unchangeable configuration values.
+
+#### **8. bytes (Byte Data Type)**
+
+The `bytes` type represents a sequence of **immutable** 8-bit bytes, often used in binary data manipulation.
+* **Example:**
+
+
+```python
+byte_data = b"hello"
+print(type(byte_data))  # Output: <class 'bytes'>
+
+```
+
+
+
+* **Use Case:** Used in file handling, network communication, and cryptographic operations. 
+#### **9. bytearray (Mutable Byte Data Type)**
+
+A `bytearray` is similar to `bytes`, but it **allows modification** of byte values.
+
+
+
+* **Example:**
+
+
+```python
+mutable_bytes = bytearray(5)
+print(type(mutable_bytes))  # Output: <class 'bytearray'>
+
+```
+
+
+
+* **Use Case:** Used in applications that require modification of binary data, such as image or audio processing. 
+
+
+#### **10. NoneType (None Value)**
+
+`NoneType` represents the **absence of a value** and is commonly used as a default return value for functions that do not explicitly return anything.
+
+
+
+* **Example:**
+
+
+```python
+x = None
+print(type(x))  # Output: <class 'NoneType'>
+
+```
+* **Use Case:** Used in functions, placeholders, and optional values in variables. 
+
+## **Mutable Data Types**
+
+
+#### **1. list (List)**
+
+A `list` is an **ordered and mutable** collection that can store different data types.
+
+
+
+* **Example:**
+
+
+```python
+fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")
+print(type(fruits))  # Output: <class 'list'>
+
+```
+
+* **Use Case:** Used when a dynamic collection of elements is needed, such as storing user inputs or database records. 
+
+#### **2. set (Set)**
+
+A `set` is an **unordered** collection of **unique** elements.
+
+* **Example:**
+
+```python
+unique_numbers = {1, 2, 3, 4}
+print(type(unique_numbers))  # Output: <class 'set'>
+
+```
+
+* **Use Case:** Used for mathematical operations like union, intersection, and removing duplicates. 
+
+#### **3. dict (Dictionary)**
+
+A `dict` stores **key-value pairs**, making it easy to retrieve values based on keys.
+
+* **Example:**
+
+
+```python
+student = {"name": "Alice", "age": 20}
+print(type(student))  # Output: <class 'dict'>
+
+```
+* **Use Case:** Used in APIs, configuration files, and structured data storage. \
+
+#### **4. memoryview (Memory Management)**
+
+The `memoryview` type allows direct manipulation of binary data without copying it.
+
+
+
+* **Example:**
+
+```python
+data = memoryview(bytes(5))
+print(type(data))  # Output: <class 'memoryview'>
+
+```
+
+
+
+* **Use Case:** Used in high-performance computing for efficient memory management. 
+
+
+
+#### **5. array (Array)**
+
+An `array` stores elements of the **same data type** (requires `array` module).
+
+
+
+* **Example:**
+
+
+```python
+import array
+arr = array.array('i', [1, 2, 3, 4])
+print(type(arr))  # Output: <class 'array.array'>
+
+```
+
+* **Use Case:** Used in performance-sensitive applications requiring homogeneous data. 
+
+#### **6. deque (Double-Ended Queue)**
+
+A `deque` (double-ended queue) allows **fast insertion and removal** from both ends.
+
+* **Example:**
+```python
+from collections import deque
+dq = deque([1, 2, 3, 4])
+print(type(dq))  # Output: <class 'collections.deque'>
+
+```
+* **Use Case:** Used in queue-based applications and sliding window problems. 
+
+#### **7. object (Base Class)**
+
+`object` is the base class from which all Python classes inherit.
+
+* **Example:**
+```python
+class Sample:
+    pass
+
+obj = Sample()
+print(type(obj))  # Output: <class '__main__.Sample'>
+
+```
+* **Use Case:** Used as a foundation for creating new classes. \
+#### **8. types.SimpleNamespace (Dynamic Attribute Assignment)**
+
+Allows dynamic assignment of attributes.
+
+* **Example:**
+
+from types import SimpleNamespace
+person = SimpleNamespace(name="John", age=30)
+print(type(person))  # Output: <class 'types.SimpleNamespace'>
+
+* **Use Case:** Used in object-like structures with dynamic properties. \
+
+#### **Conclusion**
+
+Understanding **Python’s built-in data types** allows for **efficient programming** and **better memory management**. Choosing the right data type improves **code performance, readability, and maintainability**.
+
+### **19. What is Type Casting in Python?**
+
+Type casting in Python refers to **converting a variable from one data type to another**. This is useful when performing operations that require a specific data type. Python provides two types of type casting:
+
+
+
+1. **Implicit Type Casting (Automatic Conversion)**
+2. **Explicit Type Casting (Manual Conversion)**
+
+
+
+
+#### **1. Implicit Type Casting**
+
+
+Python **automatically converts** a smaller data type to a larger one when required, without any user intervention. This prevents data loss.
+
+
+#### **Example:**
+
+
+```python
+    a = 5    # int
+    b = 2.5  # float
+    result = a + b  # int + float → float
+    print(result, type(result))  
+    # Output: 7.5 <class 'float'>
+```
+
+
+**Explanation:**
+
+
+
+* `a` (int) is automatically converted to `float` before addition. 
+
+* The result is a `float`, ensuring no data loss. 
+
+
+**Use Case:**
+
+
+
+* When performing arithmetic operations between different numeric types. 
+
+
+
+
+
+#### **2. Explicit Type Casting**
+
+
+Explicit type casting is when we **manually** convert a variable from one type to another using Python’s built-in functions.
+
+
+#### **Common Type Casting Functions in Python:**
+
+| Function    | Description                                      | Example                 | Output  |
+|------------|--------------------------------------------------|-------------------------|---------|
+| `int(x)`   | Converts `x` to an integer.                     | `int(3.7)`              | `3`     |
+| `float(x)` | Converts `x` to a floating-point number.        | `float(5)`              | `5.0`   |
+| `str(x)`   | Converts `x` to a string.                      | `str(10)`               | `'10'`  |
+| `bool(x)`  | Converts `x` to a boolean value.                | `bool(0)`               | `False` |
+| `list(x)`  | Converts `x` to a list.                         | `list((1, 2, 3))`       | `[1,2,3]` |
+| `tuple(x)` | Converts `x` to a tuple.                        | `tuple([4, 5, 6])`      | `(4,5,6)` |
+| `set(x)`   | Converts `x` to a set (unique elements only).   | `set([1, 2, 2, 3])`     | `{1,2,3}` |
+| `dict(x)`  | Converts `x` to a dictionary (from key-value pairs). | `dict([(1, 'a'), (2, 'b')])` | `{1: 'a', 2: 'b'}` |
+| `complex(x, y)` | Converts `x` and `y` into a complex number. | `complex(2, 3)` | `(2+3j)` |
+
+
+
+#### **Example 1: Converting Float to Integer**
+
+
+```python
+    num = 5.9
+    int_num = int(num)  
+    print(int_num, type(int_num))  
+    # Output: 5 <class 'int'>
+```
+
+
+**Explanation:**
+
+
+
+* The decimal part is removed, leaving only the integer value. \
+
+
+**Use Case:**
+
+
+
+* Used when whole numbers are needed, such as array indexing. \
+
+
+---
+
+
+#### **Example 2: Converting Integer to String**
+
+
+    ```python
+    num = 100
+    str_num = str(num)  
+    print(str_num, type(str_num))  
+    # Output: '100' <class 'str'>
+
+    ```
+
+
+**Explanation:**
+
+
+* The integer `100` is converted to a string `'100'`. 
+
+
+**Use Case:**
+
+
+
+* Useful when concatenating numbers with text. 
+
+
+#### **Example 3: Converting String to Integer**
+
+
+    ```python
+    num_str = "50"
+    num_int = int(num_str)  
+    print(num_int + 10)  
+    # Output: 60
+
+    ```
+
+
+**Explanation:**
+
+* The string `"50"` is converted into an integer `50`, enabling arithmetic operations. 
+
+**Use Case:**
+
+* Often used when receiving user input, which is always a string by default. 
+
+
+#### **Example 4: Converting List to Tuple**
+
+
+    ```python
+    my_list = [1, 2, 3]
+    my_tuple = tuple(my_list)  
+    print(my_tuple, type(my_tuple))  
+    # Output: (1, 2, 3) <class 'tuple'>
+
+    ```
+
+
+**Explanation:**
+
+
+
+* The list `[1, 2, 3]` is converted into a tuple `(1, 2, 3)`. \
+
+
+**Use Case:**
+
+
+
+* Used when an immutable version of a list is required. \
+
+
+
+
+
+#### **Summary**
+
+* **Implicit Type Casting**: Python automatically converts smaller types to larger types. \
+
+* **Explicit Type Casting**: The user manually converts types using built-in functions. \
+
+* Type casting is useful for **ensuring compatibility** in operations and handling user input correctly.
 ### 20) What are global and local variables?  
 
 ---
 
+Hello World
+```python
+print(hello world)
+```
