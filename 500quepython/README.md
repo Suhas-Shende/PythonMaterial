@@ -105,7 +105,7 @@
 
 
 
- ### 1. What is Python?
+ 1. ### What is Python?
 
    There are many ways to create objects in javascript as mentioned below:
 
