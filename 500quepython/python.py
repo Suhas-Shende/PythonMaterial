@@ -1,5 +1,5 @@
 def questionstring(num,que):
-    k="-".join(que.split())
+    k="-".join(que.split()).lower()
     print(f"| {num} | [{que}?](#{k}) |")
 
 
@@ -54,4 +54,23 @@ module
 
 4. ### What is the purpose of the `__name__` variable in a Python script  
 5. ### How do you install external modules in Python  
+'''
+
+'''
+
+## **17. Advanced Topics (Multithreading & Asynchronous Programming)**
+
+
+
+1. ### What is a thread in Python
+
+2. ### What is multithreading in Python
+
+3. ### What is the Global Interpreter Lock (GIL)
+
+4. ### What is asynchronous programming in Python
+
+5. ### What is the `async` and `await` syntax in Python
+
+6. ### What is the `asyncio` library in Python?
 '''

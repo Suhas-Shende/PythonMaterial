@@ -64,10 +64,11 @@
 ---
 
 ## **6. Lists, Tuples, and Sets**  
-#### what is list
-#### what is tuple
-#### what is set
-#### what is dictionary
+
+1. [what is a list?](#what-is-a-list) 
+2. [what is a tuple](#what-is-a-tuple)
+3. [what is a set?](#what-is-a-set) 
+4. [What is a dictionary?](#what-is-a-dictionary) 
 1. [What is the difference between a list and a tuple?](#what-is-the-difference-between-a-list-and-a-tuple)  
 2. [How do you create a tuple with one element?](#how-do-you-create-a-tuple-with-one-element)  
 3. [What is tuple unpacking?](#what-is-tuple-unpacking)  
@@ -129,7 +130,8 @@
 7. [What are `*args` and `**kwargs` in Python?](#what-are-args-and-kwargs-in-python)  
 8. [What is recursion in Python?](#what-is-recursion-in-python)  
 9. [What is the base case in recursion?](#what-is-the-base-case-in-recursion)  
-10. [How to avoid infinite recursion?](#how-to-avoid-infinite-recursion)  
+10. [How to avoid infinite recursion?](#how-to-avoid-infinite-recursion) 
+11. [What is lambda function?](#what-is-lambda-function)  
 ---
 
 ## **12. Iterators and Generators**  
@@ -592,8 +594,8 @@ Examples of Dynamically Typed Languages:
     Despite the performance overhead of interpretation, Python's **simplicity, versatility, and vast ecosystem** make it a **popular choice** for applications ranging from **web development to scientific computing**. 🚀  
     [geeksforgeek](https://www.geeksforgeeks.org/why-python-is-called-interpreted-language/)
 
-
-    ---
+# [🔝](#python-interview-questions )
+---
 
 
 ## **2. Python Installation and Setup**
@@ -1179,6 +1181,8 @@ Examples of Dynamically Typed Languages:
 
 [geeksforgeek](https://www.geeksforgeeks.org/memory-management-in-python/)
 
+
+# [🔝](#python-interview-questions )
 ---
 
 
@@ -1897,6 +1901,8 @@ Understanding **Python’s built-in data types** allows for **efficient programm
     | **Effect of Modification** | Changes in nested objects reflect in both copies | Changes in one object don’t affect the other |
     | **Use Case** | When objects are mostly unchanged or immutable | When objects need full independence |
 
+
+# [🔝](#python-interview-questions )
 ---
 
 
@@ -2616,12 +2622,13 @@ Understanding **Python’s built-in data types** allows for **efficient programm
     print(text.upper())       # Output: "HELLO WORLD"
     ```
 
+# [🔝](#python-interview-questions )
 ---
 
 
 ## **6. Lists, Tuples, and Sets**
 
-### What is list
+1. ### What is a list
 ####  Lists
 
 #### 1. Definition:
@@ -2702,7 +2709,7 @@ Lists are versatile and essential for storing collections of data. They support 
 - Use list comprehensions for concise and efficient list creation.
 - Be mindful of shallow vs. deep copies when copying lists.
 
-### what is tuple
+2. ### What is tuple
 #### 4. Tuples
 
 #### 1. Definition:
@@ -2767,16 +2774,16 @@ Tuples provide an efficient way to store immutable sequences of data. They are u
 
 
 
-### what is list
+3. ### What is a set
 
 
-# How to Describe "Set" in an Interview – Step-by-Step Approach
+#### How to Describe "Set" in an Interview – Step-by-Step Approach
 
 If you're asked about Sets in an interview, follow this structured way to explain it clearly and confidently.
 
 ---
 
-## 1. Start with a Clear Definition  
+#### 1. Start with a Clear Definition  
 
 **One-line definition:**  
 "A set is an unordered collection of unique elements used to store and manipulate distinct items in programming."  
@@ -2789,7 +2796,7 @@ my_set = {1, 2, 3, 4}
 
 ---
 
-## 2. Explain the Importance of Sets  
+#### 2. Explain the Importance of Sets  
 
 ### Why are sets important?  
 - Sets are used to eliminate duplicate values and perform mathematical set operations like union, intersection, and difference.  
@@ -2800,7 +2807,7 @@ my_set = {1, 2, 3, 4}
 
 ---
 
-## 3. Describe How Sets Work  
+#### 3. Describe How Sets Work  
 
 - Sets are stored as unordered collections in memory.  
 - Sets are mutable (can be changed after creation) but only contain immutable (hashable) elements.  
@@ -2816,7 +2823,7 @@ my_set.add(4)  # Now {1, 2, 3, 4}
 
 ---
 
-## 4. Provide a Simple Code Example  
+#### 4. Provide a Simple Code Example  
 
 Show basic set operations like adding, removing, and performing set operations.  
 
@@ -2841,9 +2848,9 @@ intersection_set = set_a & set_b  # {3}
 
 ---
  
-## 5. Mention Real-World Applications  
+#### 5. Mention Real-World Applications  
 
-### Where do we use sets in real life?  
+#### **Where do we use sets in real life?**  
 - **Data Analysis**: Removing duplicates from datasets.  
 - **Membership Testing**: Checking if an item exists in a collection.  
 - **Graph Theory**: Representing relationships and connections.  
@@ -2854,7 +2861,7 @@ intersection_set = set_a & set_b  # {3}
 
 ---
 
-## 6. Discuss Advanced or Interesting Points  
+#### 6. Discuss Advanced or Interesting Points  
 
 ### What are the limitations of sets?  
 - How are sets implemented in memory?  
@@ -2871,14 +2878,14 @@ if 3 in my_set:  # O(1) average time complexity
 
 ---
 
-## 7. Conclude with Confidence  
+#### 7. Conclude with Confidence  
 
-### Summarize the key points:  
+#### Summarize the key points:  
 *"In summary, sets are essential for managing unique collections of items in programming. They are mutable, unordered, and provide efficient operations for membership testing and mathematical set operations. Would you like me to explain set operations in more detail?"*
 
 ---
 
-## *) Bonus Tips for Students  
+####  Bonus Tips for Students  
 
 - **Use structured thinking**: Definition → Importance → How It Works → Example → Real-World Uses → Advanced Points  
 - **Be concise & clear**: Avoid over-explaining.  
@@ -2887,7 +2894,7 @@ if 3 in my_set:  # O(1) average time complexity
 
 ---
 
-## Set Functions (With 5-Word Descriptions)  
+#### Set Functions (With 5-Word Descriptions)  
 
 - `len(s)` → Returns number of elements.  
 - `s.add(x)` → Adds element `x` to set.  
@@ -2904,11 +2911,11 @@ if 3 in my_set:  # O(1) average time complexity
 - `s.intersection_update(t)` → Updates set with intersection.  
 - `s.symmetric_difference(t)` → Returns symmetric difference of sets.  
 
-#### what is dictionary
 
-# 5. Dictionaries
+4. ## What is a dictionary
 
-## 1. Definition:
+
+#### 1. Definition:
 A dictionary is an unordered collection of key-value pairs, where each key is unique and used to retrieve its corresponding value.
 
 **Example:**
@@ -2919,7 +2926,7 @@ Here, `student` is a dictionary containing key-value pairs representing a studen
 
 ---
 
-## 2. Importance:
+#### 2. Importance:
 - They provide **fast data retrieval** using keys.
 - They allow **mapping of related data** efficiently.
 - They are **widely used in data storage** (e.g., JSON, APIs, database records).
@@ -2929,7 +2936,7 @@ Dictionaries are often used to store user information in web applications.
 
 ---
 
-## 3. How Dictionaries Work:
+#### 3. How Dictionaries Work:
 - **Keys are unique**, but values can be duplicated.
 - **Keys must be immutable** (strings, numbers, or tuples).
 - **Values can be any data type**, including lists or other dictionaries.
@@ -2952,7 +2959,7 @@ person["age"] = 31
 
 ---
 
-## 4. Code Example:
+#### 4. Code Example:
 **Example (Common Dictionary Operations in Python):**
 ```python
 # Creating a dictionary
@@ -2972,7 +2979,7 @@ for key, value in employee.items():
 
 ---
 
-## 5. Real-World Applications:
+#### 5. Real-World Applications:
 - **Data Storage**: JSON files, configuration files.
 - **Database Records**: Dictionaries store structured data.
 - **API Responses**: JSON responses are similar to dictionaries.
@@ -2983,8 +2990,9 @@ Dictionaries are used in Natural Language Processing (NLP) to store word frequen
 
 ---
 
-## 6. Advanced or Interesting Points:
-### How are dictionaries implemented in Python?
+#### 6. Advanced or Interesting Points:
+
+#### How are dictionaries implemented in Python?
 - Dictionaries are implemented using **hash tables**, making lookups **O(1) on average**.
 - **Memory overhead**: Python dictionaries use more memory than lists due to hashing.
 
@@ -2999,13 +3007,13 @@ if "banana" in data:  # O(1) average time complexity
 
 ---
 
-## 7. Conclusion:
+#### 7. Conclusion:
 **Summary:**  
 Dictionaries are essential for fast key-value data retrieval. They are unordered, mutable, and optimized for quick lookups using hash tables.
 
 ---
 
-## 🎯 Bonus Tips:
+#### 🎯 Bonus Tips:
 - **Use structured thinking**: Definition → Importance → How It Works → Example → Real-World Uses → Advanced Points
 - **Be concise & clear**: Avoid unnecessary details.
 - **Use analogies**: "Think of a dictionary as a contact book where names (keys) map to phone numbers (values)."
@@ -3013,7 +3021,7 @@ Dictionaries are essential for fast key-value data retrieval. They are unordered
 
 ---
 
-## 🛠 Dictionary Methods (With 5-Word Descriptions):
+### 🛠 Dictionary Methods (With 5-Word Descriptions):
 - `len(d)` → Returns number of keys.
 - `d.keys()` → Returns dictionary keys.
 - `d.values()` → Returns dictionary values.
@@ -3028,7 +3036,7 @@ Dictionaries are essential for fast key-value data retrieval. They are unordered
 
 
 1. ### What is the difference between a list and a tuple
-# Difference Between List and Tuple
+### Difference Between List and Tuple
 
 | Feature        | List (`list`) | Tuple (`tuple`) |
 |---------------|--------------|----------------|
@@ -3363,15 +3371,15 @@ my_set.remove(10)  # Raises KeyError since 10 is not in the set
 
 
 
-
+# [🔝](#python-interview-questions )
 ---
 
 
-## **7. Dictionaries in Python**
 
 
 
-1. ### What is a dictionary in Python
+
+
 
 2. ### ## How to Access Elements in a Dictionary in Python?
 
@@ -3528,7 +3536,70 @@ print(my_set)  # Output: {1, 2, 3, 4, 5}
 my_dict = {"name": "Alice", "age": 25}
 print(my_dict["name"])  # Output: Alice
 ```
+
+# [🔝](#python-interview-questions )
 ---
+
+## **7. comprehension in Python**
+
+
+### **1. What is list comprehension in Python?**  
+
+### **Answer:**  
+List comprehension is a concise way to create lists in Python using a single line of code. It provides a more readable and efficient alternative to traditional `for` loops when generating lists.  
+
+### **Syntax:**  
+```python
+new_list = [expression for item in iterable if condition]
+```
+* **expression** → The operation to perform on each element.
+
+* **item** → The variable representing each element in the iterable.
+
+* **iterable** → The sequence (like a list, tuple, or range) being iterated over.
+
+* **condition (optional)** → A filter that determines whether an element should be included.
+
+**Example:**
+```python
+# Generating squares of numbers from 1 to 5
+squares = [x**2 for x in range(1, 6)]
+print(squares)  
+# Output: [1, 4, 9, 16, 25]
+```
+
+### **2. How does list comprehension differ from using a `for` loop?**  
+
+### **Answer:**  
+List comprehension differs from a traditional `for` loop in the following ways:  
+
+| Aspect            | List Comprehension | Traditional `for` Loop |
+|------------------|-------------------|------------------------|
+| **Conciseness**   | One-liner syntax | Requires multiple lines |
+| **Readability**   | More readable for simple operations | Less readable for long loops |
+| **Performance**   | Faster due to internal optimizations | Slightly slower |
+| **Memory Usage**  | More memory-efficient when using generators | Uses more memory due to explicit appending |
+
+### **Example:**  
+#### **Using a `for` loop:**
+```python
+numbers = [1, 2, 3, 4, 5]
+squares = []
+for num in numbers:
+    squares.append(num ** 2)
+print(squares)
+# Output: [1, 4, 9, 16, 25]
+```
+**Using list comprehension:**
+```python
+squares = [num ** 2 for num in [1, 2, 3, 4, 5]]
+print(squares)
+# Output: [1, 4, 9, 16, 25]
+```
+**Conclusion:**
+List comprehension is more concise and faster than using a traditional for loop.
+
+However, for complex loops with multiple operations, a for loop may be more readable.
 
 
 ## **8. Operators in Python**
@@ -3771,6 +3842,8 @@ Membership operators check whether a value exists **within a sequence** (like a 
 | `not in`    | Returns `True` if a value is **not** found in the sequence. | `5 not in [1, 2, 3, 4]` | `True` |
 
 
+
+# [🔝](#python-interview-questions )
 ---
 
 
@@ -3927,7 +4000,7 @@ You are not an adult yet.
 
 
 
-
+# [🔝](#python-interview-questions )
 ---
 
 
@@ -4425,6 +4498,8 @@ for i in range(5):
 Loops are powerful, but they should be used efficiently to avoid unnecessary complexity and performance issues. 🚀
 
 
+
+# [🔝](#python-interview-questions )
 ---
 
 
@@ -4757,8 +4832,28 @@ print(fibonacci(6))  # Output: 8
 
 10. ### How to avoid infinite recursion
 
+11. ### What is lambda function
+
+    **Lambda** is an **anonymous function** in Python, that can accept any number of arguments, but can only have a single expression. It is generally used in situations requiring an anonymous function for a short time period. 
+
+    **Lambda functions can be used in either of the two ways:**
+
+    **• Assigning lambda functions to a variable:**
+    ```python 
+    mul = lambdaa, b : a * b
+    print(mul(2, 5))    # output => 10
+    ```
+    **• Wrapping lambda functions inside another function:** 
+    ```python
+    defmyWrapper(n):
+    returnlambdaa : a * n
+    mulFive = myWrapper(5)
+    print(mulFive(2))    # output => 10
+    ```
 
 
+
+# [🔝](#python-interview-questions )
 ---
 
 
@@ -4913,8 +5008,9 @@ print(next(gen))  # Output: 3
 4. ### What is the difference between an iterator and an iterable
 
 
-
+# [🔝](#python-interview-questions )
 ---
+
 
 ## **13. Exception Handling in Python**
 
@@ -4965,6 +5061,9 @@ finally:
 8. ### How do you define custom exceptions in Python  
 
 
+
+# [🔝](#python-interview-questions )
+---
 ## **14. File Handling in Python**  
 
 1. ### What is file handling in Python 
@@ -5025,6 +5124,8 @@ file.close()  # Closes the file to free system resources
 7. ### How do you delete a file in Python  
 
 
+# [🔝](#python-interview-questions )
+---
 ## **15. Modules and Packages**  
 
 1. ### What is a module in Python  
@@ -5088,9 +5189,12 @@ Creating a package is easy since it makes use of the system's inherent file stru
 3. ### How do you import a module in Python  
 
 4. ### What is the purpose of the `__name__` variable in a Python script  
+
 5. ### How do you install external modules in Python  
 
 
+# [🔝](#python-interview-questions )
+---
 1. ## **16. Object-Oriented Programming (OOP) in Python**
 
 
@@ -5949,6 +6053,10 @@ print(account._BankAccount__balance)  # Output: 1000
 
 Python's approach to access control is based on convention rather than enforcement. While you can access protected and private members, doing so goes against the intended design and may break the code's encapsulation.
 
+
+
+
+# [🔝](#python-interview-questions )
 ---
 
 ## **17. Advanced Topics (Multithreading & Asynchronous Programming)**
