@@ -78,16 +78,22 @@
 7. [How does Python’s set handle duplicate values?](#how-does-pythons-set-handle-duplicate-values)  
 8. [How do you remove duplicates from a list? Provide two methods.](#how-do-you-remove-duplicates-from-a-list-provide-two-methods)  
 9. [What is the difference between discard() and remove()?](#what-is-the-difference-between-discard-and-remove)  
+
+10. [How do you access elements in a dictionary?](#how-do-you-access-elements-in-a-dictionary)  
+
+11. [What are the key differences between a set and a dictionary?](#what-are-the-key-differences-between-a-set-and-a-dictionary)  
 ---
 
-## **7. Dictionaries in Python**  
 
-1. [What is a dictionary in Python?](#what-is-a-dictionary-in-python)  
-2. [How do you access elements in a dictionary?](#how-do-you-access-elements-in-a-dictionary)  
-3. [What is dictionary comprehension? Provide an example.](#what-is-dictionary-comprehension-provide-an-example)  
-4. [What are the key differences between a set and a dictionary?](#what-are-the-key-differences-between-a-set-and-a-dictionary)  
+
+
+## **7. Comprehension in Python**  
+[go-to](https://github.com/Suhas-Shende/PythonMaterial/blob/main/500quepython/comprenesion.md)
+
+
+
+
 ---
-
 ## **8. Operators in Python**  
 
 1. [What are Python operators? List different types.](#what-are-python-operators-list-different-types)  
@@ -3270,7 +3276,9 @@ print(unique_numbers)  # Output: {1, 2, 3, 4, 5}
 - They are useful for filtering unique elements efficiently.
 
 
-8. ### ## 1. Why Remove Duplicates?
+8. ### How do you remove duplicates from a list? Provide two methods 
+
+## 1. Why Remove Duplicates?
 - Lists allow duplicate values, which may not be needed in some cases.
 - Removing duplicates helps in **data cleaning** and **efficient processing**.
 
@@ -3326,7 +3334,9 @@ print(unique_numbers)  # Output: [1, 2, 3, 4, 5] (Order preserved)
 **Choose `set()` for speed and `for` loop for order preservation.**
 
 
-9. ### ## Difference Between `discard()` and `remove()` in Python Sets
+9. ### What is the difference between discard() and remove()
+
+## Difference Between `discard()` and `remove()` in Python Sets
 
 ## 1. Introduction:
 Both `discard()` and `remove()` are used to delete elements from a **set**, but they behave differently when the element is **not present**.
@@ -3371,17 +3381,8 @@ my_set.remove(10)  # Raises KeyError since 10 is not in the set
 
 
 
-# [🔝](#python-interview-questions )
----
 
-
-
-
-
-
-
-
-2. ### ## How to Access Elements in a Dictionary in Python?
+10. ### How to Access Elements in a Dictionary in Python?
 
 ## 1. Introduction:
 A **dictionary** is a collection of key-value pairs. To access elements, we use the **key** instead of an index.
@@ -3456,55 +3457,7 @@ course: Python
 - Use **`get()`** when the key **may be missing**.
 
 
-3. ### What is dictionary comprehension? Provide an example
-## What is Dictionary Comprehension in Python?
-
-## 1. Introduction:
-Dictionary comprehension is a concise way to create dictionaries using a **single line of code** with a for loop.
-
-## 2. Syntax:
-```python
-{key_expression: value_expression for item in iterable}
-```
-
-## 3. Example of Dictionary Comprehension:
-Create a dictionary where keys are numbers and values are their squares.
-
-```python
-squares = {x: x**2 for x in range(1, 6)}
-print(squares)  # Output: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
-```
-
-## 4. Example: Converting a List into a Dictionary
-Convert a list of words into a dictionary where keys are words and values are their lengths.
-
-```python
-words = ["apple", "banana", "cherry"]
-word_lengths = {word: len(word) for word in words}
-print(word_lengths)  # Output: {'apple': 5, 'banana': 6, 'cherry': 6}
-```
-
-## 5. Filtering with Dictionary Comprehension
-Create a dictionary with only even numbers and their squares.
-
-```python
-even_squares = {x: x**2 for x in range(10) if x % 2 == 0}
-print(even_squares)  # Output: {0: 0, 2: 4, 4: 16, 6: 36, 8: 64}
-```
-
-## 6. Swapping Keys and Values in a Dictionary
-```python
-original_dict = {"a": 1, "b": 2, "c": 3}
-swapped_dict = {v: k for k, v in original_dict.items()}
-print(swapped_dict)  # Output: {1: 'a', 2: 'b', 3: 'c'}
-```
-
-## 7. Conclusion:
-Dictionary comprehension makes it easy to create dictionaries in a **concise and readable way**. It is useful for **transforming, filtering, and mapping** data efficiently.
-
-
-4. ### What are the key differences between a set and a dictionary
-
+11. ### What are the key differences between a set and a dictionary
 # Set vs Dictionary in Python
 
 ## **1. Definition**
@@ -3540,66 +3493,6 @@ print(my_dict["name"])  # Output: Alice
 # [🔝](#python-interview-questions )
 ---
 
-## **7. comprehension in Python**
-
-
-### **1. What is list comprehension in Python?**  
-
-### **Answer:**  
-List comprehension is a concise way to create lists in Python using a single line of code. It provides a more readable and efficient alternative to traditional `for` loops when generating lists.  
-
-### **Syntax:**  
-```python
-new_list = [expression for item in iterable if condition]
-```
-* **expression** → The operation to perform on each element.
-
-* **item** → The variable representing each element in the iterable.
-
-* **iterable** → The sequence (like a list, tuple, or range) being iterated over.
-
-* **condition (optional)** → A filter that determines whether an element should be included.
-
-**Example:**
-```python
-# Generating squares of numbers from 1 to 5
-squares = [x**2 for x in range(1, 6)]
-print(squares)  
-# Output: [1, 4, 9, 16, 25]
-```
-
-### **2. How does list comprehension differ from using a `for` loop?**  
-
-### **Answer:**  
-List comprehension differs from a traditional `for` loop in the following ways:  
-
-| Aspect            | List Comprehension | Traditional `for` Loop |
-|------------------|-------------------|------------------------|
-| **Conciseness**   | One-liner syntax | Requires multiple lines |
-| **Readability**   | More readable for simple operations | Less readable for long loops |
-| **Performance**   | Faster due to internal optimizations | Slightly slower |
-| **Memory Usage**  | More memory-efficient when using generators | Uses more memory due to explicit appending |
-
-### **Example:**  
-#### **Using a `for` loop:**
-```python
-numbers = [1, 2, 3, 4, 5]
-squares = []
-for num in numbers:
-    squares.append(num ** 2)
-print(squares)
-# Output: [1, 4, 9, 16, 25]
-```
-**Using list comprehension:**
-```python
-squares = [num ** 2 for num in [1, 2, 3, 4, 5]]
-print(squares)
-# Output: [1, 4, 9, 16, 25]
-```
-**Conclusion:**
-List comprehension is more concise and faster than using a traditional for loop.
-
-However, for complex loops with multiple operations, a for loop may be more readable.
 
 
 ## **8. Operators in Python**

@@ -2,7 +2,68 @@
 
 ## **Basic Questions**
 1. **What is list comprehension in Python?**
+### **Answer:**  
+List comprehension is a concise way to create lists in Python using a single line of code. It provides a more readable and efficient alternative to traditional `for` loops when generating lists.  
+
+### **Syntax:**  
+```python
+new_list = [expression for item in iterable if condition]
+```
+* **expression** → The operation to perform on each element.
+
+* **item** → The variable representing each element in the iterable.
+
+* **iterable** → The sequence (like a list, tuple, or range) being iterated over.
+
+* **condition (optional)** → A filter that determines whether an element should be included.
+
+**Example:**
+```python
+# Generating squares of numbers from 1 to 5
+squares = [x**2 for x in range(1, 6)]
+print(squares)  
+# Output: [1, 4, 9, 16, 25]
+```
+
+### **2. How does list comprehension differ from using a `for` loop?**  
+
+### **Answer:**  
+List comprehension differs from a traditional `for` loop in the following ways:  
+
+| Aspect            | List Comprehension | Traditional `for` Loop |
+|------------------|-------------------|------------------------|
+| **Conciseness**   | One-liner syntax | Requires multiple lines |
+| **Readability**   | More readable for simple operations | Less readable for long loops |
+| **Performance**   | Faster due to internal optimizations | Slightly slower |
+| **Memory Usage**  | More memory-efficient when using generators | Uses more memory due to explicit appending |
+
+### **Example:**  
+#### **Using a `for` loop:**
+```python
+numbers = [1, 2, 3, 4, 5]
+squares = []
+for num in numbers:
+    squares.append(num ** 2)
+print(squares)
+# Output: [1, 4, 9, 16, 25]
+```
+**Using list comprehension:**
+```python
+squares = [num ** 2 for num in [1, 2, 3, 4, 5]]
+print(squares)
+# Output: [1, 4, 9, 16, 25]
+```
+**Conclusion:**
+List comprehension is more concise and faster than using a traditional for loop.
+
+However, for complex loops with multiple operations, a for loop may be more readable.
+
+---
+
 2. **How does list comprehension differ from using a `for` loop?**
+
+
+
 3. ### What are the advantages of list comprehension over traditional loops?**
  
 
@@ -325,9 +386,7 @@ print(cubes_dict)
 
 * range() can be combined with conditions to generate filtered lists.
 
-10. ### **How does list comprehension handle large data sets in terms of memory efficiency?**
-
-## **10. How does list comprehension handle large data sets in terms of memory efficiency?**  
+10. ### **How does list comprehension handle large data sets in terms of memory efficiency?**  
 
 ### **Answer:**  
 List comprehension **stores** the entire result in memory, which can be inefficient for large data sets. However, **generator expressions** provide a more memory-efficient alternative.
@@ -371,6 +430,29 @@ print(next(large_gen))  # Output: 2
 
 * Use **generators** when dealing with **millions of elements** to avoid memory overflow
 ---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## **Set Comprehension Questions**
 
@@ -452,8 +534,76 @@ print(set_comp)
 
 ---
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## **Dictionary Comprehension Questions**
 21. **What is dictionary comprehension in Python?**
+## What is Dictionary Comprehension in Python?
+
+## 1. Introduction:
+Dictionary comprehension is a concise way to create dictionaries using a **single line of code** with a for loop.
+
+## 2. Syntax:
+```python
+{key_expression: value_expression for item in iterable}
+```
+
+## 3. Example of Dictionary Comprehension:
+Create a dictionary where keys are numbers and values are their squares.
+
+```python
+squares = {x: x**2 for x in range(1, 6)}
+print(squares)  # Output: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+```
+
+## 4. Example: Converting a List into a Dictionary
+Convert a list of words into a dictionary where keys are words and values are their lengths.
+
+```python
+words = ["apple", "banana", "cherry"]
+word_lengths = {word: len(word) for word in words}
+print(word_lengths)  # Output: {'apple': 5, 'banana': 6, 'cherry': 6}
+```
+
+## 5. Filtering with Dictionary Comprehension
+Create a dictionary with only even numbers and their squares.
+
+```python
+even_squares = {x: x**2 for x in range(10) if x % 2 == 0}
+print(even_squares)  # Output: {0: 0, 2: 4, 4: 16, 6: 36, 8: 64}
+```
+
+## 6. Swapping Keys and Values in a Dictionary
+```python
+original_dict = {"a": 1, "b": 2, "c": 3}
+swapped_dict = {v: k for k, v in original_dict.items()}
+print(swapped_dict)  # Output: {1: 'a', 2: 'b', 3: 'c'}
+```
+
+## 7. Conclusion:
+Dictionary comprehension makes it easy to create dictionaries in a **concise and readable way**. It is useful for **transforming, filtering, and mapping** data efficiently.
+
+
 22. **How does dictionary comprehension work, and what is its syntax?**
 23. **What are the key differences between list comprehension and dictionary comprehension?**
 24. **How can dictionary comprehension be used to swap keys and values of an existing dictionary?**
@@ -464,7 +614,103 @@ print(set_comp)
 29. **How can dictionary comprehension be used with `zip()`?**
 30. **Can dictionary comprehension be used to modify values based on a condition? If so, how?**
 
+
+
+# [🔝](#python-interview-questions )
 ---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### **1. What is list comprehension in Python?**  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## **String Processing using Comprehension**
 31. **Does Python support native string comprehension like list comprehension?**
