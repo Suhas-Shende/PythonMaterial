@@ -10,7 +10,7 @@
 | **Performance**     | Faster due to immutability                  | Slightly slower due to key hashing       |
 | **Use Case**       | Storing **fixed** collections of values      | Storing **mapped relationships**         |
 
-2. Difference between tuple and set.
+### 2. Difference between tuple and set.
 | **Feature**         | **Tuple**                                  | **Set**                                 |
 |---------------------|------------------------------------------|----------------------------------------|
 | **Definition**      | An **ordered** collection of elements   | An **unordered** collection of unique elements |
