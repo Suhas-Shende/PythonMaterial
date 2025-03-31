@@ -18,59 +18,32 @@ output
 9. ### What is the base case in recursion
 
 10. ### How to avoid infinite recursion
+
 4. ### What is the difference between an iterator and an iterable
-
-2. ### What is the difference between syntax errors and runtime errors  
-
-3. ### What are built-in exceptions in Python  
-
-4. ### What is the purpose of try, except, and finally blocks  
-
-5. ### How can you raise an exception in Python  
-
-6. ### What is the assert statement used for in Python  
-
-7. ### What is exception chaining in Python  
-
-8. ### How do you define custom exceptions in Python  
 '''
 '''
-file  handling
+ What is encapsulation? How is it implemented in Python
+string
 
-2. ### How do you open a file in Python  
+6. ### How can you split a string into a list
 
-3. ### What are the different file modes in Python (r, w, a, r+)  
-4. ### How do you read a file line by line  
-5. ### What is the difference between read(), readline(), and readlines()  
-6. ### How do you write data to a file in Python  
-7. ### How do you delete a file in Python  
+
+7. ### How do you check if a string contains a substring
+
+8. ### How do you replace a substring in a string
+
 
 
 '''
 '''
 module
 
-3. ### How do you import a module in Python  
-
-4. ### What is the purpose of the `__name__` variable in a Python script  
-5. ### How do you install external modules in Python  
-'''
 
 '''
 
-## **17. Advanced Topics (Multithreading & Asynchronous Programming)**
+'''
+oops
 
 
 
-1. ### What is a thread in Python
-
-2. ### What is multithreading in Python
-
-3. ### What is the Global Interpreter Lock (GIL)
-
-4. ### What is asynchronous programming in Python
-
-5. ### What is the `async` and `await` syntax in Python
-
-6. ### What is the `asyncio` library in Python?
 '''
