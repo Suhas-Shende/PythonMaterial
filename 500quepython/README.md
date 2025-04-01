@@ -4852,73 +4852,73 @@ my_set.remove(10)  # Raises KeyError since 10 is not in the set
 
 12. ### What is the enumerate function in Python
 
-### **Introduction**
-The `enumerate()` function in Python is used to add a counter to an iterable and return it as an enumerate object. This is particularly useful when looping through a sequence while keeping track of the index.
+    ### **Introduction**
+    The `enumerate()` function in Python is used to add a counter to an iterable and return it as an enumerate object. This is particularly useful when looping through a sequence while keeping track of the index.
 
----
+    ---
 
-### **Syntax**
-```python
-enumerate(iterable, start=0)
-```
-- **iterable**: The sequence (e.g., list, tuple, string, etc.) to be enumerated.
-- **start**: The starting index for the counter (default is `0`).
+    ### **Syntax**
+    ```python
+    enumerate(iterable, start=0)
+    ```
+    - **iterable**: The sequence (e.g., list, tuple, string, etc.) to be enumerated.
+    - **start**: The starting index for the counter (default is `0`).
 
----
+    ---
 
-### **Example Usage**
-#### **Basic Usage**
-```python
-fruits = ["apple", "banana", "cherry"]
-for index, fruit in enumerate(fruits):
-    print(index, fruit)
-```
-#### **Output:**
-```
-0 apple
-1 banana
-2 cherry
-```
+    ### **Example Usage**
+    #### **Basic Usage**
+    ```python
+    fruits = ["apple", "banana", "cherry"]
+    for index, fruit in enumerate(fruits):
+        print(index, fruit)
+    ```
+    #### **Output:**
+    ```
+    0 apple
+    1 banana
+    2 cherry
+    ```
 
----
+    ---
 
-### **Using enumerate() with a Custom Start Index**
-```python
-fruits = ["apple", "banana", "cherry"]
-for index, fruit in enumerate(fruits, start=1):
-    print(index, fruit)
-```
-#### **Output:**
-```
-1 apple
-2 banana
-3 cherry
-```
+    ### **Using enumerate() with a Custom Start Index**
+    ```python
+    fruits = ["apple", "banana", "cherry"]
+    for index, fruit in enumerate(fruits, start=1):
+        print(index, fruit)
+    ```
+    #### **Output:**
+    ```
+    1 apple
+    2 banana
+    3 cherry
+    ```
 
----
+    ---
 
-### **Using enumerate() with List Comprehension**
-```python
-fruits = ["apple", "banana", "cherry"]
-enum_list = [(i, fruit) for i, fruit in enumerate(fruits)]
-print(enum_list)
-```
-#### **Output:**
-```
-[(0, 'apple'), (1, 'banana'), (2, 'cherry')]
-```
+    ### **Using enumerate() with List Comprehension**
+    ```python
+    fruits = ["apple", "banana", "cherry"]
+    enum_list = [(i, fruit) for i, fruit in enumerate(fruits)]
+    print(enum_list)
+    ```
+    #### **Output:**
+    ```
+    [(0, 'apple'), (1, 'banana'), (2, 'cherry')]
+    ```
 
----
+    ---
 
-### **Benefits of enumerate()**
-1. **Avoids Manual Indexing:** Eliminates the need to use a separate counter variable.
-2. **Enhances Code Readability:** Cleaner syntax compared to using `range(len(iterable))`.
-3. **Useful in Various Iterations:** Works with lists, tuples, strings, and dictionaries.
+    ### **Benefits of enumerate()**
+    1. **Avoids Manual Indexing:** Eliminates the need to use a separate counter variable.
+    2. **Enhances Code Readability:** Cleaner syntax compared to using `range(len(iterable))`.
+    3. **Useful in Various Iterations:** Works with lists, tuples, strings, and dictionaries.
 
----
+    ---
 
-### **Conclusion**
-The `enumerate()` function is a powerful tool that improves the efficiency and readability of loops in Python. It simplifies the process of iterating while keeping track of index positions.
+    ### **Conclusion**
+    The `enumerate()` function is a powerful tool that improves the efficiency and readability of loops in Python. It simplifies the process of iterating while keeping track of index positions.
 
 # [🔝](#python-interview-questions )
 ---
