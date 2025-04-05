@@ -189,7 +189,7 @@ text = raw_input("Enter text: ")  # If user enters 10, it is treated as a string
 
 8. ### Difference between `for` Loop and `while` Loop
 
-```markdown
+```
 | **Feature**      | **`for` Loop**                                    | **`while` Loop**                                |
 |-----------------|------------------------------------------------|------------------------------------------------|
 | **Definition**  | Used for iterating over a sequence (list, tuple, string, range, etc.). | Used for executing a block of code repeatedly while a condition is true. |
@@ -864,7 +864,7 @@ print(p.gender)  # Output: Female
 
 23. ### Difference between `map()` and `filter()`
 
-```markdown
+```
 | **Feature**      | **map()**                                      | **filter()**                                   |
 |-----------------|----------------------------------------------|----------------------------------------------|
 | **Definition**  | Applies a function to each item in an iterable and returns a new iterable with transformed values. | Applies a function to each item in an iterable and returns only the items that evaluate to `True`. |
@@ -901,7 +901,7 @@ print(list(even_numbers))  # Output: [2, 4]
 
 24. ### Difference between `update()` and `union()` in Sets
 
-```markdown
+```
 | **Feature**      | **update()**                                     | **union()**                                   |
 |-----------------|-------------------------------------------------|---------------------------------------------|
 | **Definition**  | Modifies the original set by adding elements from another set or iterable. | Returns a new set containing all elements from both sets without modifying the original set. |
@@ -937,7 +937,7 @@ print(C)  # Output: {1, 2, 3, 4, 5}  (A and B remain unchanged)
 
 25. ### Difference between `intersection()` and `difference()` in Sets
 
-```markdown
+```
 | **Feature**      | **intersection()**                              | **difference()**                               |
 |-----------------|-----------------------------------------------|----------------------------------------------|
 | **Definition**  | Returns a set containing only common elements between two sets. | Returns a set containing elements in the first set but not in the second. |
@@ -972,7 +972,7 @@ print(C)  # Output: {1, 2}
 
 26. ### Difference between `frozenset` and `set`
 
-```markdown
+```
 | **Feature**      | **set**                                        | **frozenset**                                   |
 |-----------------|----------------------------------------------|----------------------------------------------|
 | **Mutability**  | **Mutable** – elements can be added or removed. | **Immutable** – elements **cannot** be changed after creation. |
@@ -1005,7 +1005,7 @@ print(B)  # Output: frozenset({1, 2, 3})
 
 27. ### Difference between `remove()` and `discard()` in Sets
 
-```markdown
+```
 | **Feature**      | **remove()**                                    | **discard()**                                   |
 |-----------------|----------------------------------------------|----------------------------------------------|
 | **Definition**  | Removes a specified element from the set. If the element is not found, it raises a `KeyError`. | Removes a specified element from the set. If the element is not found, it **does not** raise an error. |
@@ -1041,7 +1041,7 @@ A.discard(5)  # No error, even though 5 is not in the set.
 
 28. ### Difference between Keyword Arguments and Positional Arguments
 
-```markdown
+```
 | **Feature**      | **Positional Arguments**                        | **Keyword Arguments**                      |
 |-----------------|-----------------------------------------------|------------------------------------------|
 | **Definition**  | Arguments are passed based on their position in the function call. | Arguments are passed using parameter names, regardless of order. |
@@ -1078,7 +1078,7 @@ greet(age=25, name="Alice")  # Output: Hello, Alice! You are 25 years old.
 
 29. ### Difference between `*args` and `**kwargs`
 
-```markdown
+```
 | **Feature**      | **`*args`**                                      | **`**kwargs`**                                   |
 |-----------------|----------------------------------------------|----------------------------------------------|
 | **Definition**  | Allows a function to accept a variable number of **positional arguments**. | Allows a function to accept a variable number of **keyword arguments**. |
@@ -1123,7 +1123,7 @@ greet(name="Alice", age=25, city="New York")
 
 30. ### Difference between Global and Local Variables
 
-```markdown
+```
 | **Feature**      | **Global Variables**                            | **Local Variables**                             |
 |-----------------|----------------------------------------------|----------------------------------------------|
 | **Definition**  | Declared outside a function and accessible throughout the program. | Declared inside a function and accessible only within that function. |
@@ -1178,7 +1178,7 @@ print(x)  # Output: 20
 31. ### Difference between global scope and local scope.
 
 
-```markdown
+```
 | **Feature**      | **Global Scope**                                | **Local Scope**                               |
 |-----------------|----------------------------------------------|----------------------------------------------|
 | **Definition**  | The region of a program where global variables are accessible, typically the entire script. | The region of a program where local variables are accessible, usually within a function. |
@@ -1231,7 +1231,7 @@ print(x)  # Output: 20
 
 32. ### Difference between Shallow Copy and Deep Copy
 
-```markdown
+```
 | **Feature**      | **Shallow Copy**                                   | **Deep Copy**                                    |
 |-----------------|-------------------------------------------------|-------------------------------------------------|
 | **Definition**  | Creates a new object but inserts references to the original elements. | Creates a new object and recursively copies all nested objects. |
