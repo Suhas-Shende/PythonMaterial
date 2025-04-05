@@ -864,7 +864,7 @@ print(p.gender)  # Output: Female
 
 23. ### Difference between `map()` and `filter()`
 
-```
+
 | **Feature**      | **map()**                                      | **filter()**                                   |
 |-----------------|----------------------------------------------|----------------------------------------------|
 | **Definition**  | Applies a function to each item in an iterable and returns a new iterable with transformed values. | Applies a function to each item in an iterable and returns only the items that evaluate to `True`. |
@@ -874,7 +874,7 @@ print(p.gender)  # Output: Female
 | **Function Requirement** | Function must return a value for each element. | Function must return a boolean (`True` or `False`). |
 | **Usage** | When you need to modify all elements of an iterable. | When you need to **select** elements based on a condition. |
 | **Example** | `map(lambda x: x*2, [1, 2, 3, 4])` → `[2, 4, 6, 8]` | `filter(lambda x: x%2==0, [1, 2, 3, 4])` → `[2, 4]` |
-```
+
 
 ### **Example Usage**
 
@@ -901,7 +901,7 @@ print(list(even_numbers))  # Output: [2, 4]
 
 24. ### Difference between `update()` and `union()` in Sets
 
-```
+
 | **Feature**      | **update()**                                     | **union()**                                   |
 |-----------------|-------------------------------------------------|---------------------------------------------|
 | **Definition**  | Modifies the original set by adding elements from another set or iterable. | Returns a new set containing all elements from both sets without modifying the original set. |
@@ -909,7 +909,7 @@ print(list(even_numbers))  # Output: [2, 4]
 | **Return Type** | Returns `None` (modifies the existing set).     | Returns a **new set** with merged elements. |
 | **Usage**       | Used when you want to **extend** a set without creating a new one. | Used when you need a **new set** containing all unique elements from both sets. |
 | **Example**     | `A.update(B)` → `A` now contains elements of both `A` and `B`. | `C = A.union(B)` → `C` contains elements of `A` and `B`, but `A` and `B` remain unchanged. |
-```
+
 
 ### **Example Usage**
 
@@ -937,14 +937,14 @@ print(C)  # Output: {1, 2, 3, 4, 5}  (A and B remain unchanged)
 
 25. ### Difference between `intersection()` and `difference()` in Sets
 
-```
+
 | **Feature**      | **intersection()**                              | **difference()**                               |
 |-----------------|-----------------------------------------------|----------------------------------------------|
 | **Definition**  | Returns a set containing only common elements between two sets. | Returns a set containing elements in the first set but not in the second. |
 | **Mutability**  | Does **not** modify original sets; returns a new set. | Does **not** modify original sets; returns a new set. |
 | **Usage**       | Used to find **common** elements between two sets. | Used to find **unique** elements in one set compared to another. |
 | **Example**     | `A.intersection(B)` → `{3}` | `A.difference(B)` → `{1, 2}` |
-```
+
 
 ### **Example Usage**
 
@@ -972,14 +972,14 @@ print(C)  # Output: {1, 2}
 
 26. ### Difference between `frozenset` and `set`
 
-```
+
 | **Feature**      | **set**                                        | **frozenset**                                   |
 |-----------------|----------------------------------------------|----------------------------------------------|
 | **Mutability**  | **Mutable** – elements can be added or removed. | **Immutable** – elements **cannot** be changed after creation. |
 | **Usage**       | Used for **modifiable** collections of unique elements. | Used when a **fixed, hashable** set is needed (e.g., dictionary keys). |
 | **Operations**  | Supports adding, removing, and updating elements. | Supports only read operations (no add/remove). |
 | **Example**     | `A = {1, 2, 3}` → `A.add(4)` → `{1, 2, 3, 4}` | `B = frozenset([1, 2, 3])` → modification not allowed. |
-```
+
 
 ### **Example Usage**
 
@@ -1005,7 +1005,7 @@ print(B)  # Output: frozenset({1, 2, 3})
 
 27. ### Difference between `remove()` and `discard()` in Sets
 
-```
+
 | **Feature**      | **remove()**                                    | **discard()**                                   |
 |-----------------|----------------------------------------------|----------------------------------------------|
 | **Definition**  | Removes a specified element from the set. If the element is not found, it raises a `KeyError`. | Removes a specified element from the set. If the element is not found, it **does not** raise an error. |
@@ -1014,7 +1014,7 @@ print(B)  # Output: frozenset({1, 2, 3})
 | **Return Type** | Returns `None` (modifies in place).           | Returns `None` (modifies in place). |
 | **Usage**       | Use when you **know** the element exists in the set. | Use when you're **not sure** if the element exists. |
 | **Example**     | `A.remove(3)` → If `3` is not present, raises an error. | `A.discard(3)` → If `3` is not present, no error is raised. |
-```
+
 
 ### **Example Usage**
 
@@ -1041,7 +1041,7 @@ A.discard(5)  # No error, even though 5 is not in the set.
 
 28. ### Difference between Keyword Arguments and Positional Arguments
 
-```
+
 | **Feature**      | **Positional Arguments**                        | **Keyword Arguments**                      |
 |-----------------|-----------------------------------------------|------------------------------------------|
 | **Definition**  | Arguments are passed based on their position in the function call. | Arguments are passed using parameter names, regardless of order. |
@@ -1050,7 +1050,7 @@ A.discard(5)  # No error, even though 5 is not in the set.
 | **Flexibility** | Requires remembering the order of parameters. | Easier to use, especially when a function has many parameters. |
 | **Mixing Allowed?** | Yes, but positional arguments must come first. | Yes, but keyword arguments must follow positional arguments. |
 | **Example**     | `func(1, 2, 3)` | `func(a=1, b=2, c=3)` |
-```
+
 
 ### **Example Usage**
 
@@ -1078,7 +1078,7 @@ greet(age=25, name="Alice")  # Output: Hello, Alice! You are 25 years old.
 
 29. ### Difference between `*args` and `**kwargs`
 
-```
+
 | **Feature**      | **`*args`**                                      | **`**kwargs`**                                   |
 |-----------------|----------------------------------------------|----------------------------------------------|
 | **Definition**  | Allows a function to accept a variable number of **positional arguments**. | Allows a function to accept a variable number of **keyword arguments**. |
@@ -1087,7 +1087,7 @@ greet(age=25, name="Alice")  # Output: Hello, Alice! You are 25 years old.
 | **Accessing Values** | Accessed using tuple indexing.             | Accessed using dictionary key-value pairs. |
 | **Order Matters?** | Yes, values are passed based on order.      | No, values are assigned using named parameters. |
 | **Example**     | `def func(*args): print(args)` → `func(1, 2, 3)` → `(1, 2, 3)` | `def func(**kwargs): print(kwargs)` → `func(a=1, b=2)` → `{'a': 1, 'b': 2}` |
-```
+
 
 ### **Example Usage**
 
@@ -1123,7 +1123,7 @@ greet(name="Alice", age=25, city="New York")
 
 30. ### Difference between Global and Local Variables
 
-```
+
 | **Feature**      | **Global Variables**                            | **Local Variables**                             |
 |-----------------|----------------------------------------------|----------------------------------------------|
 | **Definition**  | Declared outside a function and accessible throughout the program. | Declared inside a function and accessible only within that function. |
@@ -1132,7 +1132,7 @@ greet(name="Alice", age=25, city="New York")
 | **Modification** | Can be modified inside a function using the `global` keyword. | Cannot be directly modified outside its function. |
 | **Use Case**    | Useful for constants or variables that need to be accessed globally. | Useful for temporary data specific to a function. |
 | **Example**     | `x = 10` (Declared outside function, accessible inside functions) | `def func(): x = 5` (Only accessible within `func()`) |
-```
+
 
 ### **Example Usage**
 
@@ -1178,7 +1178,7 @@ print(x)  # Output: 20
 31. ### Difference between global scope and local scope.
 
 
-```
+
 | **Feature**      | **Global Scope**                                | **Local Scope**                               |
 |-----------------|----------------------------------------------|----------------------------------------------|
 | **Definition**  | The region of a program where global variables are accessible, typically the entire script. | The region of a program where local variables are accessible, usually within a function. |
@@ -1187,7 +1187,7 @@ print(x)  # Output: 20
 | **Modification** | Can be modified inside a function using the `global` keyword. | Cannot be directly modified outside its function. |
 | **Use Case**    | Useful for constants or variables that need to be accessed globally. | Useful for temporary data specific to a function. |
 | **Example**     | `x = 10` (Declared outside function, accessible inside functions) | `def func(): x = 5` (Only accessible within `func()`) |
-```
+
 
 ### **Example Usage**
 
@@ -1231,7 +1231,7 @@ print(x)  # Output: 20
 
 32. ### Difference between Shallow Copy and Deep Copy
 
-```
+
 | **Feature**      | **Shallow Copy**                                   | **Deep Copy**                                    |
 |-----------------|-------------------------------------------------|-------------------------------------------------|
 | **Definition**  | Creates a new object but inserts references to the original elements. | Creates a new object and recursively copies all nested objects. |
@@ -1239,7 +1239,7 @@ print(x)  # Output: 20
 | **Modification Effect** | Changes to mutable elements affect both copies. | Changes to mutable elements in the copied object do not affect the original. |
 | **Use Case**    | When you need a duplicate without modifying nested elements. | When you need a completely independent copy. |
 | **Example**     | `copy.copy(original_list)` | `copy.deepcopy(original_list)` |
-```
+
 
 ### **Example Usage**
 
