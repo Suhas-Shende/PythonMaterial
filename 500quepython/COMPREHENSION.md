@@ -1,4 +1,4 @@
-6. ### What is compheresions and its type
+### What is compheresions and its type
 ## **What is Comprehension and Its Types?**
 
 ### **Definition:**

@@ -1,4 +1,81 @@
-### 1. Difference between tuple and dictionary.
+<!-- 
+1. ### Difference between tuple and dictionary.
+2. ### Difference between tuple and set.
+3. ### Difference between map() and filter().
+4. ### Difference between range() and xrange()
+5. ### Difference between int() and eval().
+6. ### Difference between append() and extend()
+7. ### Difference between input() and raw_input() (Python 2).
+8. ### Difference between `for` Loop and `while` Loop
+9. ### Difference between remove() and pop().
+10. ### Difference between sorted() and sort().
+11. ### Difference between split() and partition().
+12. ### Difference between find() and index().
+13. ### Difference between upper() and capitalize().
+14. ### Difference between function overloading and function overriding.
+15. ### Difference between method overloading and method overriding.
+16. ### Difference between normal function and lambda function.
+17. ### Difference between a function and a generator.
+18. ### Difference between generator and iterator.
+19. ### Difference between yield and return.
+20. ### Difference between static methods and class methods.
+21. ### Difference between static methods and instance methods.
+22. ### Difference between getattr() and setattr().
+23. ### Difference between `map()` and `filter()`
+24. ### Difference between `update()` and `union()` in Sets
+25. ### Difference between `intersection()` and `difference()` in Sets
+26. ### Difference between `frozenset` and `set`
+27. ### Difference between `remove()` and `discard()` in Sets
+28. ### Difference between Keyword Arguments and Positional Arguments
+29. ### Difference between `*args` and `**kwargs`
+30. ### Difference between Global and Local Variables
+31. ### Difference between global scope and local scope.
+32. ### Difference between Shallow Copy and Deep Copy
+33. ### Difference Between Class Variable and Instance Variable
+34. ### Difference Between Class Method and Static Method -->
+
+
+
+1. [Difference between tuple and dictionary](#difference-between-tuple-and-dictionary)
+2. [Difference between tuple and set](#difference-between-tuple-and-set)
+3. [Difference between map() and filter()](#difference-between-map-and-filter)
+4. [Difference between range() and xrange()](#difference-between-range-and-xrange)
+5. [Difference between int() and eval()](#difference-between-int-and-eval)
+6. [Difference between append() and extend()](#difference-between-append-and-extend)
+7. [Difference between input() and raw_input() (Python 2)](#difference-between-input-and-raw_input-python-2)
+8. [Difference between `for` Loop and `while` Loop](#difference-between-for-loop-and-while-loop)
+9. [Difference between remove() and pop()](#difference-between-remove-and-pop)
+10. [Difference between sorted() and sort()](#difference-between-sorted-and-sort)
+11. [Difference between split() and partition()](#difference-between-split-and-partition)
+12. [Difference between find() and index()](#difference-between-find-and-index)
+13. [Difference between upper() and capitalize()](#difference-between-upper-and-capitalize)
+14. [Difference between function overloading and function overriding](#difference-between-function-overloading-and-function-overriding)
+15. [Difference between method overloading and method overriding](#difference-between-method-overloading-and-method-overriding)
+16. [Difference between normal function and lambda function](#difference-between-normal-function-and-lambda-function)
+17. [Difference between a function and a generator](#difference-between-a-function-and-a-generator)
+18. [Difference between generator and iterator](#difference-between-generator-and-iterator)
+19. [Difference between yield and return](#difference-between-yield-and-return)
+20. [Difference between static methods and class methods](#difference-between-static-methods-and-class-methods)
+21. [Difference between static methods and instance methods](#difference-between-static-methods-and-instance-methods)
+22. [Difference between getattr() and setattr()](#difference-between-getattr-and-setattr)
+23. [Difference between map() and filter()](#difference-between-map-and-filter-1)
+24. [Difference between update() and union() in Sets](#difference-between-update-and-union-in-sets)
+25. [Difference between intersection() and difference() in Sets](#difference-between-intersection-and-difference-in-sets)
+26. [Difference between frozenset and set](#difference-between-frozenset-and-set)
+27. [Difference between remove() and discard() in Sets](#difference-between-remove-and-discard-in-sets)
+28. [Difference between Keyword Arguments and Positional Arguments](#difference-between-keyword-arguments-and-positional-arguments)
+29. [Difference between *args and **kwargs](#difference-between-args-and-kwargs)
+30. [Difference between Global and Local Variables](#difference-between-global-and-local-variables)
+31. [Difference between global scope and local scope](#difference-between-global-scope-and-local-scope)
+32. [Difference between Shallow Copy and Deep Copy](#difference-between-shallow-copy-and-deep-copy)
+33. [Difference Between Class Variable and Instance Variable](#difference-between-class-variable-and-instance-variable)
+34. [Difference Between Class Method and Static Method](#difference-between-class-method-and-static-method)
+
+
+
+
+
+1. ### Difference between tuple and dictionary.
 
 | **Feature**         | **Tuple**                                      | **Dictionary**                              |
 |---------------------|----------------------------------------------|-------------------------------------------|
@@ -10,7 +87,7 @@
 | **Performance**     | Faster due to immutability                  | Slightly slower due to key hashing       |
 | **Use Case**       | Storing **fixed** collections of values      | Storing **mapped relationships**         |
 
-### 2. Difference between tuple and set.
+2. ### Difference between tuple and set.
 | **Feature**         | **Tuple**                                  | **Set**                                 |
 |---------------------|------------------------------------------|----------------------------------------|
 | **Definition**      | An **ordered** collection of elements   | An **unordered** collection of unique elements |
@@ -22,7 +99,7 @@
 | **Performance**    | Faster for **fixed** data retrieval    | Faster for **membership testing** (`O(1)`) |
 | **Use Case**       | Storing **fixed sequences** of values  | Storing **unique elements** for fast lookup |
 
-### 3. Difference between map() and filter().
+3. ###  Difference between map() and filter().
 | **Feature**       | **`map()`**                                      | **`filter()`**                              |
 |-------------------|-------------------------------------------------|--------------------------------------------|
 | **Purpose**       | Applies a function to **each element** of an iterable | Filters elements based on a **condition** |
@@ -33,7 +110,7 @@
 | **Example Usage** | `map(lambda x: x * 2, [1, 2, 3])  → [2, 4, 6]` | `filter(lambda x: x % 2 == 0, [1, 2, 3, 4])  → [2, 4]` |
 | **Use Case**      | When you need to **modify** all elements | When you need to **filter out** elements based on a condition |
 
-### 4. Difference between range() and xrange().
+4. ### Difference between range() and xrange().
 | **Feature**         | **`range()`** (Python 3 & 2)           | **`xrange()`** (Python 2 Only)          |
 |---------------------|---------------------------------|---------------------------------|
 | **Availability**    | Available in **Python 3 & 2**   | Available **only in Python 2** (Not in Python 3) |
@@ -43,7 +120,7 @@
 | **Iteration**       | Can be iterated multiple times | Can only be iterated once (like a generator) |
 | **Syntax**         | `range(start, stop, step)` | `xrange(start, stop, step)` |
 
-### 5. Difference between int() and eval().
+5. ### Difference between int() and eval().
 
 | **Feature**       | **`int()`**                                      | **`eval()`**                                 |
 |-------------------|-------------------------------------------------|---------------------------------------------|
@@ -55,7 +132,7 @@
 | **Use Case**      | When you need to convert **strings to integers** | When you need to evaluate **mathematical expressions** dynamically |
 
 
-### 6. Difference between append() and extend().
+6. ### Difference between append() and extend().
 | **Feature**       | **`append()`**                                  | **`extend()`**                                |
 |-------------------|-----------------------------------------------|---------------------------------------------|
 | **Purpose**       | Adds a **single element** to the list         | Adds **multiple elements** (iterable) to the list |
@@ -79,7 +156,7 @@ print(my_list)  # Output: [1, 2, 3, 4, 5]  (Flattened list)
 
 ```
 
-### 7. Difference between input() and raw_input() (Python 2).
+7. ### Difference between input() and raw_input() (Python 2).
 
 | **Feature**       | **`input()` (Python 2 & 3)**                 | **`raw_input()` (Python 2 Only)**        |
 |-------------------|-------------------------------------------|---------------------------------------|
@@ -110,7 +187,7 @@ text = raw_input("Enter text: ")  # If user enters 10, it is treated as a string
 * raw_input() was removed, and input() behaves like raw_input() in Python 2 (always returns a string).
 
 
-### 8. Difference between `for` Loop and `while` Loop
+8. ### Difference between `for` Loop and `while` Loop
 
 ```markdown
 | **Feature**      | **`for` Loop**                                    | **`while` Loop**                                |
@@ -157,7 +234,7 @@ while i < 5:
 - **`for` loops** are generally more readable and commonly used for iteration.
 - **`while` loops** provide more flexibility when the loop termination condition is dynamic.
 
-### 9. Difference between remove() and pop().
+9. ###  Difference between remove() and pop().
 | **Feature**       | **`remove()`**                              | **`pop()`**                               |
 |-------------------|-------------------------------------------|-----------------------------------------|
 | **Purpose**       | Removes a **specific value** from the list | Removes an **element by index** and returns it |
@@ -192,7 +269,7 @@ print(removed_item)  # Output: 3
 * pop() raises an error if the index is out of range
 
 
-### 10. Difference between sorted() and sort().
+10. ### Difference between sorted() and sort().
 | **Feature**       | **`sorted()`**                              | **`sort()`**                              |
 |-------------------|-------------------------------------------|-----------------------------------------|
 | **Purpose**       | Returns a **new sorted list** (does not modify original) | Sorts the list **in place** (modifies original list) |
@@ -228,7 +305,7 @@ print(numbers)  # Output: [1, 1, 3, 4, 5] (sorted in place)
 * Use sorted() when you need a copy, and sort() when you want to modify the original list.
 
 
-### 11. Difference between split() and partition().
+11. ### Difference between split() and partition().
 
 | **Feature**       | **`split()`**                              | **`partition()`**                        |
 |-------------------|------------------------------------------|-----------------------------------------|
@@ -261,7 +338,7 @@ print(result)  # Output: ('apple', ',', 'banana,cherry')
 
 * If the separator is not found, split() returns the whole string as a list, while partition() returns the whole string as the first tuple element, followed by two empty strings.
 
-### 12. Difference between find() and index().
+12. ### Difference between find() and index().
 | **Feature**       | **`find()`**                              | **`index()`**                             |
 |-------------------|-----------------------------------------|-----------------------------------------|
 | **Purpose**       | Returns the **index of the first occurrence** of a substring | Returns the **index of the first occurrence** of a substring |
@@ -291,7 +368,8 @@ print(text.index("Python"))  # Raises ValueError: substring not found
 
 * Use index() when you are sure the substring exists and want an error if it doesn’t.
 
-### 13. Difference between upper() and capitalize().
+
+13. ### Difference between upper() and capitalize().
 | **Feature**       | **`upper()`**                              | **`capitalize()`**                        |
 |-------------------|------------------------------------------|-----------------------------------------|
 | **Purpose**       | Converts **all characters** to uppercase | Converts **only the first character** to uppercase and the rest to lowercase |
@@ -368,7 +446,7 @@ outer_function()
 
 * global affects global scope, while nonlocal affects enclosing function scope.
 
-### 14. Difference between function overloading and function overriding.
+14. ###  Difference between function overloading and function overriding.
 | **Feature**           | **Function Overloading**                          | **Function Overriding**                         |
 |----------------------|------------------------------------------------|------------------------------------------------|
 | **Definition**       | Defining multiple functions with the **same name** but **different parameters** | Redefining a method in a **child class** that is already defined in the **parent class** |
@@ -419,7 +497,7 @@ obj.show()  # Output: "This is the child class method." (Parent's method is over
 
 
 
-### 15. Difference between method overloading and method overriding.
+15. ### Difference between method overloading and method overriding.
 | **Feature**           | **Method Overloading**                          | **Method Overriding**                         |
 |----------------------|------------------------------------------------|------------------------------------------------|
 | **Definition**       | Defining multiple methods with the **same name** but **different parameters** in the **same class** | Redefining a method in a **child class** that is already defined in the **parent class** |
@@ -468,7 +546,7 @@ Overloading is resolved at compile-time in some languages, while Overriding is r
 
 Use default arguments or *args to simulate overloading in Python.
 
-### 16. Difference between normal function and lambda function.
+16. ### Difference between normal function and lambda function.
 | **Feature**        | **Normal Function**                            | **Lambda Function**                        |
 |-------------------|--------------------------------------------|-----------------------------------------|
 | **Definition**    | Defined using the `def` keyword           | Defined using the `lambda` keyword     |
@@ -506,7 +584,7 @@ Lambda functions return values implicitly, while normal functions use an explici
 Lambda functions are anonymous, meaning they don’t have a name unless assigned
 
 
-### 17. Difference between a function and a generator.
+17. ### Difference between a function and a generator.
 | **Feature**         | **Function**                                 | **Generator**                             |
 |--------------------|-------------------------------------------|-----------------------------------------|
 | **Definition**     | A block of code that performs a task when called | A special function that yields values lazily using `yield` |
@@ -550,7 +628,7 @@ print(next(gen))  # Output: 3
 
 * Use functions for small data and generators for large/infinite data (like reading large files).
 
-### 18. Difference between generator and iterator.
+18. ###  Difference between generator and iterator.
 | **Feature**        | **Generator**                                  | **Iterator**                                |
 |-------------------|----------------------------------------------|------------------------------------------|
 | **Definition**    | A special type of iterator that yields values using `yield` | Any object that implements `__iter__()` and `__next__()` |
@@ -605,7 +683,7 @@ print(next(it))  # Output: 3
 
 * Use generators for large/infinite sequences and iterators for custom iteration logic.
 
-### 19. Difference between yield and return.
+19. ### Difference between yield and return.
 | **Feature**        | **yield**                                    | **return**                              |
 |-------------------|--------------------------------------------|--------------------------------------|
 | **Definition**    | Pauses function execution and returns a value, but allows resumption later | Terminates function execution and returns a value |
@@ -646,7 +724,7 @@ print(next(gen))  # Output: 3
 
 * Use yield for large/infinite sequences and return for single results.
 
-### 20. Difference between static methods and class methods.
+20. ### Difference between static methods and class methods.
 | **Feature**            | **Static Method**                                  | **Class Method**                                |
 |-----------------------|---------------------------------------------------|------------------------------------------------|
 | **Definition**         | A method that doesn't take `self` or `cls` as the first argument. It's bound to the class but does not operate on instance or class variables. | A method that takes `cls` (the class itself) as the first argument, which allows access to class-level variables and methods. |
@@ -694,7 +772,7 @@ Use static methods for utility functions, and class methods when you need to wor
 
 
 
-### 21. Difference between static methods and instance methods.
+21. ### Difference between static methods and instance methods.
 
 | **Feature**          | **Static Method**                                 | **Instance Method**                           |
 |---------------------|------------------------------------------------|---------------------------------------------|
@@ -739,7 +817,7 @@ print(p.greet())  # Output: Hello, my name is Alice.
 
 **Static methods** can be called without creating an instance, while instance methods require an object of the class.
 
-### 22. Difference between getattr() and setattr().
+22. ###  Difference between getattr() and setattr().
 | **Feature**        | **getattr()**                                      | **setattr()**                                    |
 |-------------------|--------------------------------------------------|------------------------------------------------|
 | **Definition**    | Retrieves the value of an attribute from an object. | Sets (modifies) the value of an attribute in an object. |
@@ -784,7 +862,7 @@ print(p.gender)  # Output: Female
 
 
 
-### 23. Difference between `map()` and `filter()`
+23. ### Difference between `map()` and `filter()`
 
 ```markdown
 | **Feature**      | **map()**                                      | **filter()**                                   |
@@ -821,7 +899,7 @@ print(list(even_numbers))  # Output: [2, 4]
 
 
 
-### 24. Difference between `update()` and `union()` in Sets
+24. ### Difference between `update()` and `union()` in Sets
 
 ```markdown
 | **Feature**      | **update()**                                     | **union()**                                   |
@@ -857,7 +935,7 @@ print(C)  # Output: {1, 2, 3, 4, 5}  (A and B remain unchanged)
 
 
 
-### 25. Difference between `intersection()` and `difference()` in Sets
+25. ### Difference between `intersection()` and `difference()` in Sets
 
 ```markdown
 | **Feature**      | **intersection()**                              | **difference()**                               |
@@ -892,7 +970,7 @@ print(C)  # Output: {1, 2}
 
 ---
 
-### 26. Difference between `frozenset` and `set`
+26. ### Difference between `frozenset` and `set`
 
 ```markdown
 | **Feature**      | **set**                                        | **frozenset**                                   |
@@ -925,7 +1003,7 @@ print(B)  # Output: frozenset({1, 2, 3})
 
 
 
-### 27. Difference between `remove()` and `discard()` in Sets
+27. ### Difference between `remove()` and `discard()` in Sets
 
 ```markdown
 | **Feature**      | **remove()**                                    | **discard()**                                   |
@@ -961,7 +1039,7 @@ A.discard(5)  # No error, even though 5 is not in the set.
 - **Use `discard()`** when you **don’t want an error** if the element is missing.
 
 
-### 28. Difference between Keyword Arguments and Positional Arguments
+28. ### Difference between Keyword Arguments and Positional Arguments
 
 ```markdown
 | **Feature**      | **Positional Arguments**                        | **Keyword Arguments**                      |
@@ -998,7 +1076,7 @@ greet(age=25, name="Alice")  # Output: Hello, Alice! You are 25 years old.
 - **Mixing is allowed**, but **positional arguments must come first**.
 
 
-### 29. Difference between `*args` and `**kwargs`
+29. ### Difference between `*args` and `**kwargs`
 
 ```markdown
 | **Feature**      | **`*args`**                                      | **`**kwargs`**                                   |
@@ -1043,7 +1121,7 @@ greet(name="Alice", age=25, city="New York")
 
 
 
-### 30. Difference between Global and Local Variables
+30. ### Difference between Global and Local Variables
 
 ```markdown
 | **Feature**      | **Global Variables**                            | **Local Variables**                             |
@@ -1097,7 +1175,7 @@ print(x)  # Output: 20
 
 
 
-### 31. Difference between global scope and local scope.
+31. ### Difference between global scope and local scope.
 
 
 ```markdown
@@ -1151,7 +1229,7 @@ print(x)  # Output: 20
 - Use the `global` keyword to modify a global variable inside a function.
 
 
-## 32. Difference between Shallow Copy and Deep Copy
+32. ### Difference between Shallow Copy and Deep Copy
 
 ```markdown
 | **Feature**      | **Shallow Copy**                                   | **Deep Copy**                                    |
@@ -1188,4 +1266,121 @@ print(list1)  # Output: [[1, 2], [3, 4]] (Original remains unchanged)
 - **Deep copy** creates a fully independent object with duplicated nested elements.
 - Use `copy.copy()` for shallow copies and `copy.deepcopy()` for deep copies.
 
+
+33. ### Difference Between Class Variable and Instance Variable
+
+### **1. Class Variable**
+- A **class variable** is shared by **all instances** of a class.
+- It is defined **inside the class**, but **outside any instance methods**.
+- Modifying a class variable will affect **all instances** unless specifically overridden.
+
+```python
+class Student:
+    school_name = "ABC School"  # Class variable
+
+    def __init__(self, name):
+        self.name = name  # Instance variable
+
+s1 = Student("Alice")
+s2 = Student("Bob")
+
+print(s1.school_name)  # Output: ABC School
+print(s2.school_name)  # Output: ABC School
+
+Student.school_name = "XYZ School"  # Changing class variable
+print(s1.school_name)  # Output: XYZ School
+```
+
+
+
+### **2. Instance Variable**
+- An **instance variable** is specific to each **object instance**.
+- It is defined using `self` inside the constructor or other methods.
+- Changing it affects **only that specific object**.
+
+```python
+s1.name = "Charlie"
+print(s1.name)  # Output: Charlie
+print(s2.name)  # Output: Bob
+```
+
+---
+
+### **3. Key Differences**
+| Feature            | Class Variable                 | Instance Variable              |
+|--------------------|--------------------------------|--------------------------------|
+| Scope              | Shared across all instances    | Unique to each instance       |
+| Defined In         | Class level                    | Inside constructor/method      |
+| Accessed With      | ClassName.var or self.var      | Only with self.var             |
+| Memory             | Stored once for the class      | Stored separately per object   |
+
+---
+
+### **Conclusion**
+- Use **class variables** for properties common to all instances.
+- Use **instance variables** for unique data in each object.
+
+---
+
+34. ### Difference Between Class Method and Static Method
+
+### **1. Class Method**
+- A **class method** is bound to the class and not the instance of the class.
+- It takes `cls` as its first parameter, which refers to the class itself.
+- It can access or modify the class state.
+- Defined using the `@classmethod` decorator.
+
+```python
+class Person:
+    count = 0
+
+    def __init__(self, name):
+        self.name = name
+        Person.count += 1
+
+    @classmethod
+    def get_count(cls):
+        return cls.count
+
+print(Person.get_count())  # Output: 0
+p1 = Person("Alice")
+p2 = Person("Bob")
+print(Person.get_count())  # Output: 2
+```
+
+---
+
+### **2. Static Method**
+- A **static method** does not take `self` or `cls` as its first argument.
+- It can't access or modify class or instance data.
+- Defined using the `@staticmethod` decorator.
+- Used for utility functions related to the class.
+
+```python
+class Math:
+    @staticmethod
+    def add(x, y):
+        return x + y
+
+print(Math.add(3, 5))  # Output: 8
+```
+
+---
+
+### **3. Key Differences**
+| Feature            | Class Method                   | Static Method                   |
+|--------------------|--------------------------------|---------------------------------|
+| First Argument     | cls (class)                    | No default argument             |
+| Access Class Data  | Yes                            | No                              |
+| Access Instance Data| No                            | No                              |
+| Use Case           | Modify class state             | Utility operations              |
+
+---
+
+### **Conclusion**
+- Use **class methods** when you need to work with class variables or modify class state.
+- Use **static methods** for general-purpose utilities that don't need access to class or instance data.
+
+
+---
 

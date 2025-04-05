@@ -62,7 +62,7 @@
 8. [How do you replace a substring in a string?](#how-do-you-replace-a-substring-in-a-string)  
 9. [What are negative indices in Python?](#what-are-negative-indices-in-python)  
 10. [What is the difference between `capitalize()`, `title()`, and `upper()`?](#what-is-the-difference-between-capitalize-title-and-upper)  
-
+11. [What Are Raw Strings in Python and How Are They Useful?](#what-are-raw-strings-in-python-and-how-are-they-useful) 
 ---
 
 ## **6. Lists, Tuples, Sets and Dictionary**  
@@ -84,6 +84,8 @@
 13. [How do you access elements in a dictionary?](#how-do-you-access-elements-in-a-dictionary)  
 
 14. [What are the key differences between a set and a dictionary?](#what-are-the-key-differences-between-a-set-and-a-dictionary)  
+15. [What are the advantages of using a tuple over a list?](#what-are-the-advantages-of-using-a-tuple-over-a-list)
+
 ---
 
 
@@ -162,8 +164,8 @@
 6. [What is the `assert` statement used for in Python?](#what-is-the-assert-statement-used-for-in-python)  
 7. [What is exception chaining in Python?](#what-is-exception-chaining-in-python)  
 8. [How do you define custom exceptions in Python?](#how-do-you-define-custom-exceptions-in-python)  
-9. [Exception Handling Questions Along with Guess the Output](#exception-handling-questions-along-with-guess-the-output)
-<!-- 10. [`finally` Block](#finally-block) -->
+9. [What is exception handeling questions along with guess the output?](#what-is-exception-handeling-questions-along-with-guess-the-output)
+10. [How do you handle multiple exceptions in a single try block Provide an example?](#how-do-you-handle-multiple-exceptions-in-a-single-try-block-provide-an-example) 
 
 ---
 
@@ -176,7 +178,7 @@
 5. [What is the difference between `read()`, `readline()`, and `readlines()`?](#what-is-the-difference-between-read-readline-and-readlines)  
 6. [How do you write data to a file in Python?](#how-do-you-write-data-to-a-file-in-python)  
 7. [How do you delete a file in Python?](#how-do-you-delete-a-file-in-python)  
-
+8. [Explain the concept of file pointers and how they are managed in Python?](#explain-the-concept-of-file-pointers-and-how-they-are-managed-in-python) 
 ---
 
 ## **15. Modules and Packages**  
@@ -2733,6 +2735,52 @@
     print(text.title())       # Output: "Hello World"
     print(text.upper())       # Output: "HELLO WORLD"
     ```
+11. ### What Are Raw Strings in Python and How Are They Useful
+### **1. What is a Raw String?**
+- A **raw string** in Python is a string prefixed with `r` or `R`.
+- In raw strings, **escape characters** like `\n` or `\t` are **not processed**.
+
+```python
+normal_string = "This is a newline character: \n"
+raw_string = r"This is a newline character: \n"
+
+print(normal_string)  # Outputs: This is a newline character: 
+
+print(raw_string)     # Outputs: This is a newline character: \n
+```
+
+---
+
+### **2. Why Are Raw Strings Useful?**
+- **File paths** on Windows, which use backslashes.
+- **Regular expressions**, which use many backslashes.
+- Prevents errors and makes code **more readable**.
+
+```python
+# File paths
+file_path = r"C:\\Users\\Name\\Documents"
+
+# Regular expressions
+import re
+pattern = r"\d+"
+result = re.findall(pattern, "There are 123 numbers")
+print(result)  # Outputs: ['123']
+```
+
+---
+
+### **3. Important Notes**
+- A raw string cannot end with an odd number of backslashes.
+
+```python
+# r"C:\"  # SyntaxError
+```
+
+---
+
+### **Conclusion**
+- Raw strings simplify working with backslashes.
+- Especially useful in file paths and regex patterns where escape characters can clutter the code.
 
 # [🔝](#python-interview-questions )
 ---
@@ -3595,6 +3643,60 @@ my_set.remove(10)  # Raises KeyError since 10 is not in the set
     my_dict = {"name": "Alice", "age": 25}
     print(my_dict["name"])  # Output: Alice
     ```
+8. ### What are the advantages of using a tuple over a list
+    ### **What Are the Advantages of Using a Tuple Over a List?**
+
+    ### **1. Immutability**
+    - Tuples are **immutable**, meaning their elements cannot be changed after creation.
+    - This makes tuples more reliable in scenarios where data integrity is important.
+
+    ```python
+    my_tuple = (1, 2, 3)
+    # my_tuple[0] = 4  # This will raise a TypeError
+    ```
+
+    ---
+
+    ### **2. Performance**
+    - Tuples consume **less memory** and are **faster** than lists due to their immutable nature.
+    - Useful in performance-critical applications.
+
+    ```python
+    import sys
+    print(sys.getsizeof((1, 2, 3)))  # Tuple
+    print(sys.getsizeof([1, 2, 3]))  # List
+    ```
+
+    ---
+
+    ### **3. Hashability**
+    - Tuples can be used as **keys in dictionaries** or elements in sets, unlike lists.
+
+    ```python
+    d = {(1, 2): "value"}  # Valid
+    d = {[1, 2]: "value"}  # TypeError: unhashable type: 'list'
+    ```
+
+    ---
+
+    ### **4. Data Integrity**
+    - Tuples are ideal for storing **fixed collections** of items that shouldn't change, such as coordinates or RGB color values.
+
+    ```python
+    coordinates = (10.0, 20.0)
+    color = (255, 255, 0)
+    ```
+
+    ---
+
+    ### **5. Readability and Semantic Clarity**
+    - Using a tuple makes it **clear** to other developers that the data is **not meant to change**.
+
+    ---
+
+    ### **Conclusion**
+    - Use **tuples** when data should remain constant and performance matters.
+    - Use **lists** when you need a dynamic, mutable collection.
 
 # [🔝](#python-interview-questions )
 ---
@@ -5543,7 +5645,7 @@ my_set.remove(10)  # Raises KeyError since 10 is not in the set
 
 
 
-9. ### Exception handeling questions along with guess the output
+9. ### What is exception handeling questions along with guess the output
 
 
     ### **What is Exception Handling?**
@@ -5706,6 +5808,61 @@ my_set.remove(10)  # Raises KeyError since 10 is not in the set
 
     Exception handling ensures program stability by managing errors effectively. Using `try`, `except`, and `finally` blocks correctly helps prevent unexpected crashes.
 
+10. ### How do you handle multiple exceptions in a single try block Provide an example
+    ### **Overview**
+    In Python, you can handle multiple exceptions in a single `try` block by using multiple `except` clauses. This is useful when you anticipate different types of exceptions might be raised within the same block of code.
+
+    ---
+
+    ### **Syntax**
+    ```python
+    try:
+        # Code that may raise multiple types of exceptions
+    except TypeError:
+        # Handle TypeError
+    except ValueError:
+        # Handle ValueError
+    except Exception as e:
+        # Handle any other exception
+    ```
+
+    ---
+
+    ### **Example**
+    ```python
+    try:
+        x = int("abc")  # This will raise ValueError
+        y = 10 / 0       # This will raise ZeroDivisionError (but not reached)
+    except ValueError:
+        print("Caught a ValueError: Invalid conversion to int")
+    except ZeroDivisionError:
+        print("Caught a ZeroDivisionError: Division by zero")
+    except Exception as e:
+        print(f"Caught a general exception: {e}")
+    ```
+
+    #### **Output:**
+    ```
+    Caught a ValueError: Invalid conversion to int
+    ```
+
+    ---
+
+    ### **Handling Multiple Exceptions in One Line**
+    You can also handle multiple specific exceptions using a tuple:
+    ```python
+    try:
+        x = int("abc")
+    except (ValueError, TypeError) as e:
+        print(f"Caught an exception: {e}")
+    ```
+
+    ---
+
+    ### **Conclusion**
+    - Use multiple `except` blocks to handle different exception types separately.
+    - You can group exceptions using a tuple for concise code.
+    - Always include a generic `except Exception` clause to catch unexpected errors (optional but helpful).
 
 # [🔝](#python-interview-questions )
 ---
@@ -6190,6 +6347,75 @@ my_set.remove(10)  # Raises KeyError since 10 is not in the set
     - Use exception handling to avoid unexpected errors.
 
     By understanding these methods, you can safely delete files and folders in Python.
+
+8. ### Explain the concept of file pointers and how they are managed in Python
+    ### **What is a File Pointer?**
+    A **file pointer** is a reference to a specific position within a file. When you open a file in Python, the file pointer points to the beginning of the file by default. As you read from or write to the file, the pointer moves accordingly.
+
+    ---
+
+    ### **Managing File Pointers**
+    Python uses a built-in module called `io` to manage file input/output operations. You typically use the `open()` function to work with files.
+
+    ---
+
+    ### **Common File Modes**
+    | Mode | Description |
+    |------|-------------|
+    | `'r'` | Read (default) |
+    | `'w'` | Write (creates new file or overwrites existing) |
+    | `'a'` | Append |
+    | `'rb'`, `'wb'` | Binary read/write |
+
+    ---
+
+    ### **File Pointer Operations**
+    #### **1. `tell()`**
+    Returns the current position of the file pointer.
+    ```python
+    file = open("example.txt", "r")
+    print(file.tell())  # Output: 0 (beginning of file)
+    file.close()
+    ```
+
+    #### **2. `seek(offset, from_what)`**
+    Changes the file pointer to a specific location.
+    - `offset`: number of bytes to move
+    - `from_what`: 0 = beginning, 1 = current, 2 = end
+    ```python
+    file = open("example.txt", "r")
+    file.seek(5)  # Move pointer to 5th byte from beginning
+    print(file.tell())  # Output: 5
+    file.close()
+    ```
+
+    ---
+
+    ### **Reading and Writing Moves the Pointer**
+    Every time you read or write, the pointer advances:
+    ```python
+    with open("example.txt", "r") as file:
+        print(file.read(4))   # Reads first 4 characters
+        print(file.tell())    # Pointer now at position 4
+    ```
+
+    ---
+
+    ### **Resetting the Pointer**
+    You can reset the pointer to the beginning using `seek(0)`:
+    ```python
+    file = open("example.txt", "r")
+    file.read()
+    file.seek(0)  # Reset to start
+    file.close()
+    ```
+
+    ---
+
+    ### **Conclusion**
+    - File pointers help track where reading/writing occurs.
+    - `tell()` and `seek()` are key functions for managing pointer positions.
+    - Always close files using `file.close()` or a `with` block to ensure proper file handling.
 
 
 # [🔝](#python-interview-questions )
