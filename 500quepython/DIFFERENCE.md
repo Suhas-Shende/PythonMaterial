@@ -101,6 +101,24 @@
 | **Use Case**       | Storing **fixed sequences** of values  | Storing **unique elements** for fast lookup |
 
 3. ###  Difference between map() and filter().
+## Difference Between `map()` and `filter()` in Python
+
+| Feature                    | `map()`                                                                 | `filter()`                                                                 |
+|---------------------------|--------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| **Purpose**               | Applies a function to each element of an iterable and returns a new iterable with transformed values. | Applies a function to each element of an iterable and returns only the elements that satisfy the condition (i.e., for which the function returns `True`). |
+| **Output**                | Returns an iterable (`map` object) with the transformed values.          | Returns an iterable (`filter` object) containing only the elements that satisfy the condition. |
+| **Function Type**         | Used for **modification** or **transformation** of data.                 | Used for **filtering out** elements based on a condition.                 |
+| **Return Type**           | `map` object (can be converted to `list`, `tuple`, etc.)                 | `filter` object (can be converted to `list`, `tuple`, etc.)              |
+| **Number of Elements in Output** | Same as the input iterable (each element is transformed).                | Can be **less than or equal to** the input iterable (only matching elements are returned). |
+| **Syntax**        | `map(function, iterable)` | `filter(function, iterable)` |
+| **Use Case**      | When you need to **modify** all elements | When you need to **filter out** elements based on a condition |
+| **Example Usage** | `map(lambda x: x * 2, [1, 2, 3])  → [2, 4, 6]` | `filter(lambda x: x % 2 == 0, [1, 2, 3, 4])  → [2, 4]` |
+
+
+
+
+
+<!-- 
 | **Feature**       | **`map()`**                                      | **`filter()`**                              |
 |-------------------|-------------------------------------------------|--------------------------------------------|
 | **Purpose**       | Applies a function to **each element** of an iterable | Filters elements based on a **condition** |
@@ -109,7 +127,7 @@
 | **Function Type** | Uses a **transformation function** | Uses a **Boolean function** (returns `True` or `False`) |
 | **Syntax**        | `map(function, iterable)` | `filter(function, iterable)` |
 | **Example Usage** | `map(lambda x: x * 2, [1, 2, 3])  → [2, 4, 6]` | `filter(lambda x: x % 2 == 0, [1, 2, 3, 4])  → [2, 4]` |
-| **Use Case**      | When you need to **modify** all elements | When you need to **filter out** elements based on a condition |
+| **Use Case**      | When you need to **modify** all elements | When you need to **filter out** elements based on a condition | -->
 
 4. ### Difference between range() and xrange().
 | **Feature**         | **`range()`** (Python 3 & 2)           | **`xrange()`** (Python 2 Only)          |
