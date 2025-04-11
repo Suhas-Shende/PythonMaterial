@@ -34,7 +34,7 @@
 33. ### Difference Between Class Variable and Instance Variable
 34. ### Difference Between Class Method and Static Method -->
 
-
+## Difference of all topics
 
 1. [Difference between tuple and dictionary](#difference-between-tuple-and-dictionary)
 2. [Difference between tuple and set](#difference-between-tuple-and-set)
@@ -70,11 +70,12 @@
 32. [Difference between Shallow Copy and Deep Copy](#difference-between-shallow-copy-and-deep-copy)
 33. [Difference Between Class Variable and Instance Variable](#difference-between-class-variable-and-instance-variable)
 34. [Difference Between Class Method and Static Method](#difference-between-class-method-and-static-method)
+35. [What are break continue and pass statements in Python?](#what-are-break-continue-and-pass-statements-in-python)
+36. [difference between encapsulation and abstraction?](#difference-between-encapsulation-and-abstraction)
 
+37. [Difference Between `__str__` and `__repr__` in Python?](#difference-between-str-and-repr-in-python) 
 
-
-
-
+---
 1. ### Difference between tuple and dictionary.
 
 | **Feature**         | **Tuple**                                      | **Dictionary**                              |
@@ -189,7 +190,6 @@ text = raw_input("Enter text: ")  # If user enters 10, it is treated as a string
 
 8. ### Difference between `for` Loop and `while` Loop
 
-```
 | **Feature**      | **`for` Loop**                                    | **`while` Loop**                                |
 |-----------------|------------------------------------------------|------------------------------------------------|
 | **Definition**  | Used for iterating over a sequence (list, tuple, string, range, etc.). | Used for executing a block of code repeatedly while a condition is true. |
@@ -198,7 +198,7 @@ text = raw_input("Enter text: ")  # If user enters 10, it is treated as a string
 | **Termination** | Terminates after the iterable is exhausted. | Terminates when the condition becomes False. |
 | **Readability** | More readable for sequential iteration. | Better for condition-based loops. |
 | **Example**     | `for i in range(5): print(i)` | `while i < 5: print(i); i += 1` |
-```
+
 
 ### **Example Usage**
 
@@ -1384,3 +1384,158 @@ print(Math.add(3, 5))  # Output: 8
 
 ---
 
+35. ### What are break continue and pass statements in Python
+Python provides three important control flow statements: `break`, `continue`, and `pass`. These statements are used to control the flow of loops or to act as placeholders.
+
+---
+
+### 1. `break` Statement
+- The `break` statement is used to exit from the current loop prematurely, regardless of the loop condition.
+
+**Example:**
+```python
+for i in range(10):
+    if i == 5:
+        break
+    print(i)
+```
+**Output:**
+```
+0
+1
+2
+3
+4
+```
+
+---
+
+### 2. `continue` Statement
+- The `continue` statement skips the current iteration and continues with the next iteration of the loop.
+
+**Example:**
+```python
+for i in range(5):
+    if i == 2:
+        continue
+    print(i)
+```
+**Output:**
+```
+0
+1
+3
+4
+```
+
+---
+
+### 3. `pass` Statement
+- The `pass` statement is a null operation. It acts as a placeholder and does nothing when executed.
+- Useful in situations where syntactically some code is required, but you do not want any command or code to execute.
+
+**Example:**
+```python
+def function():
+    pass
+
+for i in range(3):
+    if i == 1:
+        pass
+    print(i)
+```
+**Output:**
+```
+0
+1
+2
+```
+
+---
+
+### Summary
+| Statement | Usage | Behavior |
+|----------|--------|----------|
+| `break` | Exit the loop | Immediately stops loop execution |
+| `continue` | Skip current iteration | Skips to the next iteration |
+| `pass` | Placeholder | Does nothing |
+
+These statements are commonly used in loops and function definitions to enhance flow control and maintain readability.
+
+
+
+36. ### Difference between encapsulation and abstraction
+
+### 🔐 Difference Between Encapsulation and Abstraction in Python
+
+| Feature           | Encapsulation                                           | Abstraction                                              |
+|-------------------|---------------------------------------------------------|-----------------------------------------------------------|
+| **Definition**     | Wrapping data and methods into a single unit (class).  | Hiding internal details and showing only essential info.  |
+| **Focus**          | Protects data from outside interference.               | Hides complexity and provides a simplified interface.     |
+| **Access**         | Uses access modifiers (public, protected, private).    | Uses abstract classes and methods (via `abc` module).     |
+| **Goal**           | Data security and control.                             | Simplify the usage and implementation of complex systems. |
+| **Implementation** | Achieved using classes and private/protected members.  | Achieved using abstract classes and interfaces.           |
+| **Example**        | Making variables private using `__var`.                | Hiding method logic using `@abstractmethod`.              |
+
+---
+
+### ✅ Example of Encapsulation
+
+```python
+class BankAccount:
+    def __init__(self, balance):
+        self.__balance = balance  # private variable
+
+    def get_balance(self):
+        return self.__balance
+
+    def deposit(self, amount):
+        self.__balance += amount
+```
+
+### ✅ Example of Abstraction
+```python
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+    @abstractmethod
+    def sound(self):
+        pass
+
+class Dog(Animal):
+    def sound(self):
+        print("Bark")
+
+```
+* **Encapsulation**=Data hiding
+* **Abstraction**=Complexity hiding
+
+
+37. ### Difference Between __str__ and __repr__ in Python
+
+| Feature            | `__str__()`                            | `__repr__()`                            |
+|--------------------|----------------------------------------|------------------------------------------|
+| **Purpose**        | For **readable**, user-friendly output | For **unambiguous**, dev/debug output   |
+| **Used by**        | `print()`, `str()`                     | `repr()`, debugger, and interpreter     |
+| **Audience**       | End user                               | Developer                               |
+| **Fallback**       | Falls back to `__repr__` if missing    | Falls back to default from `object`     |
+
+---
+
+### 📘 Example
+
+```python
+class Book:
+    def __init__(self, title):
+        self.title = title
+
+    def __str__(self):
+        return f"Book: {self.title}"
+
+    def __repr__(self):
+        return f"Book('{self.title}')"
+
+b = Book("Python 101")
+print(b)         # Uses __str__: Book: Python 101
+print(str(b))    # Book: Python 101
+print(repr(b))   # Uses __repr__: Book('Python 101')
