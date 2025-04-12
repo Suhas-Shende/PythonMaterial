@@ -144,6 +144,11 @@
 10. [How to avoid infinite recursion?](#how-to-avoid-infinite-recursion) 
 11. [What is lambda function?](#what-is-lambda-function)  
 12. [What is the enumerate function in Python?](#what-is-the-enumerate-function-in-python) 
+13. [What are higher-order functions in Python?](#what-are-higher-order-functions-in-python) 
+14. [What is the use of the reduce function?](#what-is-the-use-of-the-reduce-function) 
+15. [What is a function decorator?](#what-is-a-function-decorator) 
+16. [What is a Class Decorator?](#what-is-a-class-decorator) 
+17. [What is the purpose of the property decorator?](#what-is-the-purpose-of-the-property-decorator)
 ---
 
 ## **12. Iterators and Generators**  
@@ -166,7 +171,7 @@
 8. [How do you define custom exceptions in Python?](#how-do-you-define-custom-exceptions-in-python)  
 9. [What is exception handeling questions along with guess the output?](#what-is-exception-handeling-questions-along-with-guess-the-output)
 10. [How do you handle multiple exceptions in a single try block Provide an example?](#how-do-you-handle-multiple-exceptions-in-a-single-try-block-provide-an-example) 
-
+11. [Describe the different types of exceptions in Python. How can you create custom exceptions?](#describe-the-different-types-of-exceptions-in-python-how-can-you-create-custom-exceptions) 
 ---
 
 ## **14. File Handling in Python**  
@@ -179,6 +184,7 @@
 6. [How do you write data to a file in Python?](#how-do-you-write-data-to-a-file-in-python)  
 7. [How do you delete a file in Python?](#how-do-you-delete-a-file-in-python)  
 8. [Explain the concept of file pointers and how they are managed in Python?](#explain-the-concept-of-file-pointers-and-how-they-are-managed-in-python) 
+9. [How can you efficiently read large files in Python without loading the entire file into memory?](#how-can-you-efficiently-read-large-files-in-python-without-loading-the-entire-file-into-memory) 
 ---
 
 ## **15. Modules and Packages**  
@@ -210,6 +216,8 @@
 14. [What is method overriding? Provide an example.](#what-is-method-overriding-provide-an-example)  
 15. [What is the difference between public, private, and protected members in Python?](#what-is-the-difference-between-public-private-and-protected-members-in-python)  
 16. [How does Python method resolution order work in multiple inheritance?](#how-does-python-method-resolution-order-work-in-multiple-inheritance) 
+17. [What is operator overloading??](#what-is-operator-overloading)
+
 
 
 ## **17. Advanced Topics (Multithreading & Asynchronous Programming)**
@@ -5022,6 +5030,367 @@ my_set.remove(10)  # Raises KeyError since 10 is not in the set
     ### **Conclusion**
     The `enumerate()` function is a powerful tool that improves the efficiency and readability of loops in Python. It simplifies the process of iterating while keeping track of index positions.
 
+
+13. ### What are higher-order functions in Python
+    A **higher-order function** is a function that either:
+    - Takes one or more functions as arguments, or
+    - Returns a function as its result.
+
+    This concept allows functions to be passed around and used as arguments just like any other object (string, int, float, list, etc).
+
+    ---
+
+    ### Key Features
+    - Functions are treated as first-class objects.
+    - You can assign them to variables, store them in data structures, pass them as arguments, or return them from other functions.
+
+    ---
+
+    ### Example 1: Function as Argument
+    ```python
+    # Higher-order function: takes another function as an argument
+    def apply_func(func, value):
+        return func(value)
+
+    # A simple function
+    def square(x):
+        return x * x
+
+    result = apply_func(square, 5)
+    print(result)  # Output: 25
+    ```
+
+    ---
+
+    ### Example 2: Returning a Function
+    ```python
+    def outer_function(msg):
+        def inner_function():
+            print("Message:", msg)
+        return inner_function
+
+    func = outer_function("Hello")
+    func()  # Output: Message: Hello
+    ```
+
+    ---
+
+    ### Common Built-in Higher-Order Functions in Python
+    - `map()` – Applies a function to all items in an iterable.
+    - `filter()` – Filters items in an iterable based on a condition.
+    - `reduce()` – Applies a rolling computation to sequential pairs (from `functools`).
+
+    **Example using map():**
+    ```python
+    numbers = [1, 2, 3, 4, 5]
+    squared = list(map(lambda x: x**2, numbers))
+    print(squared)  # Output: [1, 4, 9, 16, 25]
+    ```
+
+    ---
+
+    ### Summary
+    | Concept | Description |
+    |--------|-------------|
+    | Higher-Order Function | A function that takes or returns another function |
+    | Advantage | Enables functional programming style in Python |
+
+    Higher-order functions make your code more modular, concise, and expressive.
+
+14. ### What is the use of the reduce function
+
+    The `reduce()` function is used to apply a rolling computation to sequential pairs of values in an iterable. It is part of the `functools` module in Python and is commonly used to perform cumulative operations such as summing or multiplying a list of values.
+
+
+    ### Syntax
+    ```python
+    from functools import reduce
+    reduce(function, iterable[, initializer])
+    ```
+
+    - **function**: A function that takes two arguments.
+    - **iterable**: The iterable whose items will be passed to the function.
+    - **initializer** (optional): A value that is used as the initial accumulator.
+
+    ---
+
+    ### Example 1: Product of All Elements
+    ```python
+    from functools import reduce
+    numbers = [1, 2, 3, 4]
+    product = reduce(lambda x, y: x * y, numbers)
+    print(product)  # Output: 24
+    ```
+
+    ### Example 2: Sum with Initial Value
+    ```python
+    from functools import reduce
+    numbers = [1, 2, 3, 4]
+    total = reduce(lambda x, y: x + y, numbers, 10)
+    print(total)  # Output: 20
+    ```
+
+    ---
+
+    ### Key Points
+    - Performs cumulative computation like a loop.
+    - Returns a **single value**.
+    - Requires importing from `functools`.
+    - Can use with `lambda` or custom functions.
+
+    ---
+
+    ### Use Cases
+    - Calculating factorial
+    - Accumulating total cost
+    - Reducing a list to a string (e.g., concatenation)
+
+    ---
+
+    ### When Not to Use `reduce()`
+    Although powerful, `reduce()` may not always be the most readable option. In many cases, a simple loop or built-in function like `sum()` is preferred for clarity.
+
+    ---
+
+    ### Summary
+    - `reduce()` is useful for performing operations that combine all elements in an iterable into a single result.
+    - Must be imported from `functools`.
+    - Offers a functional way of coding accumulative logic.
+
+15. ### What is a function decorator
+
+
+    A **function decorator** in Python is a design pattern that allows the modification or enhancement of a function's behavior without changing its source code. Decorators are commonly used for logging, enforcing access control, instrumentation, caching, and more.
+
+    ---
+
+    ### Syntax
+    ```python
+    @decorator_name
+    def function_name():
+        # function body
+    ```
+    This is equivalent to:
+    ```python
+    def function_name():
+        # function body
+
+    function_name = decorator_name(function_name)
+    ```
+
+    ---
+
+    ### Basic Example
+    ```python
+    def my_decorator(func):
+        def wrapper():
+            print("Something is happening before the function is called.")
+            func()
+            print("Something is happening after the function is called.")
+        return wrapper
+
+    @my_decorator
+    def say_hello():
+        print("Hello!")
+
+    say_hello()
+    ```
+    **Output:**
+    ```
+    Something is happening before the function is called.
+    Hello!
+    Something is happening after the function is called.
+    ```
+
+    ---
+
+    ### Example with Arguments
+    ```python
+    def my_decorator(func):
+        def wrapper(*args, **kwargs):
+            print("Before function call")
+            result = func(*args, **kwargs)
+            print("After function call")
+            return result
+        return wrapper
+
+    @my_decorator
+    def greet(name):
+        print(f"Hello, {name}!")
+
+    greet("Alice")
+    ```
+
+    ---
+
+    ### Built-in Decorators
+    - `@staticmethod`
+    - `@classmethod`
+    - `@property`
+
+    ---
+
+    ### Use Cases
+    - Logging
+    - Authentication
+    - Measuring performance
+    - Caching results
+
+    ---
+
+    ### Summary
+    - Decorators wrap a function and allow pre- or post-processing.
+    - Use `@decorator` syntax for cleaner and readable code.
+    - Highly useful for reusable and modular enhancements.
+
+16. ### What is a Class Decorator
+
+    A **class decorator** is a special type of decorator in Python that is used to modify or enhance classes. Like function decorators, class decorators are applied using the `@decorator_name` syntax and can add or override class attributes, modify methods, or even replace the entire class.
+
+    ---
+
+    ### Syntax
+    ```python
+    @decorator_name
+    class ClassName:
+        # class body
+    ```
+    This is equivalent to:
+    ```python
+    class ClassName:
+        # class body
+
+    ClassName = decorator_name(ClassName)
+    ```
+
+    ---
+
+    ### Basic Example
+    ```python
+    def my_class_decorator(cls):
+        class WrappedClass(cls):
+            def new_method(self):
+                return "This is a new method added by the decorator."
+        return WrappedClass
+
+    @my_class_decorator
+    class MyClass:
+        def original_method(self):
+            return "This is the original method."
+
+    obj = MyClass()
+    print(obj.original_method())
+    print(obj.new_method())
+    ```
+
+    **Output:**
+    ```
+    This is the original method.
+    This is a new method added by the decorator.
+    ```
+
+    ---
+
+    ### Use Cases
+    - Adding or modifying methods or attributes
+    - Injecting behavior without modifying the original class
+    - Validation and input checking
+    - Logging and monitoring class activity
+
+    ---
+
+    ### Summary
+    - Class decorators wrap an entire class, not just a method or function.
+    - They are useful for applying cross-cutting concerns like logging or monitoring.
+    - They return either the modified class or a completely new one.
+
+17. ### What is the purpose of the property decorator
+
+
+    The `@property` decorator in Python is used to define a method as a **read-only property**. It allows you to access a method like an attribute, enabling controlled access to instance data. This is part of Python's support for **encapsulation** and cleaner interfaces.
+
+    ---
+
+    ### Syntax
+    ```python
+    class ClassName:
+        def __init__(self, value):
+            self._value = value
+
+        @property
+        def value(self):
+            return self._value
+    ```
+
+    In this example, `value()` is accessed like an attribute, not a method.
+
+    ---
+
+    ### Example
+    ```python
+    class Circle:
+        def __init__(self, radius):
+            self._radius = radius
+
+        @property
+        def radius(self):
+            return self._radius
+
+        @property
+        def area(self):
+            from math import pi
+            return pi * self._radius ** 2
+
+    c = Circle(5)
+    print(c.radius)  # Access without parentheses
+    print(c.area)
+    ```
+
+    **Output:**
+    ```
+    5
+    78.53981633974483
+    ```
+
+    ---
+
+    ### Use Cases
+    - Making a method act like a read-only attribute
+    - Encapsulation without breaking the interface
+    - Computed properties (e.g., area based on radius)
+
+    ---
+
+    ### Additional: Setter and Deleter
+    You can also define setters and deleters using the same property name:
+
+    ```python
+    class Person:
+        def __init__(self, name):
+            self._name = name
+
+        @property
+        def name(self):
+            return self._name
+
+        @name.setter
+        def name(self, value):
+            if not value:
+                raise ValueError("Name cannot be empty")
+            self._name = value
+
+        @name.deleter
+        def name(self):
+            del self._name
+    ```
+
+    ---
+
+    ### Summary
+    - `@property` turns a method into a read-only attribute.
+    - You can define getter, setter, and deleter using `@property`, `@<prop>.setter`, and `@<prop>.deleter`.
+    - Useful for creating clean APIs with encapsulated data.
+
 # [🔝](#python-interview-questions )
 ---
 
@@ -5863,6 +6232,132 @@ my_set.remove(10)  # Raises KeyError since 10 is not in the set
     - Use multiple `except` blocks to handle different exception types separately.
     - You can group exceptions using a tuple for concise code.
     - Always include a generic `except Exception` clause to catch unexpected errors (optional but helpful).
+11. ### Describe the different types of exceptions in Python How can you create custom exceptions
+
+
+    Python provides a robust exception handling system to catch and manage errors that occur during program execution. Exceptions can be categorized into several types based on their causes.
+
+    ---
+
+    ### **Types of Built-in Exceptions**
+
+    1. **SyntaxError**
+    - Raised when the parser encounters a syntax mistake.
+    - Example:
+        ```python
+        if True print("Hello")
+        ```
+
+    2. **NameError**
+    - Raised when a variable is not defined.
+    - Example:
+        ```python
+        print(x)  # x is not defined
+        ```
+
+    3. **TypeError**
+    - Raised when an operation is applied to an object of inappropriate type.
+    - Example:
+        ```python
+        '2' + 2
+        ```
+
+    4. **IndexError**
+    - Raised when trying to access an index that is out of range.
+    - Example:
+        ```python
+        lst = [1, 2, 3]
+        print(lst[5])
+        ```
+
+    5. **KeyError**
+    - Raised when a key is not found in a dictionary.
+    - Example:
+        ```python
+        d = {'a': 1}
+        print(d['b'])
+        ```
+
+    6. **ValueError**
+    - Raised when a function receives an argument of correct type but inappropriate value.
+    - Example:
+        ```python
+        int('abc')
+        ```
+
+    7. **ZeroDivisionError**
+    - Raised when dividing by zero.
+    - Example:
+        ```python
+        10 / 0
+        ```
+
+    8. **AttributeError**
+    - Raised when an attribute reference or assignment fails.
+    - Example:
+        ```python
+        x = 10
+        x.append(5)  # int has no append method
+        ```
+
+    9. **IOError / FileNotFoundError**
+    - Raised when an input/output operation fails.
+    - Example:
+        ```python
+        open('nonexistent.txt')
+        ```
+
+    ---
+
+    ### **Handling Multiple Exceptions**
+    You can handle multiple exceptions using multiple `except` blocks or a single block with tuple.
+
+    ```python
+    try:
+        # some code
+        pass
+    except (ValueError, TypeError) as e:
+        print("Caught ValueError or TypeError:", e)
+    except Exception as e:
+        print("Caught a general exception:", e)
+    ```
+
+    ---
+
+    ### **Creating Custom Exceptions**
+    You can define your own exceptions by creating a class that inherits from the `Exception` base class.
+
+    #### Example:
+    ```python
+    class MyCustomError(Exception):
+        def __init__(self, message):
+            self.message = message
+            super().__init__(self.message)
+
+    try:
+        raise MyCustomError("This is a custom error")
+    except MyCustomError as e:
+        print("Caught custom exception:", e)
+    ```
+
+    ---
+
+    ### Summary Table
+    | Exception Type      | Description                              |
+    |---------------------|------------------------------------------|
+    | SyntaxError         | Invalid Python syntax                    |
+    | NameError           | Variable not defined                     |
+    | TypeError           | Invalid type operation                   |
+    | IndexError          | Index out of bounds                      |
+    | KeyError            | Missing key in dictionary                |
+    | ValueError          | Invalid value for correct type           |
+    | ZeroDivisionError   | Division by zero                         |
+    | AttributeError      | Attribute reference fails                |
+    | IOError/FileNotFoundError | Input/output operation fails       |
+    | CustomException     | User-defined exception class             |
+
+    Exception handling ensures robust, crash-resistant Python programs.
+
 
 # [🔝](#python-interview-questions )
 ---
@@ -6416,6 +6911,81 @@ my_set.remove(10)  # Raises KeyError since 10 is not in the set
     - File pointers help track where reading/writing occurs.
     - `tell()` and `seek()` are key functions for managing pointer positions.
     - Always close files using `file.close()` or a `with` block to ensure proper file handling.
+
+9. ### How can you efficiently read large files in Python without loading the entire file into memory
+    When working with large files, it is important to read the file in chunks instead of loading the entire content into memory. Python provides several efficient ways to handle this:
+
+    ---
+
+    ### 1. Using a `for` loop with a file object
+    - Python's file object supports iteration, reading the file line by line.
+    - It doesn't load the whole file into memory.
+
+    #### Example:
+    ```python
+    with open('large_file.txt', 'r') as file:
+        for line in file:
+            process(line)  # Replace with actual processing logic
+    ```
+
+    ---
+
+    ### 2. Using `readline()`
+    - Reads one line at a time.
+    - Good for controlled iteration when you need to manage state between reads.
+
+    #### Example:
+    ```python
+    with open('large_file.txt', 'r') as file:
+        line = file.readline()
+        while line:
+            process(line)
+            line = file.readline()
+    ```
+
+    ---
+
+    ### 3. Using `read(size)`
+    - Reads a specific number of bytes at a time.
+    - Useful when dealing with binary files or when fine-grained control over memory usage is needed.
+
+    #### Example:
+    ```python
+    with open('large_file.txt', 'r') as file:
+        chunk = file.read(1024)  # Read 1024 bytes at a time
+        while chunk:
+            process(chunk)
+            chunk = file.read(1024)
+    ```
+
+    ---
+
+    ### 4. Using Generators
+    - Custom generator functions can yield lines or chunks.
+    - Ideal for reusable components.
+
+    #### Example:
+    ```python
+    def read_large_file(file_path):
+        with open(file_path, 'r') as file:
+            for line in file:
+                yield line
+
+    for line in read_large_file('large_file.txt'):
+        process(line)
+    ```
+
+    ---
+
+    ### Summary
+    | Method            | Use Case                                   |
+    |------------------|---------------------------------------------|
+    | `for` loop        | Best for line-by-line reading               |
+    | `readline()`      | When managing state between lines           |
+    | `read(size)`      | For binary or partial content reads         |
+    | Generators        | Custom, reusable reading logic              |
+
+    Efficient reading ensures that your programs handle large files smoothly without exhausting system memory.
 
 
 # [🔝](#python-interview-questions )
@@ -8029,7 +8599,6 @@ my_set.remove(10)  # Raises KeyError since 10 is not in the set
 
 16. ### How does Python method resolution order work in multiple inheritance
 
-    ### **How Does Python's Method Resolution Order (MRO) Work in Multiple Inheritance?**
 
     ### **Understanding MRO in Python**
     Method Resolution Order (MRO) determines the sequence in which base classes are searched when calling a method in the presence of multiple inheritance. Python follows the **C3 Linearization (also known as the C3 superclass linearization algorithm)** to determine this order.
@@ -8149,6 +8718,56 @@ my_set.remove(10)  # Raises KeyError since 10 is not in the set
     - Python resolves the **Diamond Problem** using the C3 linearization algorithm.
     - Understanding MRO is crucial for designing efficient class hierarchies in Python.
 
+17. ### What is operator overloading?
+# ⚙️ What is Operator Overloading in Python?
+
+## ✅ Definition
+**Operator Overloading** allows us to redefine the meaning of built-in operators (`+`, `-`, `*`, etc.) for user-defined objects (custom classes).
+
+This means we can define how operators behave when used with objects of a class.
+
+---
+
+## 📘 Why Use Operator Overloading?
+- Makes code more intuitive and readable.
+- Enables natural usage of operators with class instances.
+
+---
+
+## 🔧 How to Overload Operators?
+Python provides **special methods** (also known as *magic methods* or *dunder methods*) for operator overloading:
+
+| Operator | Method           |
+|----------|------------------|
+| `+`      | `__add__()`      |
+| `-`      | `__sub__()`      |
+| `*`      | `__mul__()`      |
+| `/`      | `__truediv__()`  |
+| `==`     | `__eq__()`       |
+| `>`      | `__gt__()`       |
+| `<`      | `__lt__()`       |
+
+---
+
+## 🧱 Example
+
+```python
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):
+        return Point(self.x + other.x, self.y + other.y)
+
+    def __str__(self):
+        return f"({self.x}, {self.y})"
+
+p1 = Point(2, 3)
+p2 = Point(4, 5)
+result = p1 + p2
+print(result)  # Output: (6, 8)
+```
 
 # [🔝](#python-interview-questions )
 ---

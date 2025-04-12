@@ -1307,6 +1307,7 @@ print(s2.school_name)  # Output: ABC School
 
 Student.school_name = "XYZ School"  # Changing class variable
 print(s1.school_name)  # Output: XYZ School
+print(s2.school_name)  # Output: XYZ School
 ```
 
 
