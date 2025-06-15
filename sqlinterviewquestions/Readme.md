@@ -117,8 +117,6 @@
 
 3. ### What is the difference between WHERE and HAVING clause
 
-    ### Difference Between WHERE and HAVING Clause in SQL
-
     `WHERE` and `HAVING` are both used to filter records in SQL, but they differ in **when** and **how** they are applied.
 
     ---
@@ -407,7 +405,7 @@
 
     ---
 
-    ## 🔹 DELETE Example
+    ### 🔹 DELETE Example
     ```sql
     DELETE FROM employees WHERE department = 'HR';
     ```
@@ -787,7 +785,7 @@
 
     ---
 
-    ## OUTER JOIN (General Term)
+    ### OUTER JOIN (General Term)
 
     **OUTER JOIN** is a general category of joins that includes:
 
@@ -932,68 +930,68 @@
 
 2. ### What is a subquery? Explain with an example
 
-### 🔍 What is a Subquery in SQL?
+    ### 🔍 What is a Subquery in SQL?
 
-### 🧠 Definition:
-A **subquery** (also known as an **inner query** or **nested query**) is a query **within another SQL query**.  
-It is enclosed in parentheses and is used to return data that will be used by the **main (outer) query**.
+    ### 🧠 Definition:
+    A **subquery** (also known as an **inner query** or **nested query**) is a query **within another SQL query**.  
+    It is enclosed in parentheses and is used to return data that will be used by the **main (outer) query**.
 
----
+    ---
 
-### ✅ Use Cases:
-- Filtering rows (`WHERE` clause)
-- Creating derived columns (`SELECT` clause)
-- Replacing JOINs (in some cases)
-- Used in `INSERT`, `UPDATE`, and `DELETE` as well
+    ### ✅ Use Cases:
+    - Filtering rows (`WHERE` clause)
+    - Creating derived columns (`SELECT` clause)
+    - Replacing JOINs (in some cases)
+    - Used in `INSERT`, `UPDATE`, and `DELETE` as well
 
----
+    ---
 
-### 🔄 Types of Subqueries:
-1. **Scalar Subquery** – Returns a single value.
-2. **Row Subquery** – Returns a single row.
-3. **Table Subquery** – Returns a table (used with `IN`, `EXISTS`, or joins).
-4. **Correlated Subquery** – References a column from the outer query.
+    ### 🔄 Types of Subqueries:
+    1. **Scalar Subquery** – Returns a single value.
+    2. **Row Subquery** – Returns a single row.
+    3. **Table Subquery** – Returns a table (used with `IN`, `EXISTS`, or joins).
+    4. **Correlated Subquery** – References a column from the outer query.
 
----
+    ---
 
-### 📄 Example Table: `Employee`
+    ### 📄 Example Table: `Employee`
 
-| emp_id | emp_name | salary |
-|--------|----------|--------|
-| 1      | Raj      | 50000  |
-| 2      | Riya     | 60000  |
-| 3      | Aman     | 70000  |
-| 4      | Neha     | 60000  |
+    | emp_id | emp_name | salary |
+    |--------|----------|--------|
+    | 1      | Raj      | 50000  |
+    | 2      | Riya     | 60000  |
+    | 3      | Aman     | 70000  |
+    | 4      | Neha     | 60000  |
 
----
+    ---
 
-### 🔹 Example: Find employees who earn more than the **average salary**
+    ### 🔹 Example: Find employees who earn more than the **average salary**
 
-### 🧾 Query:
-```sql
-SELECT emp_name, salary
-FROM Employee
-WHERE salary > (
-    SELECT AVG(salary)
+    ### 🧾 Query:
+    ```sql
+    SELECT emp_name, salary
     FROM Employee
-);
-```
+    WHERE salary > (
+        SELECT AVG(salary)
+        FROM Employee
+    );
+    ```
 
-### 💡 Explanation:
-- The **subquery** `(SELECT AVG(salary) FROM Employee)` calculates the average salary.
-- The **main query** selects employees whose salary is **greater** than this average.
+    ### 💡 Explanation:
+    - The **subquery** `(SELECT AVG(salary) FROM Employee)` calculates the average salary.
+    - The **main query** selects employees whose salary is **greater** than this average.
 
----
+    ---
 
-### 🧮 Output:
+    ### 🧮 Output:
 
-| emp_name | salary |
-|----------|--------|
-| Aman     | 70000  |
+    | emp_name | salary |
+    |----------|--------|
+    | Aman     | 70000  |
 
----
+    ---
 
-> ✅ Subqueries are powerful tools in SQL that allow you to break complex problems into simpler parts.
+    > ✅ Subqueries are powerful tools in SQL that allow you to break complex problems into simpler parts.
 
 3. ### What is a GROUP BY clause? How is it used with aggregate functions
     ### 🧮 SQL `GROUP BY` Clause Explained
@@ -1137,7 +1135,7 @@ WHERE salary > (
     | Bob      | 200          |
     | Charlie  | 300          |
         
-5. Explain normalization and its types 1NF, 2NF, 3NF     
+5. ### Explain normalization and its types 1NF, 2NF, 3NF     
     ### Normalization in SQL
 
     ## ✅ What is Normalization?
