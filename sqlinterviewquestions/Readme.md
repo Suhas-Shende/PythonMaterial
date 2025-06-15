@@ -103,7 +103,7 @@
 
 
 
-    # ✅ Summary
+    ### ✅ Summary
 
     | Type | Purpose |
     |------|---------|
@@ -317,506 +317,558 @@
     SELECT * FROM employees WHERE name = 'Alice' AND department = 'HR';
     ```
 
-### 6. What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN
+6. ### What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN
 
-### 🔁 SQL JOIN Types Explained
+    ### 🔁 SQL JOIN Types Explained
 
-### 1. 🧩 INNER JOIN
-- **Returns only matching rows** from both tables.
-- If there is **no match**, the row is **excluded**.
-- Most common type of join.
+    ### 1. 🧩 INNER JOIN
+    - **Returns only matching rows** from both tables.
+    - If there is **no match**, the row is **excluded**.
+    - Most common type of join.
 
-```sql
-SELECT * 
-FROM A 
-INNER JOIN B ON A.id = B.id;
-```
+    ```sql
+    SELECT * 
+    FROM A 
+    INNER JOIN B ON A.id = B.id;
+    ```
 
-🔍 Returns only rows where `A.id = B.id`.
+    🔍 Returns only rows where `A.id = B.id`.
 
----
+    ---
 
-### 2. 👈 LEFT JOIN (or LEFT OUTER JOIN)
-- Returns **all rows from the left table** (A), and the **matching rows** from the right table (B).
-- If there is **no match**, result shows **NULLs** for right table’s columns.
+    ### 2. 👈 LEFT JOIN (or LEFT OUTER JOIN)
+    - Returns **all rows from the left table** (A), and the **matching rows** from the right table (B).
+    - If there is **no match**, result shows **NULLs** for right table’s columns.
 
-```sql
-SELECT * 
-FROM A 
-LEFT JOIN B ON A.id = B.id;
-```
+    ```sql
+    SELECT * 
+    FROM A 
+    LEFT JOIN B ON A.id = B.id;
+    ```
 
-🔍 All rows from table A + matching rows from B (NULL if no match).
+    🔍 All rows from table A + matching rows from B (NULL if no match).
 
----
+    ---
 
-### 3. 👉 RIGHT JOIN (or RIGHT OUTER JOIN)
-- Returns **all rows from the right table** (B), and the **matching rows** from the left table (A).
-- If there is **no match**, result shows **NULLs** for left table’s columns.
+    ### 3. 👉 RIGHT JOIN (or RIGHT OUTER JOIN)
+    - Returns **all rows from the right table** (B), and the **matching rows** from the left table (A).
+    - If there is **no match**, result shows **NULLs** for left table’s columns.
 
-```sql
-SELECT * 
-FROM A 
-RIGHT JOIN B ON A.id = B.id;
-```
+    ```sql
+    SELECT * 
+    FROM A 
+    RIGHT JOIN B ON A.id = B.id;
+    ```
 
-🔍 All rows from table B + matching rows from A (NULL if no match).
+    🔍 All rows from table B + matching rows from A (NULL if no match).
 
----
+    ---
 
-### 4. 🔄 FULL OUTER JOIN
-- Returns **all rows from both tables**, with matching rows from both sides.
-- If there is **no match**, NULLs are shown for the missing side.
+    ### 4. 🔄 FULL OUTER JOIN
+    - Returns **all rows from both tables**, with matching rows from both sides.
+    - If there is **no match**, NULLs are shown for the missing side.
 
-```sql
-SELECT * 
-FROM A 
-FULL OUTER JOIN B ON A.id = B.id;
-```
+    ```sql
+    SELECT * 
+    FROM A 
+    FULL OUTER JOIN B ON A.id = B.id;
+    ```
 
-🔍 All rows from A and B; matched rows are joined, unmatched ones show NULLs.
+    🔍 All rows from A and B; matched rows are joined, unmatched ones show NULLs.
 
-> ❗Note: MySQL doesn’t support `FULL OUTER JOIN` directly — use `UNION` of `LEFT JOIN` and `RIGHT JOIN` to simulate it.
+    > ❗Note: MySQL doesn’t support `FULL OUTER JOIN` directly — use `UNION` of `LEFT JOIN` and `RIGHT JOIN` to simulate it.
 
----
+    ---
 
-### 📊 Summary Table
+    ### 📊 Summary Table
 
-| Join Type            | Rows from A | Rows from B | Unmatched A | Unmatched B |
-|----------------------|-------------|-------------|-------------|-------------|
-| **INNER JOIN**        | ✅           | ✅           | ❌           | ❌           |
-| **LEFT JOIN**         | ✅           | ✅           | ✅           | ❌           |
-| **RIGHT JOIN**        | ✅           | ✅           | ❌           | ✅           |
-| **FULL OUTER JOIN**   | ✅           | ✅           | ✅           | ✅           |
+    | Join Type            | Rows from A | Rows from B | Unmatched A | Unmatched B |
+    |----------------------|-------------|-------------|-------------|-------------|
+    | **INNER JOIN**        | ✅           | ✅           | ❌           | ❌           |
+    | **LEFT JOIN**         | ✅           | ✅           | ✅           | ❌           |
+    | **RIGHT JOIN**        | ✅           | ✅           | ❌           | ✅           |
+    | **FULL OUTER JOIN**   | ✅           | ✅           | ✅           | ✅           |
 
 
 7. ### What is the difference between DELETE, TRUNCATE, and DROP
 
-### 🧨 Difference Between DELETE, TRUNCATE, and DROP
+    ### 🧨 Difference Between DELETE, TRUNCATE, and DROP
 
-| Feature              | DELETE | TRUNCATE | DROP |
-|----------------------|--------|----------|------|
-| **Purpose**          | The `DELETE` statement is used to remove specific rows from a table based on a condition. | The `TRUNCATE` statement removes **all rows** from a table without logging individual row deletions. | The `DROP` statement completely removes the table from the database, including its structure and data. |
-| **Can use WHERE?**   | Yes, you can use a `WHERE` clause to specify which rows to delete. | No, `TRUNCATE` removes all rows; it does not support a `WHERE` clause. | No, `DROP` removes the entire table; it cannot filter rows. |
-| **Transaction Safe?**| The `DELETE` command is transaction-safe; it can be rolled back if used within a transaction. | `TRUNCATE` can be rolled back in some databases (e.g., PostgreSQL) but **not in all** (e.g., MySQL without InnoDB). | The `DROP` statement **cannot be rolled back** once executed, and the table is lost. |
-| **Performance**      | `DELETE` is generally slower because it logs each deleted row and fires any associated triggers. | `TRUNCATE` is faster than `DELETE` because it deallocates data pages instead of row-by-row deletion. | `DROP` is the fastest, as it removes the entire table in one action. |
-| **Triggers**         | Yes, `DELETE` will activate any `DELETE` triggers on the table. | No, `TRUNCATE` does not fire `DELETE` triggers. | No, `DROP` does not activate any triggers. |
-| **Identity Reset?**  | No, the identity column (like auto-increment ID) is **not reset** after a `DELETE`. | Yes, in most databases, the identity counter is **reset to its seed value** after `TRUNCATE`. | Yes, since the table is removed entirely, any identity values are also lost. |
-| **Locks Used**       | `DELETE` uses **row-level locks**, especially with conditions. | `TRUNCATE` typically uses a **table-level lock**. | `DROP` locks the table completely as it is being removed. |
-| **Use Case**         | Use when you want to delete specific rows from a table. | Use when you want to quickly remove all data but keep the table structure. | Use when you no longer need the table or want to recreate it from scratch. |
+    | Feature              | DELETE | TRUNCATE | DROP |
+    |----------------------|--------|----------|------|
+    | **Purpose**          | The `DELETE` statement is used to remove specific rows from a table based on a condition. | The `TRUNCATE` statement removes **all rows** from a table without logging individual row deletions. | The `DROP` statement completely removes the table from the database, including its structure and data. |
+    | **Can use WHERE?**   | Yes, you can use a `WHERE` clause to specify which rows to delete. | No, `TRUNCATE` removes all rows; it does not support a `WHERE` clause. | No, `DROP` removes the entire table; it cannot filter rows. |
+    | **Transaction Safe?**| The `DELETE` command is transaction-safe; it can be rolled back if used within a transaction. | `TRUNCATE` can be rolled back in some databases (e.g., PostgreSQL) but **not in all** (e.g., MySQL without InnoDB). | The `DROP` statement **cannot be rolled back** once executed, and the table is lost. |
+    | **Performance**      | `DELETE` is generally slower because it logs each deleted row and fires any associated triggers. | `TRUNCATE` is faster than `DELETE` because it deallocates data pages instead of row-by-row deletion. | `DROP` is the fastest, as it removes the entire table in one action. |
+    | **Triggers**         | Yes, `DELETE` will activate any `DELETE` triggers on the table. | No, `TRUNCATE` does not fire `DELETE` triggers. | No, `DROP` does not activate any triggers. |
+    | **Identity Reset?**  | No, the identity column (like auto-increment ID) is **not reset** after a `DELETE`. | Yes, in most databases, the identity counter is **reset to its seed value** after `TRUNCATE`. | Yes, since the table is removed entirely, any identity values are also lost. |
+    | **Locks Used**       | `DELETE` uses **row-level locks**, especially with conditions. | `TRUNCATE` typically uses a **table-level lock**. | `DROP` locks the table completely as it is being removed. |
+    | **Use Case**         | Use when you want to delete specific rows from a table. | Use when you want to quickly remove all data but keep the table structure. | Use when you no longer need the table or want to recreate it from scratch. |
 
----
+    ---
 
-## 🔹 DELETE Example
-```sql
-DELETE FROM employees WHERE department = 'HR';
-```
-➡️ This deletes only the employees who belong to the HR department.
+    ## 🔹 DELETE Example
+    ```sql
+    DELETE FROM employees WHERE department = 'HR';
+    ```
+    ➡️ This deletes only the employees who belong to the HR department.
 
----
+    ---
 
-### 🔹 TRUNCATE Example
-```sql
-TRUNCATE TABLE employees;
-```
-➡️ This quickly removes **all rows** from the `employees` table without logging each deletion.
+    ### 🔹 TRUNCATE Example
+    ```sql
+    TRUNCATE TABLE employees;
+    ```
+    ➡️ This quickly removes **all rows** from the `employees` table without logging each deletion.
 
----
+    ---
 
-### 🔹 DROP Example
-```sql
-DROP TABLE employees;
-```
-➡️ This completely **removes the `employees` table**, including its structure and all data.
-
-
-
-8. ### Explain the difference between UNION and UNION ALL
-### 🧾 Difference Between `UNION` and `UNION ALL` in SQL
-
-| Feature                | `UNION`                                                | `UNION ALL`                                           |
-|------------------------|--------------------------------------------------------|--------------------------------------------------------|
-| **Duplicate Rows**     | Removes duplicate rows from the result set.           | Includes **all rows**, even if duplicates exist.       |
-| **Performance**        | Slower, due to duplicate elimination and sorting.     | Faster, as it skips duplicate checking.                |
-| **Use Case**           | Use when you need only **unique** results.            | Use when you want to **preserve all rows**, including duplicates. |
-| **Sorting**            | Performs internal sorting to remove duplicates.       | No sorting is performed.                              |
-| **Result Size**        | Smaller, if duplicates exist.                         | Larger, as it contains all entries.                    |
+    ### 🔹 DROP Example
+    ```sql
+    DROP TABLE employees;
+    ```
+    ➡️ This completely **removes the `employees` table**, including its structure and all data.
 
 
 
-### 🔹 Example Tables
+8. ### What the difference between UNION and UNION  ALL
+    ### 🧾 Difference Between `UNION` and `UNION ALL` in SQL
 
-**Table A:**
-| id | city     |
-|----|----------|
-| 1  | Mumbai   |
-| 2  | Delhi    |
-| 3  | Kolkata  |
-
-**Table B:**
-| id | city     |
-|----|----------|
-| 1  | Delhi    |
-| 2  | Chennai  |
-| 3  | Mumbai   |
+    | Feature                | `UNION`                                                | `UNION ALL`                                           |
+    |------------------------|--------------------------------------------------------|--------------------------------------------------------|
+    | **Duplicate Rows**     | Removes duplicate rows from the result set.           | Includes **all rows**, even if duplicates exist.       |
+    | **Performance**        | Slower, due to duplicate elimination and sorting.     | Faster, as it skips duplicate checking.                |
+    | **Use Case**           | Use when you need only **unique** results.            | Use when you want to **preserve all rows**, including duplicates. |
+    | **Sorting**            | Performs internal sorting to remove duplicates.       | No sorting is performed.                              |
+    | **Result Size**        | Smaller, if duplicates exist.                         | Larger, as it contains all entries.                    |
 
 
 
-### 🔹 `UNION` Query
-```sql
-SELECT city FROM A
-UNION
-SELECT city FROM B;
-```
+    ### 🔹 Example Tables
 
-**Output:**
-| city     |
-|----------|
-| Mumbai   |
-| Delhi    |
-| Kolkata  |
-| Chennai  |
+    **Table A:**
+    | id | city     |
+    |----|----------|
+    | 1  | Mumbai   |
+    | 2  | Delhi    |
+    | 3  | Kolkata  |
 
-✅ Duplicates like "Mumbai" and "Delhi" are removed.
-
-
-
-### 🔹 `UNION ALL` Query
-```sql
-SELECT city FROM A
-UNION ALL
-SELECT city FROM B;
-```
-
-**Output:**
-| city     |
-|----------|
-| Mumbai   |
-| Delhi    |
-| Kolkata  |
-| Delhi    |
-| Chennai  |
-| Mumbai   |
-
-✅ All rows are returned including duplicates.
+    **Table B:**
+    | id | city     |
+    |----|----------|
+    | 1  | Delhi    |
+    | 2  | Chennai  |
+    | 3  | Mumbai   |
 
 
 
-### ✅ Summary
+    ### 🔹 `UNION` Query
+    ```sql
+    SELECT city FROM A
+    UNION
+    SELECT city FROM B;
+    ```
 
-- Use `UNION` when you want unique records from multiple queries.
-- Use `UNION ALL` when performance is important or duplicates are meaningful for your logic.
+    **Output:**
+    | city     |
+    |----------|
+    | Mumbai   |
+    | Delhi    |
+    | Kolkata  |
+    | Chennai  |
+
+    ✅ Duplicates like "Mumbai" and "Delhi" are removed.
+
+
+
+    ### 🔹 `UNION ALL` Query
+    ```sql
+    SELECT city FROM A
+    UNION ALL
+    SELECT city FROM B;
+    ```
+
+    **Output:**
+    | city     |
+    |----------|
+    | Mumbai   |
+    | Delhi    |
+    | Kolkata  |
+    | Delhi    |
+    | Chennai  |
+    | Mumbai   |
+
+    ✅ All rows are returned including duplicates.
+
+
+
+    ### ✅ Summary
+
+    - Use `UNION` when you want unique records from multiple queries.
+    - Use `UNION ALL` when performance is important or duplicates are meaningful for your logic.
 
 
 9. ### What are the different types of joins in SQL
 
-### INNER JOIN
+    ### INNER JOIN
 
-Returns only the rows where there is a match in both tables.
+    Returns only the rows where there is a match in both tables.
 
----
+    ---
 
-### Sample Tables:
+    ### Sample Tables:
 
-**Employees**
+    **Employees**
 
-| emp_id | emp_name |
-|--------|----------|
-| 1      | Raj      |
-| 2      | Riya     |
-| 3      | Aman     |
-| 4      | Neha     |
+    | emp_id | emp_name |
+    |--------|----------|
+    | 1      | Raj      |
+    | 2      | Riya     |
+    | 3      | Aman     |
+    | 4      | Neha     |
 
-**Departments**
+    **Departments**
 
-| emp_id | dept_name  |
-|--------|------------|
-| 1      | Sales      |
-| 2      | HR         |
-| 5      | Marketing  |
+    | emp_id | dept_name  |
+    |--------|------------|
+    | 1      | Sales      |
+    | 2      | HR         |
+    | 5      | Marketing  |
 
----
+    ---
 
-### Query:
-```sql
-SELECT E.emp_name, D.dept_name
-FROM Employees E
-INNER JOIN Departments D ON E.emp_id = D.emp_id;
-```
-**Output** **Table**
+    ### Query:
+    ```sql
+    SELECT E.emp_name, D.dept_name
+    FROM Employees E
+    INNER JOIN Departments D ON E.emp_id = D.emp_id;
+    ```
+    **Output** **Table**
 
-| emp_name | dept_name |
-|----------|-----------|
-| Raj      | Sales     |
-| Riya     | HR        |
+    | emp_name | dept_name |
+    |----------|-----------|
+    | Raj      | Sales     |
+    | Riya     | HR        |
 
 
----
-### LEFT JOIN (LEFT OUTER JOIN)
+    ---
+    ### LEFT JOIN (LEFT OUTER JOIN)
 
-Returns all rows from the **left table** (`Employees`) and the **matched rows** from the right table (`Departments`).  
-If there is **no match**, the result is `NULL` on the right side.
+    Returns all rows from the **left table** (`Employees`) and the **matched rows** from the right table (`Departments`).  
+    If there is **no match**, the result is `NULL` on the right side.
 
----
+    ---
 
-### Sample Tables:
+    ### Sample Tables:
 
-**Employees**
+    **Employees**
 
-| emp_id | emp_name |
-|--------|----------|
-| 1      | Raj      |
-| 2      | Riya     |
-| 3      | Aman     |
-| 4      | Neha     |
+    | emp_id | emp_name |
+    |--------|----------|
+    | 1      | Raj      |
+    | 2      | Riya     |
+    | 3      | Aman     |
+    | 4      | Neha     |
 
-**Departments**
+    **Departments**
 
-| emp_id | dept_name  |
-|--------|------------|
-| 1      | Sales      |
-| 2      | HR         |
-| 5      | Marketing  |
+    | emp_id | dept_name  |
+    |--------|------------|
+    | 1      | Sales      |
+    | 2      | HR         |
+    | 5      | Marketing  |
 
----
+    ---
 
-### Query:
+    ### Query:
 
-```sql
-SELECT E.emp_name, D.dept_name
-FROM Employees E
-LEFT JOIN Departments D ON E.emp_id = D.emp_id;
-```
-### Output
-| emp\_name | dept\_name |
-| --------- | ---------- |
-| Raj       | Sales      |
-| Riya      | HR         |
-| Aman      | NULL       |
-| Neha      | NULL       |
+    ```sql
+    SELECT E.emp_name, D.dept_name
+    FROM Employees E
+    LEFT JOIN Departments D ON E.emp_id = D.emp_id;
+    ```
+    ### Output
+    | emp\_name | dept\_name |
+    | --------- | ---------- |
+    | Raj       | Sales      |
+    | Riya      | HR         |
+    | Aman      | NULL       |
+    | Neha      | NULL       |
 
 
----
-### RIGHT JOIN (RIGHT OUTER JOIN)
+    ---
+    ### RIGHT JOIN (RIGHT OUTER JOIN)
 
-Returns all rows from the **right table** (`Departments`) and the **matched rows** from the left table (`Employees`).  
-If there is **no match**, the result is `NULL` on the left side.
+    Returns all rows from the **right table** (`Departments`) and the **matched rows** from the left table (`Employees`).  
+    If there is **no match**, the result is `NULL` on the left side.
 
----
+    ---
 
-### Sample Tables:
+    ### Sample Tables:
 
-**Employees**
+    **Employees**
 
-| emp_id | emp_name |
-|--------|----------|
-| 1      | Raj      |
-| 2      | Riya     |
-| 3      | Aman     |
-| 4      | Neha     |
+    | emp_id | emp_name |
+    |--------|----------|
+    | 1      | Raj      |
+    | 2      | Riya     |
+    | 3      | Aman     |
+    | 4      | Neha     |
 
-**Departments**
+    **Departments**
 
-| emp_id | dept_name  |
-|--------|------------|
-| 1      | Sales      |
-| 2      | HR         |
-| 5      | Marketing  |
+    | emp_id | dept_name  |
+    |--------|------------|
+    | 1      | Sales      |
+    | 2      | HR         |
+    | 5      | Marketing  |
 
----
+    ---
 
-### Query:
+    ### Query:
 
-```sql
-SELECT E.emp_name, D.dept_name
-FROM Employees E
-RIGHT JOIN Departments D ON E.emp_id = D.emp_id;
-```
+    ```sql
+    SELECT E.emp_name, D.dept_name
+    FROM Employees E
+    RIGHT JOIN Departments D ON E.emp_id = D.emp_id;
+    ```
 
-### Output
-| emp\_name | dept\_name |
-| --------- | ---------- |
-| Raj       | Sales      |
-| Riya      | HR         |
-| NULL      | Marketing  |
+    ### Output
+    | emp\_name | dept\_name |
+    | --------- | ---------- |
+    | Raj       | Sales      |
+    | Riya      | HR         |
+    | NULL      | Marketing  |
 
----
+    ---
 
-### FULL OUTER JOIN
+    ### FULL OUTER JOIN
 
-Returns **all rows** from both tables.  
-Where there is no match, the result will have `NULL` for the missing side.
+    Returns **all rows** from both tables.  
+    Where there is no match, the result will have `NULL` for the missing side.
 
-> 🔸 **Note**: MySQL does **not support FULL OUTER JOIN directly**.  
-> You can simulate it using a `UNION` of `LEFT JOIN` and `RIGHT JOIN`.
+    > 🔸 **Note**: MySQL does **not support FULL OUTER JOIN directly**.  
+    > You can simulate it using a `UNION` of `LEFT JOIN` and `RIGHT JOIN`.
 
----
+    ---
 
-### Sample Tables:
+    ### Sample Tables:
 
-**Employees**
+    **Employees**
 
-| emp_id | emp_name |
-|--------|----------|
-| 1      | Raj      |
-| 2      | Riya     |
-| 3      | Aman     |
-| 4      | Neha     |
+    | emp_id | emp_name |
+    |--------|----------|
+    | 1      | Raj      |
+    | 2      | Riya     |
+    | 3      | Aman     |
+    | 4      | Neha     |
 
-**Departments**
+    **Departments**
 
-| emp_id | dept_name  |
-|--------|------------|
-| 1      | Sales      |
-| 2      | HR         |
-| 5      | Marketing  |
+    | emp_id | dept_name  |
+    |--------|------------|
+    | 1      | Sales      |
+    | 2      | HR         |
+    | 5      | Marketing  |
 
----
+    ---
 
-### Query (Simulated FULL OUTER JOIN in MySQL):
+    ### Query (Simulated FULL OUTER JOIN in MySQL):
 
-```sql
-SELECT E.emp_name, D.dept_name
-FROM Employees E
-LEFT JOIN Departments D ON E.emp_id = D.emp_id
+    ```sql
+    SELECT E.emp_name, D.dept_name
+    FROM Employees E
+    LEFT JOIN Departments D ON E.emp_id = D.emp_id
 
-UNION
+    UNION
 
-SELECT E.emp_name, D.dept_name
-FROM Employees E
-RIGHT JOIN Departments D ON E.emp_id = D.emp_id;
+    SELECT E.emp_name, D.dept_name
+    FROM Employees E
+    RIGHT JOIN Departments D ON E.emp_id = D.emp_id;
 
-```
-### Output
-| emp\_name | dept\_name |
-| --------- | ---------- |
-| Raj       | Sales      |
-| Riya      | HR         |
-| Aman      | NULL       |
-| Neha      | NULL       |
-| NULL      | Marketing  |
+    ```
+    ### Output
+    | emp\_name | dept\_name |
+    | --------- | ---------- |
+    | Raj       | Sales      |
+    | Riya      | HR         |
+    | Aman      | NULL       |
+    | Neha      | NULL       |
+    | NULL      | Marketing  |
 
 
----
+    ---
 
-### CROSS JOIN
+    ### CROSS JOIN
 
-Returns the **Cartesian product** of both tables, i.e., every combination of rows from the left and right tables.  
-If one table has `m` rows and the other has `n`, the result will have `m × n` rows.
+    Returns the **Cartesian product** of both tables, i.e., every combination of rows from the left and right tables.  
+    If one table has `m` rows and the other has `n`, the result will have `m × n` rows.
 
----
+    ---
 
-### Sample Tables:
+    ### Sample Tables:
 
-**Employees**
+    **Employees**
 
-| emp_id | emp_name |
-|--------|----------|
-| 1      | Raj      |
-| 2      | Riya     |
-| 3      | Aman     |
-| 4      | Neha     |
+    | emp_id | emp_name |
+    |--------|----------|
+    | 1      | Raj      |
+    | 2      | Riya     |
+    | 3      | Aman     |
+    | 4      | Neha     |
 
-**Departments**
+    **Departments**
 
-| emp_id | dept_name  |
-|--------|------------|
-| 1      | Sales      |
-| 2      | HR         |
-| 5      | Marketing  |
+    | emp_id | dept_name  |
+    |--------|------------|
+    | 1      | Sales      |
+    | 2      | HR         |
+    | 5      | Marketing  |
 
----
+    ---
 
-### Query:
+    ### Query:
 
-```sql
-SELECT E.emp_name, D.dept_name
-FROM Employees E
-CROSS JOIN Departments D;
-```
-### Output
-| emp\_name | dept\_name |
-| --------- | ---------- |
-| Raj       | Sales      |
-| Raj       | HR         |
-| Raj       | Marketing  |
-| Riya      | Sales      |
-| Riya      | HR         |
-| Riya      | Marketing  |
-| Aman      | Sales      |
-| Aman      | HR         |
-| Aman      | Marketing  |
-| Neha      | Sales      |
-| Neha      | HR         |
-| Neha      | Marketing  |
+    ```sql
+    SELECT E.emp_name, D.dept_name
+    FROM Employees E
+    CROSS JOIN Departments D;
+    ```
+    ### Output
+    | emp\_name | dept\_name |
+    | --------- | ---------- |
+    | Raj       | Sales      |
+    | Raj       | HR         |
+    | Raj       | Marketing  |
+    | Riya      | Sales      |
+    | Riya      | HR         |
+    | Riya      | Marketing  |
+    | Aman      | Sales      |
+    | Aman      | HR         |
+    | Aman      | Marketing  |
+    | Neha      | Sales      |
+    | Neha      | HR         |
+    | Neha      | Marketing  |
 
 
----
+    ---
 
-### SELF JOIN
+    ### SELF JOIN
 
-A **SELF JOIN** is a regular join where a table is joined with **itself**.  
-Useful for comparing rows within the same table (e.g., hierarchical relationships).
+    A **SELF JOIN** is a regular join where a table is joined with **itself**.  
+    Useful for comparing rows within the same table (e.g., hierarchical relationships).
 
----
+    ---
 
-### Sample Table: Employees
+    ### Sample Table: Employees
 
-| emp_id | emp_name |
-|--------|----------|
-| 1      | Raj      |
-| 2      | Riya     |
-| 3      | Aman     |
-| 4      | Neha     |
+    | emp_id | emp_name |
+    |--------|----------|
+    | 1      | Raj      |
+    | 2      | Riya     |
+    | 3      | Aman     |
+    | 4      | Neha     |
 
----
+    ---
 
-### Query:
+    ### Query:
 
-```sql
-SELECT A.emp_name AS Employee, B.emp_name AS Manager
-FROM Employees A
-JOIN Employees B ON A.emp_id = B.emp_id - 1;
-```
-### Output
-| Employee | Manager |
-| -------- | ------- |
-| Riya     | Raj     |
-| Aman     | Riya    |
-| Neha     | Aman    |
+    ```sql
+    SELECT A.emp_name AS Employee, B.emp_name AS Manager
+    FROM Employees A
+    JOIN Employees B ON A.emp_id = B.emp_id - 1;
+    ```
+    ### Output
+    | Employee | Manager |
+    | -------- | ------- |
+    | Riya     | Raj     |
+    | Aman     | Riya    |
+    | Neha     | Aman    |
 
----
+    ---
 
-## OUTER JOIN (General Term)
+    ## OUTER JOIN (General Term)
 
-**OUTER JOIN** is a general category of joins that includes:
+    **OUTER JOIN** is a general category of joins that includes:
 
-- **LEFT OUTER JOIN**
-- **RIGHT OUTER JOIN**
-- **FULL OUTER JOIN**
+    - **LEFT OUTER JOIN**
+    - **RIGHT OUTER JOIN**
+    - **FULL OUTER JOIN**
 
-These joins are used when you want to:
+    These joins are used when you want to:
 
-✅ Retrieve **all data** from one or both tables,  
-✅ Include **unmatched rows** by filling in `NULL` where no match exists.
+    ✅ Retrieve **all data** from one or both tables,  
+    ✅ Include **unmatched rows** by filling in `NULL` where no match exists.
 
----
+    ---
 
-### Comparison Table
+    ### Comparison Table
 
-| Join Type        | Description                                                    |
-|------------------|----------------------------------------------------------------|
-| LEFT OUTER JOIN  | All rows from the left table + matched rows from the right     |
-| RIGHT OUTER JOIN | All rows from the right table + matched rows from the left     |
-| FULL OUTER JOIN  | All rows from both tables, matched and unmatched rows          |
+    | Join Type        | Description                                                    |
+    |------------------|----------------------------------------------------------------|
+    | LEFT OUTER JOIN  | All rows from the left table + matched rows from the right     |
+    | RIGHT OUTER JOIN | All rows from the right table + matched rows from the left     |
+    | FULL OUTER JOIN  | All rows from both tables, matched and unmatched rows          |
 
----
+    ---
 
-**Use Case:**  
-Use OUTER JOINs when you need a **complete picture**, including data that doesn’t match between tables.
+    **Use Case:**  
+    Use OUTER JOINs when you need a **complete picture**, including data that doesn’t match between tables.
 
 
+10. ### What are operators,share its type and example
+    ### ✅ SQL Operators
 
+    SQL operators are used to perform operations on data, often in `SELECT`, `WHERE`, or `CASE` clauses.
+
+    ---
+
+    ### 🔹 Types of SQL Operators
+
+    | Type                     | Description                                                | Example                                 |
+    |--------------------------|------------------------------------------------------------|-----------------------------------------|
+    | **1. Arithmetic**        | Perform math operations                                   | `salary + bonus`                        |
+    | **2. Comparison**        | Compare values                                             | `age > 25`, `salary = 50000`            |
+    | **3. Logical**           | Combine conditions                                         | `AND`, `OR`, `NOT`                      |
+    | **4. Bitwise**           | Bit-level manipulation                                    | `a & b`, `a | b`                         |
+    | **5. Set**               | Check membership in a set                                 | `IN`, `NOT IN`                          |
+    | **6. EXISTS**            | Checks if a subquery returns rows                         | `EXISTS`, `NOT EXISTS`                  |
+    | **7. BETWEEN**           | Range checking                                            | `BETWEEN 10 AND 20`                     |
+    | **8. LIKE**              | Pattern matching                                           | `LIKE 'A%'`                             |
+    | **9. NULL Check**        | Check for nulls                                            | `IS NULL`, `IS NOT NULL`                |
+
+    ---
+
+    ### 🔸 Examples
+
+    ```sql
+    -- Arithmetic
+    SELECT salary + bonus FROM employees;
+
+    -- Comparison
+    SELECT * FROM employees WHERE age >= 30;
+
+    -- Logical
+    SELECT * FROM employees WHERE age > 25 AND department = 'Sales';
+
+    -- Set
+    SELECT * FROM employees WHERE department IN ('HR', 'IT');
+
+    -- EXISTS
+    SELECT name FROM employees e
+    WHERE EXISTS (
+    SELECT 1 FROM departments d WHERE d.id = e.department_id
+    );
+
+    -- BETWEEN
+    SELECT * FROM employees WHERE salary BETWEEN 30000 AND 60000;
+
+    -- LIKE
+    SELECT * FROM employees WHERE name LIKE 'S%';
+
+    -- NULL
+    SELECT * FROM employees WHERE bonus IS NULL;
+    ```
 
 
 
