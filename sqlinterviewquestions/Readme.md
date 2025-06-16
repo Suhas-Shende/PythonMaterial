@@ -1,6 +1,45 @@
+# Index
+## Basic Level Quesions
+1. [What is SQL](#what-is-sql)  
+2. [What are the different types of SQL statements](#what-are-the-different-types-of-sql-statements)  
+3. [What is the difference between WHERE and HAVING clause](#what-is-the-difference-between-where-and-having-clause)  
+4. [What is a primary key and foreign key](#what-is-a-primary-key-and-foreign-key)  
+5. [What is INDEX](#what-is-index)  
+6. [What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN](#what-is-the-difference-between-inner-join-left-join-right-join-and-full-outer-join)  
+7. [What is the difference between DELETE, TRUNCATE, and DROP](#what-is-the-difference-between-delete-truncate-and-drop)  
+8. [What is the difference between UNION and UNION ALL](#what-is-the-difference-between-union-and-union-all)  
+9. [What are the different types of joins in SQL](#what-are-the-different-types-of-joins-in-sql)  
+10. [What are operators,share its type and example](#what-are-operators-share-its-type-and-example)
+
+
+
+## Intermediate Level Questions
+
+1. [Write a query to find the second highest salary from an Employee table](#write-a-query-to-find-the-second-highest-salary-from-an-employee-table)  
+2. [What is a subquery, Explain with an example](#what-is-a-subquery-explain-with-an-example)  
+3. [What is a GROUP BY clause? How is it used with aggregate functions](#what-is-a-group-by-clause-how-is-it-used-with-aggregate-functions)  
+4. [What are Aggregate Functions in SQL](#what-are-aggregate-functions-in-sql)
+
+
+## Advance Level  Questions
+
+
+1. [What are window functions, How do you use RANK(), DENSE_RANK(), ROW_NUMBER()](#what-are-window-functions-how-do-you-use-rank-dense_rank-row_number)  
+2. [Explain CTE (Common Table Expression) and its benefits](#explain-cte-common-table-expression-and-its-benefits)  
+3. [How do transactions work in SQL? What are ACID properties](#how-do-transactions-work-in-sql-what-are-acid-properties)  
+4. [What is the difference between IN and EXISTS](#what-is-the-difference-between-in-and-exists)  
+5. [Explain stored procedures, triggers, and views](#explain-stored-procedures-triggers-and-views)
+6. [How does the CASE statement work in SQL](#how-does-the-case-statement-work-in-sql)  
+7. [What is the purpose of ALter Command](#what-is-the-purpose-of-alter-command)
+8. [What Order of Execution of SQL Clauses](#what-order-of-execution-of-sql-clauses)
+
+
+
+
+
 ## Basic Level Questions
 
-1. ### What is SQL?
+1. ### What is SQL
 
     **SQL (Structured Query Language)** is a standard language used to communicate with relational databases and perform many different data manipulaton operations on the data. It allows users to **store, retrieve, manipulate, and manage data** efficiently.
 
@@ -230,6 +269,9 @@
     - Use a **foreign key** to establish relationships between tables and maintain consistency.
 
 
+
+
+
 5. ### What is INDEX
     ### 📘 What is an Index in SQL? (With Example)
 
@@ -429,7 +471,7 @@
 
 
 
-8. ### What the difference between UNION and UNION  ALL
+8. ### What is the difference between UNION and UNION ALL
     ### 🧾 Difference Between `UNION` and `UNION ALL` in SQL
 
     | Feature                | `UNION`                                                | `UNION ALL`                                           |
@@ -504,6 +546,8 @@
 
     - Use `UNION` when you want unique records from multiple queries.
     - Use `UNION ALL` when performance is important or duplicates are meaningful for your logic.
+
+
 
 
 9. ### What are the different types of joins in SQL
@@ -814,7 +858,9 @@
     Use OUTER JOINs when you need a **complete picture**, including data that doesn’t match between tables.
 
 
-10. ### What are operators,share its type and example
+
+
+10. ### What are operators, share its type and example
     ### ✅ SQL Operators
 
     SQL operators are used to perform operations on data, often in `SELECT`, `WHERE`, or `CASE` clauses.
@@ -867,9 +913,6 @@
     -- NULL
     SELECT * FROM employees WHERE bonus IS NULL;
     ```
-
-
-
 
 
 
@@ -928,7 +971,7 @@
 
 
 
-2. ### What is a subquery? Explain with an example
+2. ### What is a subquery, Explain with an example
 
     ### 🔍 What is a Subquery in SQL?
 
@@ -1089,7 +1132,7 @@
     > 📌 The `GROUP BY` clause is essential for summarizing and analyzing data across categories or groups.
 
 
-4. ### What are Aggregate Functions in SQL?
+4. ### What are Aggregate Functions in SQL
 
     **Aggregate functions** perform a calculation on a set of values and return a single value.  
     They are often used with the `GROUP BY` clause to group rows and summarize data.
@@ -1258,7 +1301,7 @@
 
 
 ## Advance Interview question
-1. ### What are window functions? How do you use RANK(), DENSE_RANK(), ROW_NUMBER()
+1. ### What are window functions, How do you use RANK(), DENSE_RANK(), ROW_NUMBER()
 
     ### Window Functions in SQL
 
