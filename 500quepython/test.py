@@ -1,6 +1,23 @@
+# def questionstring(num,que):
+#     k="-".join(que.split()).lower()
+#     print(f"| {num} | [{que}?](#{k}) |")
+
+
+
+# q=input("Enter a question:")
+# n=int(input("Enter que no."))
+# questionstring(n,q)
+
+'''
+output
+| 2 | [Why is Python so popular?](#why-is-python-so-popular) |
+
+'''
+
+
 def questionstring(num,que):
     k="-".join(que.split()).lower()
-    print(f"| {num} | [{que}?](#{k}) |")
+    print(f"{num} [{que}?](#{k})")
 
 
 
@@ -8,9 +25,10 @@ q=input("Enter a question:")
 n=int(input("Enter que no."))
 questionstring(n,q)
 
+
 '''
-output
-| 2 | [Why is Python so popular?](#why-is-python-so-popular) |
+
+9. [Why is Python an interpreted language?](#why-is-python-an-interpreted-language) 
 '''
 
 '''
@@ -37,6 +55,7 @@ string
 '''
 '''
 module
+### what is date time modeule
 
 
 '''
