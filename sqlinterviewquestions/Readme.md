@@ -10,51 +10,31 @@
 8. [What is the difference between DELETE, TRUNCATE, and DROP](#what-is-the-difference-between-delete-truncate-and-drop) 
 9. [What are operators,share its type and example](#what-are-operators-share-its-type-and-example)
 10. [What is the difference between WHERE and HAVING clause](#what-is-the-difference-between-where-and-having-clause)  
-11. [What is difference between GROUP BY and ORDER BY](#what-is-difference-between-group-by-and-order-by) 
-12. [What are the different types of joins in SQL](#what-are-the-different-types-of-joins-in-sql)  
-13. [What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN](#what-is-the-difference-between-inner-join-left-join-right-join-and-full-outer-join)  
-14. [What is the difference between UNION and UNION ALL](#what-is-the-difference-between-union-and-union-all)  
-15. [What is the difference between UNION and JOIN](#what-is-the-difference-between-union-and-join)
-16. [What is CASE Statement in SQL](#what-is-case-statement-in-sql)  
-17. [How to handle NULL values in SQL](#how-to-handle-null-values-in-sql)   
-18. [How to Optimize SQL Queries](#how-to-optimize-sql-queries)  
-19. [What is the difference between IN and EXISTS](#what-is-the-difference-between-in-and-exists)
-20. [What is normalization and denormalization](#what-is-normalization-and-denormalization) 
-21. [What is INDEX](#what-is-index) 
+11. [What are Aggregate Functions in SQL](#what-are-aggregate-functions-in-sql)
+12. [What is a GROUP BY clause? How is it used with aggregate functions](#what-is-a-group-by-clause-how-is-it-used-with-aggregate-functions)  
+13. [What is a subquery, Explain with an example](#what-is-a-subquery-explain-with-an-example) 
+14. [What is difference between GROUP BY and ORDER BY](#what-is-difference-between-group-by-and-order-by) 
+15. [What are the different types of joins in SQL](#what-are-the-different-types-of-joins-in-sql)   
+16. [What is the difference between UNION and UNION ALL](#what-is-the-difference-between-union-and-union-all)  
+17. [What is the difference between UNION and JOIN](#what-is-the-difference-between-union-and-join)
+18. [What is CASE Statement in SQL](#what-is-case-statement-in-sql)  
+19. [How to handle NULL values in SQL](#how-to-handle-null-values-in-sql)   
+20. [How to Optimize SQL Queries](#how-to-optimize-sql-queries)  
+21. [What is the difference between IN and EXISTS](#what-is-the-difference-between-in-and-exists)
+22. [What is normalization and denormalization](#what-is-normalization-and-denormalization) 
+23. [What is INDEX](#what-is-index) 
+ 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Intermediate Level Questions
+## Query Questions
 
 1. [Write a query to find the second highest salary from an Employee table](#write-a-query-to-find-the-second-highest-salary-from-an-employee-table)  
-2. [What is a subquery, Explain with an example](#what-is-a-subquery-explain-with-an-example)  
-3. [What is a GROUP BY clause? How is it used with aggregate functions](#what-is-a-group-by-clause-how-is-it-used-with-aggregate-functions)  
-4. [What are Aggregate Functions in SQL](#what-are-aggregate-functions-in-sql)
 
 
-## Advance Level  Questions
+
+## Intermediate Level  Questions
 
 
 1. [What are window functions, How do you use RANK(), DENSE_RANK(), ROW_NUMBER()](#what-are-window-functions-how-do-you-use-rank-dense_rank-row_number)  
@@ -62,9 +42,8 @@
 3. [How do transactions work in SQL? What are ACID properties](#how-do-transactions-work-in-sql-what-are-acid-properties)  
 4. [What is the difference between IN and EXISTS](#what-is-the-difference-between-in-and-exists)  
 5. [Explain stored procedures, triggers, and views](#explain-stored-procedures-triggers-and-views)
-6. [How does the CASE statement work in SQL](#how-does-the-case-statement-work-in-sql)  
-7. [What is the purpose of ALter Command](#what-is-the-purpose-of-alter-command)
-8. [What Order of Execution of SQL Clauses](#what-order-of-execution-of-sql-clauses)
+6. [What is the purpose of ALter Command](#what-is-the-purpose-of-alter-command)
+7. [What Order of Execution of SQL Clauses](#what-order-of-execution-of-sql-clauses)
 
 
 
@@ -517,7 +496,353 @@ CREATE TABLE tickets (
     - Use `HAVING` to filter **groups created by `GROUP BY`**.
 
 
-11. ### What is difference between Group by and order by
+
+
+
+11. ### What are Aggregate Functions in SQL
+
+    **Aggregate functions** perform a calculation on a set of values and return a single value.  
+    They are often used with the `GROUP BY` clause to group rows and summarize data.
+
+    ---
+
+    ### Common Aggregate Functions:
+
+    | Function     | Description                                  |
+    |--------------|----------------------------------------------|
+    | `COUNT()`    | Counts the number of rows                    |
+    | `SUM()`      | Adds up the values of a numeric column       |
+    | `AVG()`      | Calculates the average of a numeric column   |
+    | `MIN()`      | Returns the smallest value                   |
+    | `MAX()`      | Returns the largest value                    |
+
+    ---
+
+    ### Example:
+
+    #### 📌 Table: sales
+
+    | id | product  | quantity | price |
+    | -- | -------- | -------- | ----- |
+    | 1  | Pen      | 10       | 5     |
+    | 2  | Notebook | 5        | 20    |
+    | 3  | Pencil   | 20       | 2     |
+    | 4  | Eraser   | 15       | 3     |
+
+
+    ---
+
+    ### Query:
+
+    ```sql
+    SELECT 
+    COUNT(*) AS total_items,
+    SUM(quantity) AS total_quantity,
+    AVG(price) AS avg_price,
+    MIN(price) AS min_price,
+    MAX(price) AS max_price
+    FROM sales;
+
+    ```
+    ### Output
+    | total\_items | total\_quantity | avg\_price | min\_price | max\_price |
+    | ------------ | --------------- | ---------- | ---------- | ---------- |
+    | 4            | 50              | 7.5        | 2          | 20         |
+
+        
+5. ### Explain normalization and its types 1NF, 2NF, 3NF     
+    ### Normalization in SQL
+
+    ## ✅ What is Normalization?
+
+    **Normalization** is a process in database design that:
+
+    - Eliminates redundant data (repetition)
+    - Ensures data integrity
+    - Organizes data efficiently across tables
+
+    It involves splitting large tables into smaller related tables and defining relationships between them.
+
+    ---
+
+    ### 🔹 First Normal Form (1NF)
+
+    ### 🔸 Rule:
+    - Each column should contain **atomic (indivisible)** values.
+    - Each record should be **unique**.
+    - No repeating groups or arrays allowed.
+
+    ### ❌ Not in 1NF:
+
+    | student_id | name  | subjects        |
+    |------------|-------|-----------------|
+    | 1          | Raj   | Math, Science   |
+    | 2          | Priya | English         |
+
+    ➡️ `subjects` column contains multiple values — violates atomicity.
+
+    ### ✅ In 1NF:
+
+    | student_id | name  | subject   |
+    |------------|-------|-----------|
+    | 1          | Raj   | Math      |
+    | 1          | Raj   | Science   |
+    | 2          | Priya | English   |
+
+    ---
+
+    ### 🔹 Second Normal Form (2NF)
+
+    ### 🔸 Rule:
+    - Must be in **1NF**.
+    - All non-key columns must depend on the **entire** primary key (no **partial dependencies**).
+
+    > Applies when the primary key is **composite** (more than one column).
+
+    ### ❌ Not in 2NF:
+
+    | student_id | subject   | student_name |
+    |------------|-----------|--------------|
+    | 1          | Math      | Raj          |
+    | 1          | Science   | Raj          |
+    | 2          | English   | Priya        |
+
+    ➡️ `student_name` depends only on `student_id`, not on the full composite key (`student_id + subject`).
+
+    ### ✅ In 2NF:
+
+    **Students Table**
+
+    | student_id | student_name |
+    |------------|--------------|
+    | 1          | Raj          |
+    | 2          | Priya        |
+
+    **Subjects Table**
+
+    | student_id | subject   |
+    |------------|-----------|
+    | 1          | Math      |
+    | 1          | Science   |
+    | 2          | English   |
+
+    ---
+
+    ### 🔹 Third Normal Form (3NF)
+
+    ### 🔸 Rule:
+    - Must be in **2NF**.
+    - No **transitive dependencies**: Non-key columns should not depend on **other non-key columns**.
+
+    ### ❌ Not in 3NF:
+
+    | student_id | student_name | city   | city_pincode |
+    |------------|--------------|--------|--------------|
+    | 1          | Raj          | Pune   | 411001       |
+    | 2          | Priya        | Mumbai | 400001       |
+
+    ➡️ `city_pincode` depends on `city`, which is a non-key column.
+
+    ### ✅ In 3NF:
+
+    **Students Table**
+
+    | student_id | student_name | city   |
+    |------------|--------------|--------|
+    | 1          | Raj          | Pune   |
+    | 2          | Priya        | Mumbai |
+
+    **Cities Table**
+
+    | city   | city_pincode |
+    |--------|---------------|
+    | Pune   | 411001        |
+    | Mumbai | 400001        |
+
+    ---
+
+    ### 🎯 Summary
+
+    | Normal Form | Rule                                                    |
+    |-------------|---------------------------------------------------------|
+    | 1NF         | Atomic values, no repeating groups                      |
+    | 2NF         | No partial dependency on part of a composite key        |
+    | 3NF         | No transitive dependency between non-key columns        |
+    
+
+
+
+
+12. ### What is a GROUP BY clause? How is it used with aggregate functions
+    ### 🧮 SQL `GROUP BY` Clause Explained
+
+    ### 📘 What is `GROUP BY`?
+    The `GROUP BY`  is a clause in SQL used to group rows based on one or more columns.
+    It is commonly used with **aggregate functions** like:
+    - `COUNT()`
+    - `SUM()`
+    - `AVG()`
+    - `MAX()`
+    - `MIN()`
+
+    ---
+
+    ### 🧠 Purpose:
+    To perform **aggregation** on groups of data rather than on the entire dataset.
+
+    ---
+
+    ### 📄 Example Table: `Sales`
+
+    | sale_id | product  | region   | amount |
+    |---------|----------|----------|--------|
+    | 1       | Phone    | West     | 1000   |
+    | 2       | Laptop   | East     | 1500   |
+    | 3       | Phone    | West     | 1200   |
+    | 4       | Phone    | East     | 900    |
+    | 5       | Laptop   | East     | 1800   |
+
+    ---
+
+    ### 🔹 Example 1: Total Sales by Region
+
+    ```sql
+    SELECT region, SUM(amount) AS total_sales
+    FROM Sales
+    GROUP BY region;
+    ```
+
+    ### ✅ Output:
+
+    | region | total_sales |
+    |--------|-------------|
+    | West   | 2200        |
+    | East   | 4200        |
+
+    ### 💡 Explanation:
+    - The query groups rows by `region`.
+    - It calculates the total `amount` for each region using `SUM()`.
+
+    ---
+
+    ### 🔹 Example 2: Count of Products Sold by Type
+
+    ```sql
+    SELECT product, COUNT(*) AS total_sold
+    FROM Sales
+    GROUP BY product;
+    ```
+
+    ### ✅ Output:
+
+    | product | total_sold |
+    |---------|------------|
+    | Phone   | 3          |
+    | Laptop  | 2          |
+
+    ---
+
+    ### ⚠️ Notes:
+    - All columns in the `SELECT` statement **must be either in `GROUP BY`** or **aggregated**.
+    - You can combine `GROUP BY` with `HAVING` to filter grouped results.
+
+    ---
+
+    ### 🔹 Example with `HAVING`:
+    ```sql
+    SELECT region, SUM(amount) AS total_sales
+    FROM Sales
+    GROUP BY region
+    HAVING SUM(amount) > 3000;
+    ```
+
+    ### ✅ Output:
+
+    | region | total_sales |
+    |--------|-------------|
+    | East   | 4200        |
+
+    ➡️ Only regions with sales greater than 3000 are shown.
+
+    ---
+
+    > 📌 The `GROUP BY` clause is essential for summarizing and analyzing data across categories or groups.
+
+
+
+
+
+
+13. ### What is a subquery, Explain with an example
+
+    ### 🔍 What is a Subquery in SQL?
+
+    ### 🧠 Definition:
+    A **subquery** (also known as an **inner query** or **nested query**) is a query **within another SQL query**.  
+    It is enclosed in parentheses and is used to return data that will be used by the **main (outer) query**.
+
+    ---
+
+    ### ✅ Use Cases:
+    - Filtering rows (`WHERE` clause)
+    - Creating derived columns (`SELECT` clause)
+    - Replacing JOINs (in some cases)
+    - Used in `INSERT`, `UPDATE`, and `DELETE` as well
+
+    ---
+
+    ### 🔄 Types of Subqueries:
+    1. **Scalar Subquery** – Returns a single value.
+    2. **Row Subquery** – Returns a single row.
+    3. **Table Subquery** – Returns a table (used with `IN`, `EXISTS`, or joins).
+    4. **Correlated Subquery** – References a column from the outer query.
+
+    ---
+
+    ### 📄 Example Table: `Employee`
+
+    | emp_id | emp_name | salary |
+    |--------|----------|--------|
+    | 1      | Raj      | 50000  |
+    | 2      | Riya     | 60000  |
+    | 3      | Aman     | 70000  |
+    | 4      | Neha     | 60000  |
+
+    ---
+
+    ### 🔹 Example: Find employees who earn more than the **average salary**
+
+    ### 🧾 Query:
+    ```sql
+    SELECT emp_name, salary
+    FROM Employee
+    WHERE salary > (
+        SELECT AVG(salary)
+        FROM Employee
+    );
+    ```
+
+    ### 💡 Explanation:
+    - The **subquery** `(SELECT AVG(salary) FROM Employee)` calculates the average salary.
+    - The **main query** selects employees whose salary is **greater** than this average.
+
+    ---
+
+    ### 🧮 Output:
+
+    | emp_name | salary |
+    |----------|--------|
+    | Aman     | 70000  |
+
+    ---
+
+    > ✅ Subqueries are powerful tools in SQL that allow you to break complex problems into simpler parts.
+
+
+
+
+
+14. ### What is difference between Group by and order by
     The GROUP BY clause in SQL is used to arrange identical data into groups based on one or more columns. It is typically used in conjunction with aggregate functions such as COUNT(), SUM(), AVG(), MAX(), and MIN() to perform summary operations on grouped data.
 
     | GROUP BY                                                   | ORDER BY                                                     |
@@ -530,7 +855,19 @@ CREATE TABLE tickets (
 
 
 
-12. ### What are the different types of joins in SQL
+15. ### What are the different types of joins in SQL
+    Joins in SQL are used to combine data from two or more tables based on a related column
+    between them.
+
+    #### Types of Joins:
+
+    1. INNER JOIN – Returns only matching rows from both tables.
+    2. LEFT JOIN – Returns all rows from the left table and matching rows from the right table.
+    3. RIGHT JOIN – Returns all rows from the right table and matching rows from the left
+        table.
+    4. FULL JOIN – Returns all rows from both tables (matching and non-matching).
+    5. CROSS JOIN – Returns the Cartesian product of both tables (all possible combinations).
+    6. SELF JOIN – Joins a table with itself.
 
     ### INNER JOIN
 
@@ -840,108 +1177,22 @@ CREATE TABLE tickets (
 
 
 
-13. ### What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN
-
-    Joins in SQL are used to combine data from two or more tables based on a related column
-    between them.
-
-    #### Types of Joins:
-
-    1. INNER JOIN – Returns only matching rows from both tables.
-    2. LEFT JOIN – Returns all rows from the left table and matching rows from the right table.
-    3. RIGHT JOIN – Returns all rows from the right table and matching rows from the left
-        table.
-    4. FULL JOIN – Returns all rows from both tables (matching and non-matching).
-    5. SELF JOIN – Joins a table with itself.
-    6. CROSS JOIN – Returns the Cartesian product of both tables (all possible combinations).
-    ### 🔁 SQL JOIN Types Explained
-
-    ### 1. 🧩 INNER JOIN
-    - **Returns only matching rows** from both tables.
-    - If there is **no match**, the row is **excluded**.
-    - Most common type of join.
-
-    ```sql
-    SELECT * 
-    FROM A 
-    INNER JOIN B ON A.id = B.id;
-    ```
-
-    🔍 Returns only rows where `A.id = B.id`.
-
-    ---
-
-    ### 2. 👈 LEFT JOIN (or LEFT OUTER JOIN)
-    - Returns **all rows from the left table** (A), and the **matching rows** from the right table (B).
-    - If there is **no match**, result shows **NULLs** for right table’s columns.
-
-    ```sql
-    SELECT * 
-    FROM A 
-    LEFT JOIN B ON A.id = B.id;
-    ```
-
-    🔍 All rows from table A + matching rows from B (NULL if no match).
-
-    ---
-
-    ### 3. 👉 RIGHT JOIN (or RIGHT OUTER JOIN)
-    - Returns **all rows from the right table** (B), and the **matching rows** from the left table (A).
-    - If there is **no match**, result shows **NULLs** for left table’s columns.
-
-    ```sql
-    SELECT * 
-    FROM A 
-    RIGHT JOIN B ON A.id = B.id;
-    ```
-
-    🔍 All rows from table B + matching rows from A (NULL if no match).
-
-    ---
-
-    ### 4. 🔄 FULL OUTER JOIN
-    - Returns **all rows from both tables**, with matching rows from both sides.
-    - If there is **no match**, NULLs are shown for the missing side.
-
-    ```sql
-    SELECT * 
-    FROM A 
-    FULL OUTER JOIN B ON A.id = B.id;
-    ```
-
-    🔍 All rows from A and B; matched rows are joined, unmatched ones show NULLs.
-
-    > ❗Note: MySQL doesn’t support `FULL OUTER JOIN` directly — use `UNION` of `LEFT JOIN` and `RIGHT JOIN` to simulate it.
-
-    ---
-
-    ### 📊 Summary Table
-
-    | Join Type            | Rows from A | Rows from B | Unmatched A | Unmatched B |
-    |----------------------|-------------|-------------|-------------|-------------|
-    | **INNER JOIN**        | ✅           | ✅           | ❌           | ❌           |
-    | **LEFT JOIN**         | ✅           | ✅           | ✅           | ❌           |
-    | **RIGHT JOIN**        | ✅           | ✅           | ❌           | ✅           |
-    | **FULL OUTER JOIN**   | ✅           | ✅           | ✅           | ✅           |
 
 
 
-
-
-
-14. ### What is the difference between UNION and UNION ALL
+16. ### What is the difference between UNION and UNION ALL
     UNION and UNION ALL are used to combine the result sets of two or more SELECT
     statements.
 
     ### 🧾 Difference Between `UNION` and `UNION ALL` in SQL
 
-    | Feature                | `UNION`                                                | `UNION ALL`                                           |
-    |------------------------|--------------------------------------------------------|--------------------------------------------------------|
-    | **Duplicate Rows**     | Removes duplicate rows from the result set.           | Includes **all rows**, even if duplicates exist.       |
-    | **Performance**        | Slower, due to duplicate elimination and sorting.     | Faster, as it skips duplicate checking.                |
-    | **Use Case**           | Use when you need only **unique** results.            | Use when you want to **preserve all rows**, including duplicates. |
-    | **Sorting**            | Performs internal sorting to remove duplicates.       | No sorting is performed.                              |
-    | **Result Size**        | Smaller, if duplicates exist.                         | Larger, as it contains all entries.                    |
+    | `UNION`                                                | `UNION ALL`                                           |
+    |--------------------------------------------------------|-------------------------------|
+    | Removes duplicate rows from the result set.           | Includes **all rows**, even if duplicates exist.       |
+    | Slower, due to duplicate elimination and sorting.     | Faster, as it skips duplicate checking.                |
+    | Use when you need only **unique** results.            | Use when you want to **preserve all rows**, including duplicates. |
+    | Performs internal sorting to remove duplicates.       | No sorting is performed.                              |
+    | Smaller, if duplicates exist.                         | Larger, as it contains all entries.                    |
 
 
 
@@ -1011,7 +1262,7 @@ CREATE TABLE tickets (
 
 
 
-15. ### What is the difference between UNION and JOIN
+17. ### What is the difference between UNION and JOIN
     | `UNION`                                            | `JOIN`                                                |
     |----------------------------------------------------|--------------------------------------------------------|
     | Combines **rows from two queries** into a single result set | Combines **columns from two or more tables**            |
@@ -1023,7 +1274,7 @@ CREATE TABLE tickets (
 
 
 
-16. ### What is CASE Statement in SQL
+18. ### What is CASE Statement in SQL
     The CASE Statement is used to apply conditional logic in SQL queries, similar to IF-ELSE
     statements.
 
@@ -1078,7 +1329,7 @@ CREATE TABLE tickets (
 
 
 
-17. ### How to handle NULL values in SQL
+19. ### How to handle NULL values in SQL
     NULL represents missing or unknown data in SQL
     >NULL means no value or unknown data. It is not the same as 0, '', or " ".
 
@@ -1118,7 +1369,7 @@ CREATE TABLE tickets (
 
 
 
-18. ### How to Optimize SQL Queries
+20. ### How to Optimize SQL Queries
     **Optimizing SQL queries helps improve performance, speed, and efficiency of your database operations.**
     | Technique                         | Description                                                                 |
     |----------------------------------|-----------------------------------------------------------------------------|
@@ -1136,7 +1387,7 @@ CREATE TABLE tickets (
 
 
 
-19. ### What is the difference between IN and EXISTS
+21. ### What is the difference between IN and EXISTS
 
     | `IN`                                               | `EXISTS`                                                  |
     |----------------------------------------------------|------------------------------------------------------------|
@@ -1153,7 +1404,7 @@ CREATE TABLE tickets (
 
 
 
-20. ### what is normalization and denormalization.
+22. ### what is normalization and denormalization.
     #### Defination: 
     Normalization is the process of organizing data in a database to reduce redundancy and
     improve data integrity. It involves dividing large tables into smaller related tables and defining
@@ -1258,7 +1509,7 @@ CREATE TABLE tickets (
 
 
 
-21. ### What is INDEX
+23. ### What is INDEX
     An Index in SQL is like a shortcut. It helps the database find data faster without scanning the entire table.
 
     📌 Without index: SQL checks every row one by one (slow).
@@ -1436,7 +1687,7 @@ CREATE TABLE tickets (
 ---
 
 
-## 🔹 Intermediate Level Questions
+## 🔹 Query Questions
 
 
 1. ### Write a query to find the second highest salary from an Employee table
@@ -1484,335 +1735,6 @@ CREATE TABLE tickets (
     - First, it finds the maximum salary.
     - Then, it gets the highest salary **less than the maximum**, which is the second highest.
 
-
-
-
-2. ### What is a subquery, Explain with an example
-
-    ### 🔍 What is a Subquery in SQL?
-
-    ### 🧠 Definition:
-    A **subquery** (also known as an **inner query** or **nested query**) is a query **within another SQL query**.  
-    It is enclosed in parentheses and is used to return data that will be used by the **main (outer) query**.
-
-    ---
-
-    ### ✅ Use Cases:
-    - Filtering rows (`WHERE` clause)
-    - Creating derived columns (`SELECT` clause)
-    - Replacing JOINs (in some cases)
-    - Used in `INSERT`, `UPDATE`, and `DELETE` as well
-
-    ---
-
-    ### 🔄 Types of Subqueries:
-    1. **Scalar Subquery** – Returns a single value.
-    2. **Row Subquery** – Returns a single row.
-    3. **Table Subquery** – Returns a table (used with `IN`, `EXISTS`, or joins).
-    4. **Correlated Subquery** – References a column from the outer query.
-
-    ---
-
-    ### 📄 Example Table: `Employee`
-
-    | emp_id | emp_name | salary |
-    |--------|----------|--------|
-    | 1      | Raj      | 50000  |
-    | 2      | Riya     | 60000  |
-    | 3      | Aman     | 70000  |
-    | 4      | Neha     | 60000  |
-
-    ---
-
-    ### 🔹 Example: Find employees who earn more than the **average salary**
-
-    ### 🧾 Query:
-    ```sql
-    SELECT emp_name, salary
-    FROM Employee
-    WHERE salary > (
-        SELECT AVG(salary)
-        FROM Employee
-    );
-    ```
-
-    ### 💡 Explanation:
-    - The **subquery** `(SELECT AVG(salary) FROM Employee)` calculates the average salary.
-    - The **main query** selects employees whose salary is **greater** than this average.
-
-    ---
-
-    ### 🧮 Output:
-
-    | emp_name | salary |
-    |----------|--------|
-    | Aman     | 70000  |
-
-    ---
-
-    > ✅ Subqueries are powerful tools in SQL that allow you to break complex problems into simpler parts.
-
-3. ### What is a GROUP BY clause? How is it used with aggregate functions
-    ### 🧮 SQL `GROUP BY` Clause Explained
-
-    ### 📘 What is `GROUP BY`?
-    The `GROUP BY`  is a clause in SQL used to group rows based on one or more columns.
-    It is commonly used with **aggregate functions** like:
-    - `COUNT()`
-    - `SUM()`
-    - `AVG()`
-    - `MAX()`
-    - `MIN()`
-
-    ---
-
-    ### 🧠 Purpose:
-    To perform **aggregation** on groups of data rather than on the entire dataset.
-
-    ---
-
-    ### 📄 Example Table: `Sales`
-
-    | sale_id | product  | region   | amount |
-    |---------|----------|----------|--------|
-    | 1       | Phone    | West     | 1000   |
-    | 2       | Laptop   | East     | 1500   |
-    | 3       | Phone    | West     | 1200   |
-    | 4       | Phone    | East     | 900    |
-    | 5       | Laptop   | East     | 1800   |
-
-    ---
-
-    ### 🔹 Example 1: Total Sales by Region
-
-    ```sql
-    SELECT region, SUM(amount) AS total_sales
-    FROM Sales
-    GROUP BY region;
-    ```
-
-    ### ✅ Output:
-
-    | region | total_sales |
-    |--------|-------------|
-    | West   | 2200        |
-    | East   | 4200        |
-
-    ### 💡 Explanation:
-    - The query groups rows by `region`.
-    - It calculates the total `amount` for each region using `SUM()`.
-
-    ---
-
-    ### 🔹 Example 2: Count of Products Sold by Type
-
-    ```sql
-    SELECT product, COUNT(*) AS total_sold
-    FROM Sales
-    GROUP BY product;
-    ```
-
-    ### ✅ Output:
-
-    | product | total_sold |
-    |---------|------------|
-    | Phone   | 3          |
-    | Laptop  | 2          |
-
-    ---
-
-    ### ⚠️ Notes:
-    - All columns in the `SELECT` statement **must be either in `GROUP BY`** or **aggregated**.
-    - You can combine `GROUP BY` with `HAVING` to filter grouped results.
-
-    ---
-
-    ### 🔹 Example with `HAVING`:
-    ```sql
-    SELECT region, SUM(amount) AS total_sales
-    FROM Sales
-    GROUP BY region
-    HAVING SUM(amount) > 3000;
-    ```
-
-    ### ✅ Output:
-
-    | region | total_sales |
-    |--------|-------------|
-    | East   | 4200        |
-
-    ➡️ Only regions with sales greater than 3000 are shown.
-
-    ---
-
-    > 📌 The `GROUP BY` clause is essential for summarizing and analyzing data across categories or groups.
-
-
-4. ### What are Aggregate Functions in SQL
-
-    **Aggregate functions** perform a calculation on a set of values and return a single value.  
-    They are often used with the `GROUP BY` clause to group rows and summarize data.
-
-    ---
-
-    ### Common Aggregate Functions:
-
-    | Function     | Description                                  |
-    |--------------|----------------------------------------------|
-    | `COUNT()`    | Counts the number of rows                    |
-    | `SUM()`      | Adds up the values of a numeric column       |
-    | `AVG()`      | Calculates the average of a numeric column   |
-    | `MIN()`      | Returns the smallest value                   |
-    | `MAX()`      | Returns the largest value                    |
-
-    ---
-
-    ### Example:
-
-    #### Table: Orders
-
-    | order_id | customer | amount |
-    |----------|----------|--------|
-    | 1        | Alice    | 150    |
-    | 2        | Bob      | 200    |
-    | 3        | Alice    | 100    |
-    | 4        | Charlie  | 300    |
-
-    ---
-
-    ### Query:
-
-    ```sql
-    SELECT customer, SUM(amount) AS total_spent
-    FROM Orders
-    GROUP BY customer;
-    ```
-    ### Output
-    | customer | total\_spent |
-    | -------- | ------------ |
-    | Alice    | 250          |
-    | Bob      | 200          |
-    | Charlie  | 300          |
-        
-5. ### Explain normalization and its types 1NF, 2NF, 3NF     
-    ### Normalization in SQL
-
-    ## ✅ What is Normalization?
-
-    **Normalization** is a process in database design that:
-
-    - Eliminates redundant data (repetition)
-    - Ensures data integrity
-    - Organizes data efficiently across tables
-
-    It involves splitting large tables into smaller related tables and defining relationships between them.
-
-    ---
-
-    ### 🔹 First Normal Form (1NF)
-
-    ### 🔸 Rule:
-    - Each column should contain **atomic (indivisible)** values.
-    - Each record should be **unique**.
-    - No repeating groups or arrays allowed.
-
-    ### ❌ Not in 1NF:
-
-    | student_id | name  | subjects        |
-    |------------|-------|-----------------|
-    | 1          | Raj   | Math, Science   |
-    | 2          | Priya | English         |
-
-    ➡️ `subjects` column contains multiple values — violates atomicity.
-
-    ### ✅ In 1NF:
-
-    | student_id | name  | subject   |
-    |------------|-------|-----------|
-    | 1          | Raj   | Math      |
-    | 1          | Raj   | Science   |
-    | 2          | Priya | English   |
-
-    ---
-
-    ### 🔹 Second Normal Form (2NF)
-
-    ### 🔸 Rule:
-    - Must be in **1NF**.
-    - All non-key columns must depend on the **entire** primary key (no **partial dependencies**).
-
-    > Applies when the primary key is **composite** (more than one column).
-
-    ### ❌ Not in 2NF:
-
-    | student_id | subject   | student_name |
-    |------------|-----------|--------------|
-    | 1          | Math      | Raj          |
-    | 1          | Science   | Raj          |
-    | 2          | English   | Priya        |
-
-    ➡️ `student_name` depends only on `student_id`, not on the full composite key (`student_id + subject`).
-
-    ### ✅ In 2NF:
-
-    **Students Table**
-
-    | student_id | student_name |
-    |------------|--------------|
-    | 1          | Raj          |
-    | 2          | Priya        |
-
-    **Subjects Table**
-
-    | student_id | subject   |
-    |------------|-----------|
-    | 1          | Math      |
-    | 1          | Science   |
-    | 2          | English   |
-
-    ---
-
-    ### 🔹 Third Normal Form (3NF)
-
-    ### 🔸 Rule:
-    - Must be in **2NF**.
-    - No **transitive dependencies**: Non-key columns should not depend on **other non-key columns**.
-
-    ### ❌ Not in 3NF:
-
-    | student_id | student_name | city   | city_pincode |
-    |------------|--------------|--------|--------------|
-    | 1          | Raj          | Pune   | 411001       |
-    | 2          | Priya        | Mumbai | 400001       |
-
-    ➡️ `city_pincode` depends on `city`, which is a non-key column.
-
-    ### ✅ In 3NF:
-
-    **Students Table**
-
-    | student_id | student_name | city   |
-    |------------|--------------|--------|
-    | 1          | Raj          | Pune   |
-    | 2          | Priya        | Mumbai |
-
-    **Cities Table**
-
-    | city   | city_pincode |
-    |--------|---------------|
-    | Pune   | 411001        |
-    | Mumbai | 400001        |
-
-    ---
-
-    ### 🎯 Summary
-
-    | Normal Form | Rule                                                    |
-    |-------------|---------------------------------------------------------|
-    | 1NF         | Atomic values, no repeating groups                      |
-    | 2NF         | No partial dependency on part of a composite key        |
-    | 3NF         | No transitive dependency between non-key columns        |
-    
 
 
 
@@ -2186,44 +2108,9 @@ CREATE TABLE tickets (
     ```
 
 
-6. ### How does the CASE statement work in SQL
-    ### ✅ CASE Statement in SQL
-
-    The `CASE` statement allows you to perform conditional logic in SQL queries, similar to `IF-ELSE` in programming languages.
-
-    ### 🔹 Syntax
-
-    ```sql
-    CASE
-    WHEN condition1 THEN result1
-    WHEN condition2 THEN result2
-    ...
-    ELSE resultN
-    END
 
 
-    ```
-
-
-    ---
-
-    ### ✅ **Step 3: Example**
-
-
-    ### 🔸 Example
-
-    ```sql
-    SELECT emp_id, salary,
-    CASE
-        WHEN salary > 50000 THEN 'High'
-        WHEN salary BETWEEN 30000 AND 50000 THEN 'Medium'
-        ELSE 'Low'
-    END AS salary_grade
-    FROM employees;
-    ```
-
-
-7. ### What is the purpose of ALter Command
+6. ### What is the purpose of ALter Command
 
     ### ✅ ALTER Command in SQL
 
@@ -2268,7 +2155,7 @@ CREATE TABLE tickets (
 
 
 
-8. ### What Order of Execution of SQL Clauses
+7. ### What Order of Execution of SQL Clauses
     ### ✅ Order of Execution of SQL Clauses
 
     SQL follows a specific **logical execution order**, which is different from the written order in queries.
