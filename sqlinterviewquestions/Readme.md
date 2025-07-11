@@ -28,10 +28,6 @@
 
 
 
-## Query Questions
-
-1. [Write a query to find the second highest salary from an Employee table](#write-a-query-to-find-the-second-highest-salary-from-an-employee-table)  
-
 
 
 ## Intermediate Level  Questions
@@ -46,6 +42,10 @@
 7. [What Order of Execution of SQL Clauses](#what-order-of-execution-of-sql-clauses)
 
 
+
+## Query Questions
+
+1. [Write a query to find the second highest salary from an Employee table](#write-a-query-to-find-the-second-highest-salary-from-an-employee-table)  
 
 
 
@@ -1687,58 +1687,11 @@ CREATE TABLE tickets (
 ---
 
 
-## 🔹 Query Questions
-
-
-1. ### Write a query to find the second highest salary from an Employee table
-
-
-    ### 📝 Problem:
-    Write a query to return the **second highest salary** from the `Employee` table.
-
-    ---
-
-    ### 📄 Table: `Employee`
-
-    | emp_id | emp_name | salary |
-    |--------|----------|--------|
-    | 1      | Raj      | 50000  |
-    | 2      | Riya     | 60000  |
-    | 3      | Aman     | 70000  |
-    | 4      | Neha     | 60000  |
-
-    ---
-
-    ### ✅ Query (Using `DISTINCT` + `ORDER BY` + `LIMIT` with `OFFSET`):
-    ```sql
-    SELECT DISTINCT salary
-    FROM Employee
-    ORDER BY salary DESC
-    LIMIT 1 OFFSET 1;
-    ```
-
-    ### 🔍 Explanation:
-    - `DISTINCT` ensures that duplicate salaries are not counted multiple times.
-    - `ORDER BY salary DESC` sorts salaries from highest to lowest.
-    - `LIMIT 1 OFFSET 1` skips the highest salary (offset 1) and returns the next one (second highest).
-
-    ---
-
-    ## ✅ Alternate Query (Using Subquery):
-    ```sql
-    SELECT MAX(salary)
-    FROM Employee
-    WHERE salary < (SELECT MAX(salary) FROM Employee);
-    ```
-
-    ### 🔍 Explanation:
-    - First, it finds the maximum salary.
-    - Then, it gets the highest salary **less than the maximum**, which is the second highest.
 
 
 
 
-## Advance Interview question
+## Intermediate Interview question
 1. ### What are window functions, How do you use RANK(), DENSE_RANK(), ROW_NUMBER()
 
     ### Window Functions in SQL
@@ -2187,3 +2140,53 @@ CREATE TABLE tickets (
     ```
 
 
+
+
+
+## 🔹 Query Questions
+
+
+1. ### Write a query to find the second highest salary from an Employee table
+
+
+    ### 📝 Problem:
+    Write a query to return the **second highest salary** from the `Employee` table.
+
+    ---
+
+    ### 📄 Table: `Employee`
+
+    | emp_id | emp_name | salary |
+    |--------|----------|--------|
+    | 1      | Raj      | 50000  |
+    | 2      | Riya     | 60000  |
+    | 3      | Aman     | 70000  |
+    | 4      | Neha     | 60000  |
+
+    ---
+
+    ### ✅ Query (Using `DISTINCT` + `ORDER BY` + `LIMIT` with `OFFSET`):
+    ```sql
+    SELECT DISTINCT salary
+    FROM Employee
+    ORDER BY salary DESC
+    LIMIT 1 OFFSET 1;
+    ```
+
+    ### 🔍 Explanation:
+    - `DISTINCT` ensures that duplicate salaries are not counted multiple times.
+    - `ORDER BY salary DESC` sorts salaries from highest to lowest.
+    - `LIMIT 1 OFFSET 1` skips the highest salary (offset 1) and returns the next one (second highest).
+
+    ---
+
+    ## ✅ Alternate Query (Using Subquery):
+    ```sql
+    SELECT MAX(salary)
+    FROM Employee
+    WHERE salary < (SELECT MAX(salary) FROM Employee);
+    ```
+
+    ### 🔍 Explanation:
+    - First, it finds the maximum salary.
+    - Then, it gets the highest salary **less than the maximum**, which is the second highest.
