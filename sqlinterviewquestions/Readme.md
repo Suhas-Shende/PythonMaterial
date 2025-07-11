@@ -20,9 +20,8 @@
 18. [What is CASE Statement in SQL](#what-is-case-statement-in-sql)  
 19. [How to handle NULL values in SQL](#how-to-handle-null-values-in-sql)   
 20. [How to Optimize SQL Queries](#how-to-optimize-sql-queries)  
-21. [What is the difference between IN and EXISTS](#what-is-the-difference-between-in-and-exists)
-22. [What is normalization and denormalization](#what-is-normalization-and-denormalization) 
-23. [What is INDEX](#what-is-index) 
+21. [What is normalization and denormalization](#what-is-normalization-and-denormalization) 
+22. [What is INDEX](#what-is-index) 
  
 
 
@@ -1387,24 +1386,10 @@ CREATE TABLE tickets (
 
 
 
-21. ### What is the difference between IN and EXISTS
-
-    | `IN`                                               | `EXISTS`                                                  |
-    |----------------------------------------------------|------------------------------------------------------------|
-    | Compares a value to a list or result set           | Checks for the existence of rows returned by a subquery    |
-    | Returns TRUE if value is found in the list         | Returns TRUE if at least one row is returned               |
-    | Slower on large subqueries                         | Faster on large subqueries (especially with indexes)       |
-    | Best for static or small subqueries                | Best for correlated subqueries or large datasets           |
-    | Affected by NULLs in subquery                      | Not affected by NULLs in subquery                          |
 
 
 
-
-
-
-
-
-22. ### what is normalization and denormalization.
+21. ### what is normalization and denormalization.
     #### Defination: 
     Normalization is the process of organizing data in a database to reduce redundancy and
     improve data integrity. It involves dividing large tables into smaller related tables and defining
@@ -1509,7 +1494,7 @@ CREATE TABLE tickets (
 
 
 
-23. ### What is INDEX
+22. ### What is INDEX
     An Index in SQL is like a shortcut. It helps the database find data faster without scanning the entire table.
 
     📌 Without index: SQL checks every row one by one (slow).
