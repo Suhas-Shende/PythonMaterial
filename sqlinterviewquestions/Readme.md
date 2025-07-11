@@ -1,27 +1,26 @@
 # Index
 ## Basic Level Quesions
 1. [What is SQL](#what-is-sql)  
-2. [What are the different types of SQL statements](#what-are-the-different-types-of-sql-statements)  
-3. [What is the difference between WHERE and HAVING clause](#what-is-the-difference-between-where-and-having-clause)  
-4. [What is a primary key and foreign key](#what-is-a-primary-key-and-foreign-key)  
-5. [What is INDEX](#what-is-index)  
-6. [What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN](#what-is-the-difference-between-inner-join-left-join-right-join-and-full-outer-join)  
-7. [What is the difference between DELETE, TRUNCATE, and DROP](#what-is-the-difference-between-delete-truncate-and-drop)  
-8. [What is the difference between UNION and UNION ALL](#what-is-the-difference-between-union-and-union-all)  
-9. [What are the different types of joins in SQL](#what-are-the-different-types-of-joins-in-sql)  
-10. [What are operators,share its type and example](#what-are-operators-share-its-type-and-example)
-11. [What is difference between Primary key and unique key](#what-is-difference-between-primary-key-and-unique-key)
-12. [What are constraints](#what-are-constraints)    
-13. [What is normalization and denormalization](#what-is-normalization-and-denormalization) 
-14. [What is difference between SQL and MySQL](#what-is-difference-between-sql-and-mysql)  
-15. [What is difference between GROUP BY and ORDER BY](#what-is-difference-between-group-by-and-order-by)  
+2. [What is difference between SQL and MySQL](#what-is-difference-between-sql-and-mysql) 
+3. [What is difference between SQL and NoSQL](#what-is-difference-between-sql-and-nosql)
+4. [What are the different types of SQL statements](#what-are-the-different-types-of-sql-statements)  
+5. [What are constraints](#what-are-constraints) 
+6. [What is difference between Primary key and unique key](#what-is-difference-between-primary-key-and-unique-key)
+7. [What is a primary key and foreign key](#what-is-a-primary-key-and-foreign-key)  
+8. [What is the difference between DELETE, TRUNCATE, and DROP](#what-is-the-difference-between-delete-truncate-and-drop) 
+9. [What are operators,share its type and example](#what-are-operators-share-its-type-and-example)
+10. [What is the difference between WHERE and HAVING clause](#what-is-the-difference-between-where-and-having-clause)  
+11. [What is difference between GROUP BY and ORDER BY](#what-is-difference-between-group-by-and-order-by) 
+12. [What are the different types of joins in SQL](#what-are-the-different-types-of-joins-in-sql)  
+13. [What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN](#what-is-the-difference-between-inner-join-left-join-right-join-and-full-outer-join)  
+14. [What is the difference between UNION and UNION ALL](#what-is-the-difference-between-union-and-union-all)  
+15. [What is the difference between UNION and JOIN](#what-is-the-difference-between-union-and-join)
 16. [What is CASE Statement in SQL](#what-is-case-statement-in-sql)  
-17. [How to handle NULL values in SQL](#how-to-handle-null-values-in-sql)  
-18. [What is the difference between UNION and JOIN](#what-is-the-difference-between-union-and-join)  
-19. [How to Optimize SQL Queries](#how-to-optimize-sql-queries)  
-20. [What is difference between SQL and NoSQL](#what-is-difference-between-sql-and-nosql)
-21. [What is the difference between IN and EXISTS](#what-is-the-difference-between-in-and-exists)
-
+17. [How to handle NULL values in SQL](#how-to-handle-null-values-in-sql)   
+18. [How to Optimize SQL Queries](#how-to-optimize-sql-queries)  
+19. [What is the difference between IN and EXISTS](#what-is-the-difference-between-in-and-exists)
+20. [What is normalization and denormalization](#what-is-normalization-and-denormalization) 
+21. [What is INDEX](#what-is-index) 
 
 
 
@@ -122,7 +121,36 @@
 
     **In summary**, SQL is essential for working with relational databases. It helps analysts, developers, and database administrators manage data effectively and power various applications.
 
-2. ### What are the different types of SQL statements
+
+
+2. ###  what is difference between SQL and MySQL
+    Difference between SQL and MySQL
+    | SQL (Structured Query Language)                               | MySQL (Database Management System)                         |
+    |---------------------------------------------------------------|-------------------------------------------------------------|
+    | It is a **query language** used to manage data in RDBMS.      | It is a **software** (RDBMS) that uses SQL to manage data.  |
+    | It is a **language standard**, not a tool/software.           | It is an **open-source database system**.                   |
+    | Used to **write queries** like `SELECT`, `INSERT`, etc.       | Used to **store, retrieve, and manage** data using SQL.     |
+    | SQL is **ISO/ANSI standard** and universal.                   | MySQL is **maintained by Oracle Corporation**.              |
+    | Cannot store data by itself.                                  | Actually stores and manages data.                           |
+    | Applies to many databases (MySQL, PostgreSQL, Oracle, etc.)   | One specific software that implements SQL.                  |
+
+
+3. ### What is difference between SQL and NoSQL
+    | SQL (Relational Databases)                        | NoSQL (Non-Relational Databases)                            |
+    |--------------------------------------------------|-------------------------------------------------------------|
+    | Stands for Structured Query Language             | Stands for "Not Only SQL"                                   |
+    | Uses **tables** with rows and columns            | Uses **documents**, **key-value**, **graph**, or **wide-column** formats |
+    | Schema is **fixed and predefined**               | Schema is **dynamic and flexible**                          |
+    | Follows **ACID** properties strictly             | Follows **CAP theorem**, focuses on availability & partition tolerance |
+    | Best for structured data with clear relationships| Best for unstructured or semi-structured data               |
+    | Examples: MySQL, PostgreSQL, Oracle, SQL Server  | Examples: MongoDB, Cassandra, Redis, CouchDB                |
+    | Scales **vertically** (more power to single server) | Scales **horizontally** (add more servers)                |
+    | Supports **complex JOINs and transactions**      | Limited JOINs, but great for fast reads/writes              |
+
+
+
+
+4. ### What are the different types of SQL statements
     ### Types of SQL Statements
 
     SQL statements are categorized based on the type of operation they perform on the database. The main types are:
@@ -187,62 +215,98 @@
     | DQL  | Retrieve data |
 
 
+5. ### What are constraints
 
-3. ### What is the difference between WHERE and HAVING clause
+#### Constraints are rules applied to table columns to enforce data integrity and consistency.
+**Types of constraints**
+| Constraint       | Description                                                                |
+| ---------------- | -------------------------------------------------------------------------- |
+| `PRIMARY KEY`    | Uniquely identifies each row in a table. Cannot be NULL.                   |
+| `FOREIGN KEY`    | Enforces a link between two tables based on a referenced column.           |
+| `UNIQUE`         | Ensures all values in a column are different.                              |
+| `NOT NULL`       | Prevents NULL values in a column.                                          |
+| `CHECK`          | Ensures all values in a column satisfy a specific condition.               |
+| `DEFAULT`        | Assigns a default value if none is provided.                               |
+| `AUTO_INCREMENT` | Automatically generates sequential numeric values (mostly for PK columns). |
 
-    `WHERE` and `HAVING` are both used to filter records in SQL, but they differ in **when** and **how** they are applied.
+#### Examples
+1. ##### PRIMARY KEY & NOT NULL
+```sql
+CREATE TABLE students (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL
+);
 
-    ---
+```
+2. ##### UNIQUE
+```sql 
+ALTER TABLE students
+ADD CONSTRAINT unique_email UNIQUE (email);
 
-    ### ✅ WHERE Clause
 
-    - 🔍 **Filters rows before grouping**
-    - 🧱 Used with `SELECT`, `UPDATE`, `DELETE`
-    - 🚫 Cannot be used with aggregate functions (`SUM()`, `COUNT()`, etc.)
-    - 📍 Applied **before** `GROUP BY`
+```
+3. #### FOREIGN KEY
+```sql
+CREATE TABLE enrollments (
+    enroll_id INT PRIMARY KEY,
+    student_id INT,
+    FOREIGN KEY (student_id) REFERENCES students(student_id)
+);
 
-    ### 🔹 Example:
-    ```sql
-    SELECT * FROM employees
-    WHERE department = 'Sales';
-    ```
 
-    ---
+```
 
-    ### ✅ HAVING Clause
+4. #### CHECK
+```sql 
 
-    - 🔍 **Filters groups after aggregation**
-    - 📊 Used **only** with `GROUP BY`
-    - ✅ Can use aggregate functions like `COUNT()`, `AVG()`, etc.
-    - 📍 Applied **after** `GROUP BY`
+CREATE TABLE products (
+    price DECIMAL(10,2),
+    CHECK (price > 0)
+);
 
-    ### 🔹 Example:
-    ```sql
-    SELECT department, COUNT(*) 
-    FROM employees
-    GROUP BY department
-    HAVING COUNT(*) > 5;
-    ```
+```
 
-    ---
+5.  #### DEFAULT
+```sql
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY,
+    status VARCHAR(20) DEFAULT 'Active'
+);
 
-    ### 📌 Key Differences
+```
 
-    | Feature         | WHERE                          | HAVING                           |
-    |----------------|---------------------------------|----------------------------------|
-    | When applied    | Before grouping                | After grouping                   |
-    | Used with       | SELECT, UPDATE, DELETE         | SELECT (with GROUP BY)           |
-    | Aggregates      | Cannot filter on aggregates    | Can filter on aggregates         |
-    | Purpose         | Filter individual rows         | Filter grouped records           |
+6. #### AUTO_INCREMENT
 
-    ---
+```sql
+CREATE TABLE tickets (
+    ticket_id INT AUTO_INCREMENT PRIMARY KEY,
+    issue TEXT
+);
 
-    ### ✅ Summary
+```
 
-    - Use `WHERE` to filter **individual rows**.
-    - Use `HAVING` to filter **groups created by `GROUP BY`**.
 
-4. ### What is a primary key and foreign key
+
+
+
+
+
+
+
+
+6. ### What is difference between Primary key and unique key
+#### 🔑 Primary Key vs UNIQUE Key (Simplified)
+
+| Primary Key                                        | UNIQUE Key                                         |
+|----------------------------------------------------|----------------------------------------------------|
+| Uniquely identifies each row in a table            | Ensures all values in the column are unique        |
+| ❌ Does not allow NULL values                      | ✅ Allows one NULL value (in most databases)        |
+| Only one primary key per table                     | Can have multiple UNIQUE keys                      |
+| Creates a unique **clustered index** automatically | Creates a unique **non-clustered index**           |
+| Used to uniquely identify a record                 | Used to enforce uniqueness without being the main identifier |
+
+
+7. ### What is a primary key and foreign key
 
 
     ### Primary Key vs Foreign Key in SQL
@@ -303,198 +367,7 @@
     - Use a **foreign key** to establish relationships between tables and maintain consistency.
 
 
-
-
-
-5. ### What is INDEX
-    An Index in SQL is like a shortcut. It helps the database find data faster without scanning the entire table.
-
-    📌 Without index: SQL checks every row one by one (slow).
-
-    📌 With index: SQL jumps directly to the matching row (fast).
-
-    #### 🧱 What is a Clustered Index?
-    A Clustered Index sorts and stores the actual table data based on the indexed column.
-
-    Data is physically stored in sorted order.
-
-    You can have only one clustered index per table.
-
-    Primary Key creates a clustered index by default.
-    **Example**
-    ```sql
-    CREATE TABLE students (
-    id INT PRIMARY KEY,   -- Clustered index
-    name VARCHAR(50)
-    );
-
-    ```
-    | id | name   |
-    |----|--------|
-    | 1  | Suhas  |
-    | 2  | Rutuja |
-    | 3  | Kewal  |
-
-    So when you search id = 2, SQL finds it very quickly.
-
-
-
-
-    #### 📘 What is a Non-Clustered Index?
-    A Non-Clustered Index is a separate structure that holds column values and points to their rows in the table.
-
-    The data is NOT sorted in the table.
-
-    You can create many non-clustered indexes.
-
-    It helps with fast lookups on non-key columns.
-
-    **🟡 How to Use a Non-Clustered Index in SQL**
-    Once you create a non-clustered index, MySQL will automatically use it when your query filters or sorts by that indexed column.
-    Example
-    1. Create the table:
-    ```sql
-
-    CREATE TABLE students (
-    student_id INT PRIMARY KEY,     -- clustered index
-    name VARCHAR(50),
-    city VARCHAR(50)
-    );
-
-    ```
-
-    2. Create a non-clustered index on name:
-    ```sql
-    CREATE INDEX idx_name ON students(name);
-
-    ```
-    This creates a non-clustered index on the name column.
-
-
-    **🎯 How to Use It?**
-    Just write a query using the indexed column — MySQL will use the index automatically.
-    ```sql
-    -- Uses the non-clustered index on name
-    SELECT * FROM students WHERE name = 'Rutuja';
-
-    ```
-    💡 This query is faster than without index, especially on large tables.
-
-
-    **🔍 Want to check if index is used?**
-    Use EXPLAIN:
-    ```sql
-    EXPLAIN SELECT * FROM students WHERE name = 'Rutuja';
-
-    ```
-    ➡️ The output will show something like:
-
-    | id | select\_type | table    | type | possible\_keys | key       | key\_len | ref   | rows | Extra       |
-    | -- | ------------ | -------- | ---- | -------------- | --------- | -------- | ----- | ---- | ----------- |
-    | 1  | SIMPLE       | students | ref  | idx\_name      | idx\_name | 153      | const | 1    | Using index |
-
-    **📌 What Helps Index Usage?**
-    Queries with WHERE name = ...
-
-    ORDER BY name
-
-    JOIN using name
-
-    SELECT name FROM ... with filtering
-
-
-    **⚠️ Reminder:**
-    - Non-clustered index ≠ automatic for every query
-
-    - It is used only when your query uses that column in a way that benefits performance
-
-
-6. ### What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN
-
-    Joins in SQL are used to combine data from two or more tables based on a related column
-    between them.
-
-    #### Types of Joins:
-
-    1. INNER JOIN – Returns only matching rows from both tables.
-    2. LEFT JOIN – Returns all rows from the left table and matching rows from the right table.
-    3. RIGHT JOIN – Returns all rows from the right table and matching rows from the left
-        table.
-    4. FULL JOIN – Returns all rows from both tables (matching and non-matching).
-    5. SELF JOIN – Joins a table with itself.
-    6. CROSS JOIN – Returns the Cartesian product of both tables (all possible combinations).
-    ### 🔁 SQL JOIN Types Explained
-
-    ### 1. 🧩 INNER JOIN
-    - **Returns only matching rows** from both tables.
-    - If there is **no match**, the row is **excluded**.
-    - Most common type of join.
-
-    ```sql
-    SELECT * 
-    FROM A 
-    INNER JOIN B ON A.id = B.id;
-    ```
-
-    🔍 Returns only rows where `A.id = B.id`.
-
-    ---
-
-    ### 2. 👈 LEFT JOIN (or LEFT OUTER JOIN)
-    - Returns **all rows from the left table** (A), and the **matching rows** from the right table (B).
-    - If there is **no match**, result shows **NULLs** for right table’s columns.
-
-    ```sql
-    SELECT * 
-    FROM A 
-    LEFT JOIN B ON A.id = B.id;
-    ```
-
-    🔍 All rows from table A + matching rows from B (NULL if no match).
-
-    ---
-
-    ### 3. 👉 RIGHT JOIN (or RIGHT OUTER JOIN)
-    - Returns **all rows from the right table** (B), and the **matching rows** from the left table (A).
-    - If there is **no match**, result shows **NULLs** for left table’s columns.
-
-    ```sql
-    SELECT * 
-    FROM A 
-    RIGHT JOIN B ON A.id = B.id;
-    ```
-
-    🔍 All rows from table B + matching rows from A (NULL if no match).
-
-    ---
-
-    ### 4. 🔄 FULL OUTER JOIN
-    - Returns **all rows from both tables**, with matching rows from both sides.
-    - If there is **no match**, NULLs are shown for the missing side.
-
-    ```sql
-    SELECT * 
-    FROM A 
-    FULL OUTER JOIN B ON A.id = B.id;
-    ```
-
-    🔍 All rows from A and B; matched rows are joined, unmatched ones show NULLs.
-
-    > ❗Note: MySQL doesn’t support `FULL OUTER JOIN` directly — use `UNION` of `LEFT JOIN` and `RIGHT JOIN` to simulate it.
-
-    ---
-
-    ### 📊 Summary Table
-
-    | Join Type            | Rows from A | Rows from B | Unmatched A | Unmatched B |
-    |----------------------|-------------|-------------|-------------|-------------|
-    | **INNER JOIN**        | ✅           | ✅           | ❌           | ❌           |
-    | **LEFT JOIN**         | ✅           | ✅           | ✅           | ❌           |
-    | **RIGHT JOIN**        | ✅           | ✅           | ❌           | ✅           |
-    | **FULL OUTER JOIN**   | ✅           | ✅           | ✅           | ✅           |
-
-
-7. ### What is the difference between DELETE, TRUNCATE, and DROP
+8. ### What is the difference between DELETE, TRUNCATE, and DROP
 
     ### 🧨 Difference Between DELETE, TRUNCATE, and DROP
 
@@ -534,90 +407,130 @@
     ➡️ This completely **removes the `employees` table**, including its structure and all data.
 
 
+9. ### What are operators, share its type and example
+    ### ✅ SQL Operators
 
-8. ### What is the difference between UNION and UNION ALL
-    UNION and UNION ALL are used to combine the result sets of two or more SELECT
-    statements.
+    SQL operators are used to perform operations on data, often in `SELECT`, `WHERE`, or `CASE` clauses.
 
-    ### 🧾 Difference Between `UNION` and `UNION ALL` in SQL
+    ---
 
-    | Feature                | `UNION`                                                | `UNION ALL`                                           |
-    |------------------------|--------------------------------------------------------|--------------------------------------------------------|
-    | **Duplicate Rows**     | Removes duplicate rows from the result set.           | Includes **all rows**, even if duplicates exist.       |
-    | **Performance**        | Slower, due to duplicate elimination and sorting.     | Faster, as it skips duplicate checking.                |
-    | **Use Case**           | Use when you need only **unique** results.            | Use when you want to **preserve all rows**, including duplicates. |
-    | **Sorting**            | Performs internal sorting to remove duplicates.       | No sorting is performed.                              |
-    | **Result Size**        | Smaller, if duplicates exist.                         | Larger, as it contains all entries.                    |
+    ### 🔹 Types of SQL Operators
 
+    | Type                     | Description                                                | Example                                 |
+    |--------------------------|------------------------------------------------------------|-----------------------------------------|
+    | **1. Arithmetic**        | Perform math operations                                   | `salary + bonus`                        |
+    | **2. Comparison**        | Compare values                                             | `age > 25`, `salary = 50000`            |
+    | **3. Logical**           | Combine conditions                                         | `AND`, `OR`, `NOT`                      |
+    | **4. Bitwise**           | Bit-level manipulation                                    | `a & b`, `a | b`                         |
+    | **5. Set**               | Check membership in a set                                 | `IN`, `NOT IN`                          |
+    | **6. EXISTS**            | Checks if a subquery returns rows                         | `EXISTS`, `NOT EXISTS`                  |
+    | **7. BETWEEN**           | Range checking                                            | `BETWEEN 10 AND 20`                     |
+    | **8. LIKE**              | Pattern matching                                           | `LIKE 'A%'`                             |
+    | **9. NULL Check**        | Check for nulls                                            | `IS NULL`, `IS NOT NULL`                |
 
+    ---
 
-    ### 🔹 Example Tables
+    ### 🔸 Examples
 
-    **Table A:**
-    | id | city     |
-    |----|----------|
-    | 1  | Mumbai   |
-    | 2  | Delhi    |
-    | 3  | Kolkata  |
-
-    **Table B:**
-    | id | city     |
-    |----|----------|
-    | 1  | Delhi    |
-    | 2  | Chennai  |
-    | 3  | Mumbai   |
-
-
-
-    ### 🔹 `UNION` Query
     ```sql
-    SELECT city FROM A
-    UNION
-    SELECT city FROM B;
+    -- Arithmetic
+    SELECT salary + bonus FROM employees;
+
+    -- Comparison
+    SELECT * FROM employees WHERE age >= 30;
+
+    -- Logical
+    SELECT * FROM employees WHERE age > 25 AND department = 'Sales';
+
+    -- Set
+    SELECT * FROM employees WHERE department IN ('HR', 'IT');
+
+    -- EXISTS
+    SELECT name FROM employees e
+    WHERE EXISTS (
+    SELECT 1 FROM departments d WHERE d.id = e.department_id
+    );
+
+    -- BETWEEN
+    SELECT * FROM employees WHERE salary BETWEEN 30000 AND 60000;
+
+    -- LIKE
+    SELECT * FROM employees WHERE name LIKE 'S%';
+
+    -- NULL
+    SELECT * FROM employees WHERE bonus IS NULL;
     ```
 
-    **Output:**
-    | city     |
-    |----------|
-    | Mumbai   |
-    | Delhi    |
-    | Kolkata  |
-    | Chennai  |
 
-    ✅ Duplicates like "Mumbai" and "Delhi" are removed.
+10. ### What is the difference between WHERE and HAVING clause
 
+    `WHERE` and `HAVING` are both used to filter records in SQL, but they differ in **when** and **how** they are applied.
 
+    ---
 
-    ### 🔹 `UNION ALL` Query
+    ### ✅ WHERE Clause
+
+    - 🔍 **Filters rows before grouping**
+    - 🧱 Used with `SELECT`, `UPDATE`, `DELETE`
+    - 🚫 Cannot be used with aggregate functions (`SUM()`, `COUNT()`, etc.)
+    - 📍 Applied **before** `GROUP BY`
+
+    ### 🔹 Example:
     ```sql
-    SELECT city FROM A
-    UNION ALL
-    SELECT city FROM B;
+    SELECT * FROM employees
+    WHERE department = 'Sales';
     ```
 
-    **Output:**
-    | city     |
-    |----------|
-    | Mumbai   |
-    | Delhi    |
-    | Kolkata  |
-    | Delhi    |
-    | Chennai  |
-    | Mumbai   |
+    ---
 
-    ✅ All rows are returned including duplicates.
+    ### ✅ HAVING Clause
 
+    - 🔍 **Filters groups after aggregation**
+    - 📊 Used **only** with `GROUP BY`
+    - ✅ Can use aggregate functions like `COUNT()`, `AVG()`, etc.
+    - 📍 Applied **after** `GROUP BY`
 
+    ### 🔹 Example:
+    ```sql
+    SELECT department, COUNT(*) 
+    FROM employees
+    GROUP BY department
+    HAVING COUNT(*) > 5;
+    ```
+
+    ---
+
+    ### 📌 Key Differences
+
+    | Feature         | WHERE                          | HAVING                           |
+    |----------------|---------------------------------|----------------------------------|
+    | When applied    | Before grouping                | After grouping                   |
+    | Used with       | SELECT, UPDATE, DELETE         | SELECT (with GROUP BY)           |
+    | Aggregates      | Cannot filter on aggregates    | Can filter on aggregates         |
+    | Purpose         | Filter individual rows         | Filter grouped records           |
+
+    ---
 
     ### ✅ Summary
 
-    - Use `UNION` when you want unique records from multiple queries.
-    - Use `UNION ALL` when performance is important or duplicates are meaningful for your logic.
+    - Use `WHERE` to filter **individual rows**.
+    - Use `HAVING` to filter **groups created by `GROUP BY`**.
+
+
+11. ### What is difference between Group by and order by
+    The GROUP BY clause in SQL is used to arrange identical data into groups based on one or more columns. It is typically used in conjunction with aggregate functions such as COUNT(), SUM(), AVG(), MAX(), and MIN() to perform summary operations on grouped data.
+
+    | GROUP BY                                                   | ORDER BY                                                     |
+    |------------------------------------------------------------|--------------------------------------------------------------|
+    | Used to **group rows** based on the same values in one or more columns. | Used to **sort the result set** in ascending or descending order. |
+    | Always used with **aggregate functions** like `COUNT()`, `SUM()`, `AVG()` | Does **not require** aggregate functions.                   |
+    | Comes **before ORDER BY** in query syntax.                 | Comes **after GROUP BY** if both are used.                  |
+    | Groups the result into **summary rows**.                   | Sorts the **entire result set**.                            |
+    | Example: Group sales by product category.                  | Example: Sort sales by highest to lowest amount.            |
 
 
 
-
-9. ### What are the different types of joins in SQL
+12. ### What are the different types of joins in SQL
 
     ### INNER JOIN
 
@@ -927,153 +840,320 @@
 
 
 
-10. ### What are operators, share its type and example
-    ### ✅ SQL Operators
+13. ### What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN
 
-    SQL operators are used to perform operations on data, often in `SELECT`, `WHERE`, or `CASE` clauses.
+    Joins in SQL are used to combine data from two or more tables based on a related column
+    between them.
 
-    ---
+    #### Types of Joins:
 
-    ### 🔹 Types of SQL Operators
+    1. INNER JOIN – Returns only matching rows from both tables.
+    2. LEFT JOIN – Returns all rows from the left table and matching rows from the right table.
+    3. RIGHT JOIN – Returns all rows from the right table and matching rows from the left
+        table.
+    4. FULL JOIN – Returns all rows from both tables (matching and non-matching).
+    5. SELF JOIN – Joins a table with itself.
+    6. CROSS JOIN – Returns the Cartesian product of both tables (all possible combinations).
+    ### 🔁 SQL JOIN Types Explained
 
-    | Type                     | Description                                                | Example                                 |
-    |--------------------------|------------------------------------------------------------|-----------------------------------------|
-    | **1. Arithmetic**        | Perform math operations                                   | `salary + bonus`                        |
-    | **2. Comparison**        | Compare values                                             | `age > 25`, `salary = 50000`            |
-    | **3. Logical**           | Combine conditions                                         | `AND`, `OR`, `NOT`                      |
-    | **4. Bitwise**           | Bit-level manipulation                                    | `a & b`, `a | b`                         |
-    | **5. Set**               | Check membership in a set                                 | `IN`, `NOT IN`                          |
-    | **6. EXISTS**            | Checks if a subquery returns rows                         | `EXISTS`, `NOT EXISTS`                  |
-    | **7. BETWEEN**           | Range checking                                            | `BETWEEN 10 AND 20`                     |
-    | **8. LIKE**              | Pattern matching                                           | `LIKE 'A%'`                             |
-    | **9. NULL Check**        | Check for nulls                                            | `IS NULL`, `IS NOT NULL`                |
-
-    ---
-
-    ### 🔸 Examples
+    ### 1. 🧩 INNER JOIN
+    - **Returns only matching rows** from both tables.
+    - If there is **no match**, the row is **excluded**.
+    - Most common type of join.
 
     ```sql
-    -- Arithmetic
-    SELECT salary + bonus FROM employees;
-
-    -- Comparison
-    SELECT * FROM employees WHERE age >= 30;
-
-    -- Logical
-    SELECT * FROM employees WHERE age > 25 AND department = 'Sales';
-
-    -- Set
-    SELECT * FROM employees WHERE department IN ('HR', 'IT');
-
-    -- EXISTS
-    SELECT name FROM employees e
-    WHERE EXISTS (
-    SELECT 1 FROM departments d WHERE d.id = e.department_id
-    );
-
-    -- BETWEEN
-    SELECT * FROM employees WHERE salary BETWEEN 30000 AND 60000;
-
-    -- LIKE
-    SELECT * FROM employees WHERE name LIKE 'S%';
-
-    -- NULL
-    SELECT * FROM employees WHERE bonus IS NULL;
+    SELECT * 
+    FROM A 
+    INNER JOIN B ON A.id = B.id;
     ```
 
+    🔍 Returns only rows where `A.id = B.id`.
 
-11. ### What is difference between Primary key and unique key
-#### 🔑 Primary Key vs UNIQUE Key (Simplified)
+    ---
 
-| Primary Key                                        | UNIQUE Key                                         |
-|----------------------------------------------------|----------------------------------------------------|
-| Uniquely identifies each row in a table            | Ensures all values in the column are unique        |
-| ❌ Does not allow NULL values                      | ✅ Allows one NULL value (in most databases)        |
-| Only one primary key per table                     | Can have multiple UNIQUE keys                      |
-| Creates a unique **clustered index** automatically | Creates a unique **non-clustered index**           |
-| Used to uniquely identify a record                 | Used to enforce uniqueness without being the main identifier |
+    ### 2. 👈 LEFT JOIN (or LEFT OUTER JOIN)
+    - Returns **all rows from the left table** (A), and the **matching rows** from the right table (B).
+    - If there is **no match**, result shows **NULLs** for right table’s columns.
 
+    ```sql
+    SELECT * 
+    FROM A 
+    LEFT JOIN B ON A.id = B.id;
+    ```
 
+    🔍 All rows from table A + matching rows from B (NULL if no match).
 
+    ---
 
-12. ### What are constraints
+    ### 3. 👉 RIGHT JOIN (or RIGHT OUTER JOIN)
+    - Returns **all rows from the right table** (B), and the **matching rows** from the left table (A).
+    - If there is **no match**, result shows **NULLs** for left table’s columns.
 
-#### Constraints are rules applied to table columns to enforce data integrity and consistency.
-**Types of constraints**
-| Constraint       | Description                                                                |
-| ---------------- | -------------------------------------------------------------------------- |
-| `PRIMARY KEY`    | Uniquely identifies each row in a table. Cannot be NULL.                   |
-| `FOREIGN KEY`    | Enforces a link between two tables based on a referenced column.           |
-| `UNIQUE`         | Ensures all values in a column are different.                              |
-| `NOT NULL`       | Prevents NULL values in a column.                                          |
-| `CHECK`          | Ensures all values in a column satisfy a specific condition.               |
-| `DEFAULT`        | Assigns a default value if none is provided.                               |
-| `AUTO_INCREMENT` | Automatically generates sequential numeric values (mostly for PK columns). |
+    ```sql
+    SELECT * 
+    FROM A 
+    RIGHT JOIN B ON A.id = B.id;
+    ```
 
-#### Examples
-1. ##### PRIMARY KEY & NOT NULL
-```sql
-CREATE TABLE students (
-    student_id INT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL
-);
+    🔍 All rows from table B + matching rows from A (NULL if no match).
 
-```
-2. ##### UNIQUE
-```sql 
-ALTER TABLE students
-ADD CONSTRAINT unique_email UNIQUE (email);
+    ---
 
+    ### 4. 🔄 FULL OUTER JOIN
+    - Returns **all rows from both tables**, with matching rows from both sides.
+    - If there is **no match**, NULLs are shown for the missing side.
 
-```
-3. #### FOREIGN KEY
-```sql
-CREATE TABLE enrollments (
-    enroll_id INT PRIMARY KEY,
-    student_id INT,
-    FOREIGN KEY (student_id) REFERENCES students(student_id)
-);
+    ```sql
+    SELECT * 
+    FROM A 
+    FULL OUTER JOIN B ON A.id = B.id;
+    ```
 
+    🔍 All rows from A and B; matched rows are joined, unmatched ones show NULLs.
 
-```
+    > ❗Note: MySQL doesn’t support `FULL OUTER JOIN` directly — use `UNION` of `LEFT JOIN` and `RIGHT JOIN` to simulate it.
 
-4. #### CHECK
-```sql 
+    ---
 
-CREATE TABLE products (
-    price DECIMAL(10,2),
-    CHECK (price > 0)
-);
+    ### 📊 Summary Table
 
-```
-
-5.  #### DEFAULT
-```sql
-CREATE TABLE employees (
-    emp_id INT PRIMARY KEY,
-    status VARCHAR(20) DEFAULT 'Active'
-);
-
-```
-
-6. #### AUTO_INCREMENT
-
-```sql
-CREATE TABLE tickets (
-    ticket_id INT AUTO_INCREMENT PRIMARY KEY,
-    issue TEXT
-);
-
-```
+    | Join Type            | Rows from A | Rows from B | Unmatched A | Unmatched B |
+    |----------------------|-------------|-------------|-------------|-------------|
+    | **INNER JOIN**        | ✅           | ✅           | ❌           | ❌           |
+    | **LEFT JOIN**         | ✅           | ✅           | ✅           | ❌           |
+    | **RIGHT JOIN**        | ✅           | ✅           | ❌           | ✅           |
+    | **FULL OUTER JOIN**   | ✅           | ✅           | ✅           | ✅           |
 
 
 
 
 
 
+14. ### What is the difference between UNION and UNION ALL
+    UNION and UNION ALL are used to combine the result sets of two or more SELECT
+    statements.
+
+    ### 🧾 Difference Between `UNION` and `UNION ALL` in SQL
+
+    | Feature                | `UNION`                                                | `UNION ALL`                                           |
+    |------------------------|--------------------------------------------------------|--------------------------------------------------------|
+    | **Duplicate Rows**     | Removes duplicate rows from the result set.           | Includes **all rows**, even if duplicates exist.       |
+    | **Performance**        | Slower, due to duplicate elimination and sorting.     | Faster, as it skips duplicate checking.                |
+    | **Use Case**           | Use when you need only **unique** results.            | Use when you want to **preserve all rows**, including duplicates. |
+    | **Sorting**            | Performs internal sorting to remove duplicates.       | No sorting is performed.                              |
+    | **Result Size**        | Smaller, if duplicates exist.                         | Larger, as it contains all entries.                    |
 
 
-13. ### what is normalization and denormalization.
+
+    ### 🔹 Example Tables
+
+    **Table A:**
+    | id | city     |
+    |----|----------|
+    | 1  | Mumbai   |
+    | 2  | Delhi    |
+    | 3  | Kolkata  |
+
+    **Table B:**
+    | id | city     |
+    |----|----------|
+    | 1  | Delhi    |
+    | 2  | Chennai  |
+    | 3  | Mumbai   |
+
+
+
+    ### 🔹 `UNION` Query
+    ```sql
+    SELECT city FROM A
+    UNION
+    SELECT city FROM B;
+    ```
+
+    **Output:**
+    | city     |
+    |----------|
+    | Mumbai   |
+    | Delhi    |
+    | Kolkata  |
+    | Chennai  |
+
+    ✅ Duplicates like "Mumbai" and "Delhi" are removed.
+
+
+
+    ### 🔹 `UNION ALL` Query
+    ```sql
+    SELECT city FROM A
+    UNION ALL
+    SELECT city FROM B;
+    ```
+
+    **Output:**
+    | city     |
+    |----------|
+    | Mumbai   |
+    | Delhi    |
+    | Kolkata  |
+    | Delhi    |
+    | Chennai  |
+    | Mumbai   |
+
+    ✅ All rows are returned including duplicates.
+
+
+
+    ### ✅ Summary
+
+    - Use `UNION` when you want unique records from multiple queries.
+    - Use `UNION ALL` when performance is important or duplicates are meaningful for your logic.
+
+
+
+
+15. ### What is the difference between UNION and JOIN
+    | `UNION`                                            | `JOIN`                                                |
+    |----------------------------------------------------|--------------------------------------------------------|
+    | Combines **rows from two queries** into a single result set | Combines **columns from two or more tables**            |
+    | Stacks results **vertically**                      | Merges results **horizontally** based on a condition   |
+    | Requires same number of columns and compatible data types | Can join on keys even if column counts/types differ     |
+    | Removes duplicates by default (`UNION ALL` keeps them) | Does not remove duplicates unless specified             |
+    | Each query runs separately and results are merged  | Tables are scanned and matched row by row              |
+
+
+
+
+16. ### What is CASE Statement in SQL
+    The CASE Statement is used to apply conditional logic in SQL queries, similar to IF-ELSE
+    statements.
+
+    It checks conditions one by one, and returns a value based on which condition is true — useful when you want custom outputs in your SELECT queries
+
+    - Its is use to categorize data based on condition
+    - To add logic inside queries without changing the table
+    **General Syntax**
+    ```sql
+    SELECT
+    column,
+    CASE
+        WHEN condition1 THEN result1
+        WHEN condition2 THEN result2
+        ...
+        ELSE default_result
+    END AS alias_name
+    FROM table_name;
+
+    ```
+
+    **✅ Example:**
+    Suppose you have a students table with marks column:
+    ```sql
+    SELECT name, marks,
+    CASE
+        WHEN marks >= 90 THEN 'A+'
+        WHEN marks >= 75 THEN 'A'
+        WHEN marks >= 60 THEN 'B'
+        ELSE 'C'
+    END AS grade
+    FROM students;
+
+    ```
+    📌 This will assign grades based on marks dynamically in the output.
+
+    🪄 Output Example:
+
+    | name   | marks | grade |
+    | ------ | ----- | ----- |
+    | Suhas  | 91    | A+    |
+    | Rutuja | 77    | A     |
+    | Chirag | 58    | C     |
+
+    **🧩 Notes:**
+    - You can use CASE in SELECT, WHERE, ORDER BY, even in UPDATE
+
+    - ELSE is optional — if omitted and no conditions match, result is NULL
+
+    - You can nest CASE statements inside one another
+
+
+
+
+17. ### How to handle NULL values in SQL
+    NULL represents missing or unknown data in SQL
+    >NULL means no value or unknown data. It is not the same as 0, '', or " ".
+
+    **🔍 1. Check if a value is NULL**
+    ```sql
+    SELECT * FROM table_name
+    WHERE column_name IS NULL;
+
+    ```
+
+    **Or to check not null:**
+    ```sql
+    SELECT * FROM table_name
+    WHERE column_name IS NOT NULL;
+
+
+    ```
+
+    **🎯 2. Replace NULL using IFNULL() (MySQL-specific)**
+
+    ```sql
+    SELECT name, IFNULL(email, 'No Email') AS email_status
+    FROM users;
+
+    ```
+    📌 This shows "No Email" wherever email is NULL
+
+
+    **🔁 3. Replace NULL using COALESCE() (Standard SQL)**
+    ```sql
+    SELECT name, COALESCE(phone, 'Not Provided') AS phone_status
+    FROM customers;
+
+    ```
+    📌 COALESCE() returns the first non-null value.
+
+
+
+
+18. ### How to Optimize SQL Queries
+    **Optimizing SQL queries helps improve performance, speed, and efficiency of your database operations.**
+    | Technique                         | Description                                                                 |
+    |----------------------------------|-----------------------------------------------------------------------------|
+    | Use SELECT Only What You Need    | Avoid `SELECT *`. Fetch only necessary columns to reduce load.             |
+    | Use Proper Indexing              | Create indexes on columns used in `WHERE`, `JOIN`, `ORDER BY`, etc.        |
+    | Use WHERE Clauses Effectively    | Always filter rows early to reduce scanned data.                           |
+    | Avoid Redundant Joins            | Don’t use joins if the data can be fetched from one table.                 |
+    | Use LIMIT for Large Tables       | Fetch limited rows when testing or displaying previews.                    |
+    | Avoid Functions in WHERE         | Use raw column comparisons instead of functions on columns (`YEAR(date)` is slow). |
+    | Use EXISTS Instead of IN         | For large subqueries, `EXISTS` is usually faster than `IN`.                |
+    | Use UNION ALL If Duplicates OK   | `UNION ALL` skips the duplicate check, which saves time.                   |
+    | Analyze Query with EXPLAIN       | Use `EXPLAIN` before your query to see how MySQL processes it.             |
+    | Normalize the Schema             | Remove redundancy to keep queries cleaner and indexes more effective.      |
+
+
+
+
+19. ### What is the difference between IN and EXISTS
+
+    | `IN`                                               | `EXISTS`                                                  |
+    |----------------------------------------------------|------------------------------------------------------------|
+    | Compares a value to a list or result set           | Checks for the existence of rows returned by a subquery    |
+    | Returns TRUE if value is found in the list         | Returns TRUE if at least one row is returned               |
+    | Slower on large subqueries                         | Faster on large subqueries (especially with indexes)       |
+    | Best for static or small subqueries                | Best for correlated subqueries or large datasets           |
+    | Affected by NULLs in subquery                      | Not affected by NULLs in subquery                          |
+
+
+
+
+
+
+
+
+20. ### what is normalization and denormalization.
     #### Defination: 
     Normalization is the process of organizing data in a database to reduce redundancy and
     improve data integrity. It involves dividing large tables into smaller related tables and defining
@@ -1172,135 +1252,113 @@ CREATE TABLE tickets (
 
 
 
-14. ###  what is difference between SQL and MySQL
-    Difference between SQL and MySQL
-    | SQL (Structured Query Language)                               | MySQL (Database Management System)                         |
-    |---------------------------------------------------------------|-------------------------------------------------------------|
-    | It is a **query language** used to manage data in RDBMS.      | It is a **software** (RDBMS) that uses SQL to manage data.  |
-    | It is a **language standard**, not a tool/software.           | It is an **open-source database system**.                   |
-    | Used to **write queries** like `SELECT`, `INSERT`, etc.       | Used to **store, retrieve, and manage** data using SQL.     |
-    | SQL is **ISO/ANSI standard** and universal.                   | MySQL is **maintained by Oracle Corporation**.              |
-    | Cannot store data by itself.                                  | Actually stores and manages data.                           |
-    | Applies to many databases (MySQL, PostgreSQL, Oracle, etc.)   | One specific software that implements SQL.                  |
 
 
 
 
 
 
+21. ### What is INDEX
+    An Index in SQL is like a shortcut. It helps the database find data faster without scanning the entire table.
 
+    📌 Without index: SQL checks every row one by one (slow).
 
+    📌 With index: SQL jumps directly to the matching row (fast).
 
+    #### 🧱 What is a Clustered Index?
+    A Clustered Index sorts and stores the actual table data based on the indexed column.
 
-15. #### What is difference between Group by and order by
-    The GROUP BY clause in SQL is used to arrange identical data into groups based on one or more columns. It is typically used in conjunction with aggregate functions such as COUNT(), SUM(), AVG(), MAX(), and MIN() to perform summary operations on grouped data.
+    Data is physically stored in sorted order.
 
-    | GROUP BY                                                   | ORDER BY                                                     |
-    |------------------------------------------------------------|--------------------------------------------------------------|
-    | Used to **group rows** based on the same values in one or more columns. | Used to **sort the result set** in ascending or descending order. |
-    | Always used with **aggregate functions** like `COUNT()`, `SUM()`, `AVG()` | Does **not require** aggregate functions.                   |
-    | Comes **before ORDER BY** in query syntax.                 | Comes **after GROUP BY** if both are used.                  |
-    | Groups the result into **summary rows**.                   | Sorts the **entire result set**.                            |
-    | Example: Group sales by product category.                  | Example: Sort sales by highest to lowest amount.            |
+    You can have only one clustered index per table.
 
-
-
-
-
-
-16. #### What is CASE Statement in SQL
-    The CASE Statement is used to apply conditional logic in SQL queries, similar to IF-ELSE
-    statements.
-
-    It checks conditions one by one, and returns a value based on which condition is true — useful when you want custom outputs in your SELECT queries
-
-    - Its is use to categorize data based on condition
-    - To add logic inside queries without changing the table
-    **General Syntax**
+    Primary Key creates a clustered index by default.
+    **Example**
     ```sql
-    SELECT
-    column,
-    CASE
-        WHEN condition1 THEN result1
-        WHEN condition2 THEN result2
-        ...
-        ELSE default_result
-    END AS alias_name
-    FROM table_name;
+    CREATE TABLE students (
+    id INT PRIMARY KEY,   -- Clustered index
+    name VARCHAR(50)
+    );
+
+    ```
+    | id | name   |
+    |----|--------|
+    | 1  | Suhas  |
+    | 2  | Rutuja |
+    | 3  | Kewal  |
+
+    So when you search id = 2, SQL finds it very quickly.
+
+
+
+
+    #### 📘 What is a Non-Clustered Index?
+    A Non-Clustered Index is a separate structure that holds column values and points to their rows in the table.
+
+    The data is NOT sorted in the table.
+
+    You can create many non-clustered indexes.
+
+    It helps with fast lookups on non-key columns.
+
+    **🟡 How to Use a Non-Clustered Index in SQL**
+    Once you create a non-clustered index, MySQL will automatically use it when your query filters or sorts by that indexed column.
+    Example
+    1. Create the table:
+    ```sql
+
+    CREATE TABLE students (
+    student_id INT PRIMARY KEY,     -- clustered index
+    name VARCHAR(50),
+    city VARCHAR(50)
+    );
 
     ```
 
-    **✅ Example:**
-    Suppose you have a students table with marks column:
+    2. Create a non-clustered index on name:
     ```sql
-    SELECT name, marks,
-    CASE
-        WHEN marks >= 90 THEN 'A+'
-        WHEN marks >= 75 THEN 'A'
-        WHEN marks >= 60 THEN 'B'
-        ELSE 'C'
-    END AS grade
-    FROM students;
+    CREATE INDEX idx_name ON students(name);
 
     ```
-    📌 This will assign grades based on marks dynamically in the output.
-
-    🪄 Output Example:
-
-    | name   | marks | grade |
-    | ------ | ----- | ----- |
-    | Suhas  | 91    | A+    |
-    | Rutuja | 77    | A     |
-    | Chirag | 58    | C     |
-
-    **🧩 Notes:**
-    - You can use CASE in SELECT, WHERE, ORDER BY, even in UPDATE
-
-    - ELSE is optional — if omitted and no conditions match, result is NULL
-
-    - You can nest CASE statements inside one another
+    This creates a non-clustered index on the name column.
 
 
-17. ### How to handle NULL values in SQL
-    NULL represents missing or unknown data in SQL
-    >NULL means no value or unknown data. It is not the same as 0, '', or " ".
-
-    **🔍 1. Check if a value is NULL**
+    **🎯 How to Use It?**
+    Just write a query using the indexed column — MySQL will use the index automatically.
     ```sql
-    SELECT * FROM table_name
-    WHERE column_name IS NULL;
+    -- Uses the non-clustered index on name
+    SELECT * FROM students WHERE name = 'Rutuja';
 
     ```
+    💡 This query is faster than without index, especially on large tables.
 
-    **Or to check not null:**
+
+    **🔍 Want to check if index is used?**
+    Use EXPLAIN:
     ```sql
-    SELECT * FROM table_name
-    WHERE column_name IS NOT NULL;
-
+    EXPLAIN SELECT * FROM students WHERE name = 'Rutuja';
 
     ```
+    ➡️ The output will show something like:
 
-    **🎯 2. Replace NULL using IFNULL() (MySQL-specific)**
+    | id | select\_type | table    | type | possible\_keys | key       | key\_len | ref   | rows | Extra       |
+    | -- | ------------ | -------- | ---- | -------------- | --------- | -------- | ----- | ---- | ----------- |
+    | 1  | SIMPLE       | students | ref  | idx\_name      | idx\_name | 153      | const | 1    | Using index |
 
-    ```sql
-    SELECT name, IFNULL(email, 'No Email') AS email_status
-    FROM users;
+    **📌 What Helps Index Usage?**
+    Queries with WHERE name = ...
 
-    ```
-    📌 This shows "No Email" wherever email is NULL
+    ORDER BY name
 
+    JOIN using name
 
-    **🔁 3. Replace NULL using COALESCE() (Standard SQL)**
-    ```sql
-    SELECT name, COALESCE(phone, 'Not Provided') AS phone_status
-    FROM customers;
-
-    ```
-    📌 COALESCE() returns the first non-null value.
+    SELECT name FROM ... with filtering
 
 
+    **⚠️ Reminder:**
+    - Non-clustered index ≠ automatic for every query
 
-
+    - It is used only when your query uses that column in a way that benefits performance
 
 
 
@@ -1315,60 +1373,24 @@ CREATE TABLE tickets (
 
 
 
-18. ### What is the difference between UNION and JOIN
-    | `UNION`                                            | `JOIN`                                                |
-    |----------------------------------------------------|--------------------------------------------------------|
-    | Combines **rows from two queries** into a single result set | Combines **columns from two or more tables**            |
-    | Stacks results **vertically**                      | Merges results **horizontally** based on a condition   |
-    | Requires same number of columns and compatible data types | Can join on keys even if column counts/types differ     |
-    | Removes duplicates by default (`UNION ALL` keeps them) | Does not remove duplicates unless specified             |
-    | Each query runs separately and results are merged  | Tables are scanned and matched row by row              |
 
 
 
 
 
 
-19. ### How to Optimize SQL Queries
-    **Optimizing SQL queries helps improve performance, speed, and efficiency of your database operations.**
-    | Technique                         | Description                                                                 |
-    |----------------------------------|-----------------------------------------------------------------------------|
-    | Use SELECT Only What You Need    | Avoid `SELECT *`. Fetch only necessary columns to reduce load.             |
-    | Use Proper Indexing              | Create indexes on columns used in `WHERE`, `JOIN`, `ORDER BY`, etc.        |
-    | Use WHERE Clauses Effectively    | Always filter rows early to reduce scanned data.                           |
-    | Avoid Redundant Joins            | Don’t use joins if the data can be fetched from one table.                 |
-    | Use LIMIT for Large Tables       | Fetch limited rows when testing or displaying previews.                    |
-    | Avoid Functions in WHERE         | Use raw column comparisons instead of functions on columns (`YEAR(date)` is slow). |
-    | Use EXISTS Instead of IN         | For large subqueries, `EXISTS` is usually faster than `IN`.                |
-    | Use UNION ALL If Duplicates OK   | `UNION ALL` skips the duplicate check, which saves time.                   |
-    | Analyze Query with EXPLAIN       | Use `EXPLAIN` before your query to see how MySQL processes it.             |
-    | Normalize the Schema             | Remove redundancy to keep queries cleaner and indexes more effective.      |
 
 
 
-20. ### What is difference between SQL and NoSQL
-    | SQL (Relational Databases)                        | NoSQL (Non-Relational Databases)                            |
-    |--------------------------------------------------|-------------------------------------------------------------|
-    | Stands for Structured Query Language             | Stands for "Not Only SQL"                                   |
-    | Uses **tables** with rows and columns            | Uses **documents**, **key-value**, **graph**, or **wide-column** formats |
-    | Schema is **fixed and predefined**               | Schema is **dynamic and flexible**                          |
-    | Follows **ACID** properties strictly             | Follows **CAP theorem**, focuses on availability & partition tolerance |
-    | Best for structured data with clear relationships| Best for unstructured or semi-structured data               |
-    | Examples: MySQL, PostgreSQL, Oracle, SQL Server  | Examples: MongoDB, Cassandra, Redis, CouchDB                |
-    | Scales **vertically** (more power to single server) | Scales **horizontally** (add more servers)                |
-    | Supports **complex JOINs and transactions**      | Limited JOINs, but great for fast reads/writes              |
 
 
 
-21. ### What is the difference between IN and EXISTS
 
-    | `IN`                                               | `EXISTS`                                                  |
-    |----------------------------------------------------|------------------------------------------------------------|
-    | Compares a value to a list or result set           | Checks for the existence of rows returned by a subquery    |
-    | Returns TRUE if value is found in the list         | Returns TRUE if at least one row is returned               |
-    | Slower on large subqueries                         | Faster on large subqueries (especially with indexes)       |
-    | Best for static or small subqueries                | Best for correlated subqueries or large datasets           |
-    | Affected by NULLs in subquery                      | Not affected by NULLs in subquery                          |
+
+
+
+
+
 
 
 

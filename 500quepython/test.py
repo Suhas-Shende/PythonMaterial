@@ -3,7 +3,7 @@
 #     print(f"| {num} | [{que}?](#{k}) |")
 
 
-
+ 
 # q=input("Enter a question:")
 # n=int(input("Enter que no."))
 # questionstring(n,q)
