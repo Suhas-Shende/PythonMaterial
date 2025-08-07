@@ -1,0 +1,5 @@
+https://github.com/Ujjawal-Anand/django-interview
+https://github.com/kiransagar1/200-Django-interview-questions/blob/main/200%20django%20interview%20questions.txt
+https://github.com/PragatiVerma18/DRF-Interview-Prep?tab=readme-ov-file#what-is-an-endpoint
+
+https://github.com/Devinterview-io/django-interview-questions
